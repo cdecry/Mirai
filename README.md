@@ -1,5 +1,5 @@
 # mirai
-how to test run server: (mac)
+how to test run server: (mac & windows)
 1. make sure node.js is installed
 2. extract the folder called "mirai" from the zip file onto your desktop
 3. open terminal
