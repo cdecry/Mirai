@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -15,7 +15,20 @@ public class Client : MonoBehaviour
 
     public InputField usernameInputField, passwordInputField;
 
-    NetworkClient _client;
+    //NetworkClient _client;
+
+    private static NetworkClient _client;
+    public static NetworkClient Instance
+    {
+        get
+        {
+            if (_client == null)
+            {
+                throw new Exception();
+            }
+            return _client;
+        }
+    }
 
     void Awake()
     {
@@ -33,8 +46,8 @@ public class Client : MonoBehaviour
     {
         AuthenticateUser user = new AuthenticateUser { username = usernameInputField.text, password = passwordInputField.text, ipAddress = IPManager.GetIP(ADDRESSFAM.IPv4) };
 
-        Debug.Log("ip login: " + user.ipAddress);
-
+        //Debug.Log("ip login: " + user.ipAddress);
+        //Debug.Log(_client.connection.connectionId);
         string passwordEncryption = user.password;
 
         using (MD5 md5Hash = MD5.Create())
@@ -97,13 +110,13 @@ public class Client : MonoBehaviour
 void Connect()
     {
         _client = new NetworkClient();
-        RegisterHandlers(); 
+        RegisterHandlers();
         _client.Connect("localhost", 7777);
     }
 
     void RegisterHandlers()
     {
-        _client.RegisterHandler(MessageType.Connect, OnConnectedToServer);
+        _client.RegisterHandler(MessageType.Connect, OnConnectedToServer); //official
         _client.RegisterHandler(MessageType.Disconnect, OnDisconnectedFromServer);
         _client.RegisterHandler(MessageType.ChatMessage, OnChatMessageReceivedFromServer);
         _client.RegisterHandler(MessageType.AuthenticateUser, OnAuthenticateUserResponseFromServer);
@@ -116,7 +129,7 @@ void Connect()
         ChatMessage msg = new ChatMessage();
         msg.target = null;
         msg.message = "helo, server!";
-
+        msg.connectionID = 1;
         _client.Send(MessageType.ChatMessage, msg);
     }
 
