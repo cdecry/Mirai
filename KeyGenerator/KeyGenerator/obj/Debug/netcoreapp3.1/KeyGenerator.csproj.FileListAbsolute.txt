@@ -1,0 +1,13 @@
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.exe
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.deps.json
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.runtimeconfig.json
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.runtimeconfig.dev.json
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.dll
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\bin\Debug\netcoreapp3.1\KeyGenerator.pdb
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.csprojAssemblyReference.cache
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.AssemblyInfoInputs.cache
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.AssemblyInfo.cs
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.csproj.CoreCompileInputs.cache
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.dll
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.pdb
+C:\Users\admin2\source\repos\KeyGenerator\KeyGenerator\obj\Debug\netcoreapp3.1\KeyGenerator.genruntimeconfig.cache
