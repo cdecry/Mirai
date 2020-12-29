@@ -9,7 +9,6 @@ public class NetworkManager : MonoBehaviour
     public string ipAddress;
     public int port;
 
-    // init
     void Start()
     {
         Application.runInBackground = true;
