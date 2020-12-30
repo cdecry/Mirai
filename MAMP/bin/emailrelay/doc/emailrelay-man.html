@@ -1,0 +1,400 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of EMAILRELAY</TITLE>
+</HEAD><BODY>
+<H1>EMAILRELAY</H1>
+Section: User Commands  (1)<BR>Updated: local<BR><A HREF="#index">Index</A>
+<A HREF="../index.html">Return to Main Contents</A><HR>
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+emailrelay - e-mail transfer agent and proxy
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<B>emailrelay</B>
+
+[OPTIONS]
+<P>
+
+<B>emailrelay</B>
+
+--as-server
+<P>
+
+<B>emailrelay</B>
+
+--as-client
+<I>server-address</I>
+
+<P>
+
+<B>emailrelay</B>
+
+--as-proxy
+<I>server-address</I>
+
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<I>emailrelay</I>
+
+is a simple SMTP proxy and store-and-forward message transfer agent.
+It does store-and-forward mail relay to a fixed next-hop server, without
+any routing.
+<P>
+
+It runs in two main modes: a storage daemon
+(<I>--as-server</I>)
+
+and a forwarding
+agent
+(<I>--as-client</I>).
+
+The storage daemon is an SMTP server which stores e-mail
+messages in a local spool directory. The forwarding agent acts as an
+SMTP client sending the spooled e-mail messages on to the next
+SMTP server in the chain.
+<P>
+
+It can also run in a third mode, as a proxy server
+(<I>--as-proxy</I>).
+
+In this mode all messages are forwarded immediately to the next-hop
+server. Messages are only fully accepted from the sender once they
+have been successfully delivered to the next-hop server.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>-a, --admin </B><I>&lt;admin-port&gt;</I>
+
+<DD>
+Enables the administration interface and specifies its listening port number.
+<DT><B>-Q, --admin-terminate </B>
+
+<DD>
+Enables the terminate command on the admin interface.
+<DT><B>-A, --anonymous </B>
+
+<DD>
+Disables the smtp vrfy command and sends less verbose smtp responses.
+<DT><B>-q, --as-client </B><I>&lt;host:port&gt;</I>
+
+<DD>
+Runs as a client, forwarding all spooled mail to &lt;host&gt;: equivalent to <I>--log</I> <I>--no-syslog</I> <I>--no-daemon</I> <I>--dont-serve</I> <I>--forward</I> <I>--forward-to</I>.
+<DT><B>-y, --as-proxy </B><I>&lt;host:port&gt;</I>
+
+<DD>
+Runs as a proxy server, forwarding each mail immediately to &lt;host&gt;: equivalent to <I>--log</I> <I>--close-stderr</I> <I>--poll</I>=0 <I>--forward-to</I>.
+<DT><B>-d, --as-server </B>
+
+<DD>
+Runs as a server, storing mail in the spool directory: equivalent to <I>--log</I> <I>--close-stderr</I>.
+<DT><B>-C, --client-auth </B><I>&lt;file&gt;</I>
+
+<DD>
+Enables smtp authentication with the remote server, using the given secrets file.
+<DT><B>-Y, --client-filter </B><I>&lt;program&gt;</I>
+
+<DD>
+Specifies an external program to process messages when they are forwarded.
+<DT><B>-j, --client-tls </B>
+
+<DD>
+Enables negotiated tls/ssl for smtp client (if openssl built in).
+<DT><B>-b, --client-tls-connection </B>
+
+<DD>
+Enables smtp over tls/ssl for smtp client (if openssl built in).
+<DT><B>-e, --close-stderr </B>
+
+<DD>
+Closes the standard error stream soon after start-up.
+<DT><B>-U, --connection-timeout </B><I>&lt;time&gt;</I>
+
+<DD>
+Sets the timeout (in seconds) when connecting to a remote server (default is 40).
+<DT><B>-g, --debug </B>
+
+<DD>
+Generates debug-level logging if built in.
+<DT><B>-D, --domain </B><I>&lt;fqdn&gt;</I>
+
+<DD>
+Sets an override for the host's fully qualified domain name.
+<DT><B>-x, --dont-serve </B>
+
+<DD>
+Disables acting as a server on any port (part of <I>--as-client</I> and usually used with <I>--forward</I>).
+<DT><B>-z, --filter </B><I>&lt;program&gt;</I>
+
+<DD>
+Specifies an external program to process messages as they are stored.
+<DT><B>-W, --filter-timeout </B><I>&lt;time&gt;</I>
+
+<DD>
+Sets the timeout (in seconds) for running the <I>--filter</I> processor (default is 300).
+<DT><B>-f, --forward </B>
+
+<DD>
+Forwards stored mail on startup (requires <I>--forward-to</I>).
+<DT><B>-o, --forward-to </B><I>&lt;host:port&gt;</I>
+
+<DD>
+Specifies the remote smtp server (required by <I>--forward</I>, <I>--poll</I>, <I>--immediate</I> and <I>--admin</I>).
+<DT><B>-h, --help </B>
+
+<DD>
+Displays help text and exits.
+<DT><B>-m, --immediate </B>
+
+<DD>
+Enables immediate forwarding of messages as soon as they are received (requires <I>--forward-to</I>).
+<DT><B>-I, --interface </B><I>&lt;ip-list&gt;</I>
+
+<DD>
+Defines the listening interface(s) for incoming connections (comma-separated list with optional smtp=,pop=,admin= qualifiers).
+<DT><B>-l, --log </B>
+
+<DD>
+Writes log information on standard error and syslog (but see <I>--close-stderr</I> and <I>--no-syslog</I>).
+<DT><B>-L, --log-time </B>
+
+<DD>
+Adds a timestamp to the logging output.
+<DT><B>-t, --no-daemon </B>
+
+<DD>
+Does not detach from the terminal.
+<DT><B>-X, --no-smtp </B>
+
+<DD>
+Disables listening for smtp connections (usually used with <I>--admin</I> or <I>--pop</I>).
+<DT><B>-n, --no-syslog </B>
+
+<DD>
+Disables syslog output (always overridden by <I>--syslog</I>).
+<DT><B>-i, --pid-file </B><I>&lt;pid-file&gt;</I>
+
+<DD>
+Defines a file for storing the daemon process-id.
+<DT><B>-O, --poll </B><I>&lt;period&gt;</I>
+
+<DD>
+Enables polling of the spool directory for messages to be forwarded with the specified period (zero means on client disconnection) (requires <I>--forward-to</I>).
+<DT><B>-B, --pop </B>
+
+<DD>
+Enables the pop server.
+<DT><B>-F, --pop-auth </B><I>&lt;file&gt;</I>
+
+<DD>
+Defines the pop server secrets file (default is <I>/etc/emailrelay.auth</I>).
+<DT><B>-J, --pop-by-name </B>
+
+<DD>
+Modifies the pop spool directory according to the pop user name (requires <I>--pop</I>).
+<DT><B>-G, --pop-no-delete </B>
+
+<DD>
+Disables message deletion via pop (requires <I>--pop</I>).
+<DT><B>-E, --pop-port </B><I>&lt;port&gt;</I>
+
+<DD>
+Specifies the pop listening port number (default is 110) (requires <I>--pop</I>).
+<DT><B>-p, --port </B><I>&lt;port&gt;</I>
+
+<DD>
+Specifies the smtp listening port number (default is 25).
+<DT><B>-w, --prompt-timeout </B><I>&lt;time&gt;</I>
+
+<DD>
+Sets the timeout (in seconds) for getting an initial prompt from the server (default is 20).
+<DT><B>-r, --remote-clients </B>
+
+<DD>
+Allows remote clients to connect.
+<DT><B>-T, --response-timeout </B><I>&lt;time&gt;</I>
+
+<DD>
+Sets the response timeout (in seconds) when talking to a remote server (default is 1800).
+<DT><B>-S, --server-auth </B><I>&lt;file&gt;</I>
+
+<DD>
+Enables authentication of remote clients, using the given secrets file.
+<DT><B>-K, --server-tls </B><I>&lt;pem-file&gt;</I>
+
+<DD>
+Enables negotiated tls/ssl for smtp server using the given openssl certificate file (which must be in the directory trusted by openssl).
+<DT><B>-M, --size </B><I>&lt;bytes&gt;</I>
+
+<DD>
+Limits the size of submitted messages.
+<DT><B>-s, --spool-dir </B><I>&lt;dir&gt;</I>
+
+<DD>
+Specifies the spool directory (default is <I>/var/spool/emailrelay</I>).
+<DT><B>-k, --syslog </B>
+
+<DD>
+Forces syslog output if logging is enabled (overrides <I>--no-syslog</I>).
+<DT><B>-0, --tls-config </B><I>&lt;flags&gt;</I>
+
+<DD>
+Sets tls configuration flags (eg. 2 for SSLv2 support).
+<DT><B>-u, --user </B><I>&lt;username&gt;</I>
+
+<DD>
+Names the effective user to switch to if started as root (default is <I>daemon</I>).
+<DT><B>-v, --verbose </B>
+
+<DD>
+Generates more verbose output (works with <I>--help</I> and <I>--log</I>).
+<DT><B>-Z, --verifier </B><I>&lt;program&gt;</I>
+
+<DD>
+Specifies an external program for address verification.
+<DT><B>-V, --version </B>
+
+<DD>
+Displays version information and exits.
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>FILES</H2>
+
+GNU style...
+<BR>
+
+/usr/local/etc/emailrelay.conf
+<BR>
+
+/usr/local/etc/emailrelay.conf.template
+<BR>
+
+/usr/local/etc/pam.d/emailrelay
+<BR>
+
+/usr/local/libexec/emailrelay/emailrelay-filter-copy
+<BR>
+
+/usr/local/libexec/emailrelay/emailrelay-poke
+<BR>
+
+/usr/local/libexec/emailrelay/examples/*
+<BR>
+
+/usr/local/libexec/emailrelay/init/emailrelay
+<BR>
+
+/usr/local/man/man1/emailrelay*.1.gz
+<BR>
+
+/usr/local/sbin/emailrelay
+<BR>
+
+/usr/local/sbin/emailrelay-passwd
+<BR>
+
+/usr/local/sbin/emailrelay-submit
+<BR>
+
+/usr/local/share/emailrelay/doc/*
+<BR>
+
+/usr/local/share/emailrelay/doc/index.html
+<BR>
+
+/usr/local/share/emailrelay/doc/README
+<BR>
+
+/usr/local/var/spool/emailrelay/emailrelay.*.content
+<BR>
+
+/usr/local/var/spool/emailrelay/emailrelay.*.envelope
+<P>
+
+FHS style...
+<BR>
+
+/etc/emailrelay.conf
+<BR>
+
+/etc/init.d/emailrelay
+<BR>
+
+/etc/pam.d/emailrelay
+<BR>
+
+/usr/lib/emailrelay/emailrelay-filter-copy
+<BR>
+
+/usr/lib/emailrelay/emailrelay-poke
+<BR>
+
+/usr/lib/emailrelay/examples/*
+<BR>
+
+/usr/sbin/emailrelay
+<BR>
+
+/usr/sbin/emailrelay-passwd
+<BR>
+
+/usr/sbin/emailrelay-submit
+<BR>
+
+/usr/share/doc/emailrelay/*
+<BR>
+
+/usr/share/doc/emailrelay/index.html
+<BR>
+
+/usr/share/doc/emailrelay/README
+<BR>
+
+/usr/share/man/man1/emailrelay*.1.gz
+<BR>
+
+/var/spool/emailrelay/emailrelay.*.content
+<BR>
+
+/var/spool/emailrelay/emailrelay.*.envelope
+<A NAME="lbAG">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+E-MailRelay user guide, <A HREF="http://emailrelay.sourceforge.net/userguide.html">http://emailrelay.sourceforge.net/userguide.html</A> .
+<BR>
+
+E-MailRelay reference, <A HREF="http://emailrelay.sourceforge.net/reference.html">http://emailrelay.sourceforge.net/reference.html</A> .
+<BR>
+
+<B><A HREF="../man1/emailrelay-submit.1.html">emailrelay-submit</A></B>(1),
+
+<B><A HREF="../man1/emailrelay-passwd.1.html">emailrelay-passwd</A></B>(1),
+
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+Graeme Walker, mailto:<A HREF="mailto:graeme_walker@users.sourceforge.net">graeme_walker@users.sourceforge.net</A>
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">FILES</A><DD>
+<DT><A HREF="#lbAG">SEE ALSO</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="lynxcgi:FOO/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+</BODY>
+</HTML>
+<!-- Copyright (C) 2001-2013 Graeme Walker <graeme_walker@users.sourceforge.net>. All rights reserved. -->

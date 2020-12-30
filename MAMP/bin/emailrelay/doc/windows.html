@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>E-MailRelay Windows</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="emailrelay.css" type="text/css">
+ </head>
+ <body>
+  <!-- index:0::::E-MailRelay Windows -->
+ <div class="div-main">
+  <h1><a class="a-header" name="H_1">E-MailRelay Windows</a></h1> <!-- index:1:H:1::E-MailRelay Windows -->
+   <h2><a class="a-header" name="SH_1_1">Command-line options</a></h2> <!-- index:2:SH:1:1:Command-line options -->
+    <p>
+     There are some differences in the command-line options when running the
+     E-MailRelay server on Windows. These include:
+    </p>
+    <ul>
+     <li>The <em class="quote">--syslog</em> option refers to the Windows Event Viewer's Application log.</li>
+     <li>The <em class="quote">--no-daemon</em> option is used to disable the icon in the system tray.</li>
+     <li>The <em class="quote">--hidden</em> option hides all windows and suppresses message boxes (requires <em class="quote">--no-deamon</em>).</li>
+     <li>The <em class="quote">--peer-lookup</em> option can be used to add extra information to envelope files for local clients.</li>
+    </ul>
+   <h2><a class="a-header" name="SH_1_2">Setup program</a></h2> <!-- index:2:SH:1:2:Setup program -->
+    <p>
+     Installing E-MailRelay on Windows should be straightforward if you have the
+     setup program <em class="quote">emailrelay-setup.exe</em> and its associated <em class="quote">payload</em> data file.
+    </p>
+
+    <p>
+     Run <em class="quote">emailrelay-setup.exe</em> as an administrator if you are going to be installing
+     into sensitive directories like <em class="quote">Program Files</em>. If you don't want to run it as 
+     an administrator then you will have to rename it to (eg.) <em class="quote">emailrelay-gui.exe</em> to 
+     avoid triggering the UAC mechanism.
+    </p>
+
+    <p>
+     The setup GUI will take you through the installation options and then install
+     the run-time files into your chosen locations.
+    </p>
+   <h2><a class="a-header" name="SH_1_3">Manual installation</a></h2> <!-- index:2:SH:1:3:Manual installation -->
+    <p>
+     In summary, the manual installation process for Windows for when you do not have
+     the self-extracting setup program, is as follows:
+    </p>
+    <ul>
+     <li>Create a new program directory <em class="quote">c:\Program Files\emailrelay</em></li>
+     <li>Copy the packaged files into <em class="quote">Program Files\emailrelay</em></li>
+     <li>Create a new spool directory <em class="quote">c:\windows\system32\spool\emailrelay</em></li>
+     <li>Create a new text file, eg. <em class="quote">c:\emailrelay.auth</em>, to contain account details</li>
+     <li>Add your account details to <em class="quote">emailrelay.auth</em> with a line like <em class="quote">client login myaccount mypassword</em></li>
+     <li>Drag <em class="quote">emailrelay.exe</em> onto the desktop to create a shortcut for the server.</li>
+     <li>Add <em class="quote">--as-server --verbose</em> to the server shortcut properties in the <em class="quote">target</em> box.</li>
+     <li>Drag again to create a shortcut for the forwarding client.</li>
+     <li>Add <em class="quote">--as-client myisp.net:smtp --hidden --client-auth c:\emailrelay.auth</em> to the client shortcut.</li>
+    </ul>
+
+    <p>
+     Move shortcuts to <em class="quote">Startup</em> folders as necessary.
+    </p>
+   <h2><a class="a-header" name="SH_1_4">Running as a service</a></h2> <!-- index:2:SH:1:4:Running as a service -->
+    <p>
+     If you are installing manually you can set up E-MailRelay as a service so that
+     it starts up automatically at boot-time. You must first have a one-line batch
+     file called <em class="quote">emailrelay-start.bat</em> in the main E-MailRelay directory containing
+     the full E-MailRelay server command-line. Then just run
+     <em class="quote">emailrelay-service --install</em> to install the service.
+    </p>
+
+    <p>
+     When the E-MailRelay server is run in this way the <em class="quote">--no-daemon</em> and <em class="quote">--hidden</em>
+     options are added automatically to whatever is in the <em class="quote">emailrelay-start</em> batch
+     file so that there is no user interface. (The <em class="quote">--no-daemon</em> option changes the
+     interface from using the system-tray to using a normal window, and the
+     <em class="quote">--hidden</em> option suppresses the window and any message boxes.)
+    </p>
+
+    <p>
+     Note that the batch file and the main E-MailRelay executable must be in the same
+     directory; the service wrapper reads the batch file in order to assemble the
+     correct command-line for running the E-MailRelay server, so it needs to know
+     where to find it.
+    </p>
+
+    <p>
+     If you need to run multiple E-MailRelay services then pass a unique service name
+     and display name on the <em class="quote">emailrelay-service --install &lt;name&gt; &lt;display-name&gt;</em>
+     command-line.
+    </p>
+
+    <p>
+     The service name you give is used to derive the name of the <em class="quote">&lt;name&gt;-start.bat</em>
+     batch file that contains the E-MailRelay server's command-line options, so you
+     will need to create that first.
+    </p>
+
+    <p>
+     For example:
+    </p>
+      <div class="div-pre">
+       <pre>copy emailrelay-start.bat emailrelay-client-start.bat
+edit emailrelay-client-start.bat
+emailrelay-service --install emailrelay-client "E-MailRelay Client"
+copy emailrelay-start.bat emailrelay-server-start.bat
+edit emailrelay-server-start.bat
+emailrelay-service --install emailrelay-server "E-MailRelay Server"</pre>
+      </div><!-- div-pre -->
+   <h2><a class="a-header" name="SH_1_5">Diagnostics</a></h2> <!-- index:2:SH:1:5:Diagnostics -->
+    <p>
+     E-MailRelay normally writes errors and warnings into the Windows Event Log,
+     which you can view by running <em class="quote">eventvwr.exe</em> or going to
+     <em class="quote">ControlPanel</em>-&gt;<em class="quote">SystemAndSecurity</em>-&gt;<em class="quote">AdministrativeTools</em>-&gt;<em class="quote">EventViewer</em>; from
+     there look under <em class="quote">Windows Logs</em> and <em class="quote">Application</em>.
+    </p>
+
+    <p>
+     You can increase the verbosity of the logging by adding the <em class="quote">--verbose</em> option
+     to the E-MailRelay command-line, typically by editing the <em class="quote">emailrelay-start.bat</em>
+     batch script.
+    </p>
+   <h2><a class="a-header" name="SH_1_6">Telnet</a></h2> <!-- index:2:SH:1:6:Telnet -->
+    <p>
+     If you want to test E-MailRelay using telnet (as described elsewhere) then you
+     might need to enable the Windows telnet client using
+     <em class="quote">ControlPanel</em>-&gt;<em class="quote">ProgramsAndFeatures</em>-&gt;<em class="quote">TurnWindowsFeaturesOnAndOff</em>.
+    </p>
+   <h2><a class="a-header" name="SH_1_7">Building from source</a></h2> <!-- index:2:SH:1:7:Building from source -->
+    <p>
+     E-MailRelay can be compiled using various versions of Microsoft Visual Studio
+     C++ (MSVC) or MinGW.
+    </p>
+
+    <p>
+     A Visual Studio <em class="quote">solution</em> for MSVC 2012 is provided in the <em class="quote">src</em> directory to
+     build the main E-MailRelay executable, although it does not include a project
+     for the Qt-based installation/configuration GUI.
+    </p>
+
+    <p>
+     For a complete build that includes the E-MailRelay GUI use MinGW, following the
+     instructions in <em class="quote">src/mingw-common.mak</em> and <em class="quote">doc/developer.txt</em>.
+    </p>
+
+
+
+    <p>
+     Copyright (C) 2001-2013 Graeme Walker &lt;graeme_walker@users.sourceforge.net&gt;. All rights reserved.
+    </p>
+ </div> <!-- div-main -->
+ </body>
+</html>

@@ -131,6 +131,11 @@ public class RegisterSystem : MonoBehaviour
             {
                 case 0:
                     Debug.Log("Signup Completed!");
+                    registerPanel.SetActive(false);
+                    loginPanel.SetActive(false);
+
+                    registerSelect.gameObject.SetActive(true);
+                    loginSelect.gameObject.SetActive(true);
                     break;
                 case 1:
                     Debug.Log("Username already exists.");

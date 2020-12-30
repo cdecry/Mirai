@@ -1,0 +1,50 @@
+[15-Nov-2020 15:38:27 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in Command line code on line 1
+[15-Nov-2020 15:38:27 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[15-Nov-2020 15:38:27 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in Command line code on line 1
+[15-Nov-2020 15:38:27 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[15-Nov-2020 15:40:44 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-a8069a9b-114f-4f54-bec5-d8b6cdc46988.php on line 3
+[15-Nov-2020 15:40:44 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-a8069a9b-114f-4f54-bec5-d8b6cdc46988.php on line 12
+[15-Nov-2020 15:40:44 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-a8069a9b-114f-4f54-bec5-d8b6cdc46988.php on line 13
+[15-Nov-2020 15:40:44 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-a8069a9b-114f-4f54-bec5-d8b6cdc46988.php on line 16
+[15-Nov-2020 15:40:44 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-a8069a9b-114f-4f54-bec5-d8b6cdc46988.php on line 21
+[24-Dec-2020 19:57:38 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in Command line code on line 1
+[24-Dec-2020 19:57:38 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[24-Dec-2020 19:57:38 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in Command line code on line 1
+[24-Dec-2020 19:57:38 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[24-Dec-2020 19:58:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ddb85b16-d2b5-44d6-93b3-dc5197b31221.php on line 3
+[24-Dec-2020 19:58:19 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ddb85b16-d2b5-44d6-93b3-dc5197b31221.php on line 12
+[24-Dec-2020 19:58:19 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ddb85b16-d2b5-44d6-93b3-dc5197b31221.php on line 13
+[24-Dec-2020 19:58:19 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ddb85b16-d2b5-44d6-93b3-dc5197b31221.php on line 16
+[24-Dec-2020 19:58:19 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ddb85b16-d2b5-44d6-93b3-dc5197b31221.php on line 21
+[25-Dec-2020 21:14:21 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9363728b-3a6c-4efd-90e1-cc0acfa73d4d.php on line 3
+[25-Dec-2020 21:14:21 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9363728b-3a6c-4efd-90e1-cc0acfa73d4d.php on line 12
+[25-Dec-2020 21:14:21 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9363728b-3a6c-4efd-90e1-cc0acfa73d4d.php on line 13
+[25-Dec-2020 21:14:21 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9363728b-3a6c-4efd-90e1-cc0acfa73d4d.php on line 16
+[25-Dec-2020 21:14:21 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9363728b-3a6c-4efd-90e1-cc0acfa73d4d.php on line 21
+[25-Dec-2020 23:00:32 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9718105b-b427-40e4-b8d4-b16ca3ab2903.php on line 3
+[25-Dec-2020 23:00:32 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9718105b-b427-40e4-b8d4-b16ca3ab2903.php on line 12
+[25-Dec-2020 23:00:32 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9718105b-b427-40e4-b8d4-b16ca3ab2903.php on line 13
+[25-Dec-2020 23:00:32 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9718105b-b427-40e4-b8d4-b16ca3ab2903.php on line 16
+[25-Dec-2020 23:00:32 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9718105b-b427-40e4-b8d4-b16ca3ab2903.php on line 21
+[26-Dec-2020 01:21:20 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in Command line code on line 1
+[26-Dec-2020 01:21:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[26-Dec-2020 01:21:20 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in Command line code on line 1
+[26-Dec-2020 01:21:20 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in Command line code on line 1
+[26-Dec-2020 01:22:05 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ed047f7b-4759-4491-bccf-4bf843a213e7.php on line 3
+[26-Dec-2020 01:22:05 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ed047f7b-4759-4491-bccf-4bf843a213e7.php on line 12
+[26-Dec-2020 01:22:05 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ed047f7b-4759-4491-bccf-4bf843a213e7.php on line 13
+[26-Dec-2020 01:22:05 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ed047f7b-4759-4491-bccf-4bf843a213e7.php on line 16
+[26-Dec-2020 01:22:05 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-ed047f7b-4759-4491-bccf-4bf843a213e7.php on line 21
+[26-Dec-2020 08:13:42 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-98840395-4c23-4050-86f6-933d0dee958f.php on line 3
+[26-Dec-2020 08:13:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-98840395-4c23-4050-86f6-933d0dee958f.php on line 12
+[26-Dec-2020 08:13:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-98840395-4c23-4050-86f6-933d0dee958f.php on line 13
+[26-Dec-2020 08:13:43 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-98840395-4c23-4050-86f6-933d0dee958f.php on line 16
+[26-Dec-2020 08:13:43 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-98840395-4c23-4050-86f6-933d0dee958f.php on line 21
+[26-Dec-2020 14:37:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9d74c00d-cbcd-4d38-9690-76031f55f3b1.php on line 3
+[26-Dec-2020 14:37:29 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9d74c00d-cbcd-4d38-9690-76031f55f3b1.php on line 12
+[26-Dec-2020 14:37:29 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9d74c00d-cbcd-4d38-9690-76031f55f3b1.php on line 13
+[26-Dec-2020 14:37:29 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9d74c00d-cbcd-4d38-9690-76031f55f3b1.php on line 16
+[26-Dec-2020 14:37:29 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, boolean given in C:\Users\admin2\AppData\Roaming\Appsolute\MAMP\pscripts\file-9d74c00d-cbcd-4d38-9690-76031f55f3b1.php on line 21

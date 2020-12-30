@@ -1,0 +1,95 @@
+__ENCODING__|||The script encoding of the current file. 
+__LINE__|||The line number of this keyword in the current file.
+__FILE__|||The path to the current file.
+BEGIN|||Runs before any other code in the current file.
+END|||Runs after any other code in the current file. 
+alias|||Creates an alias between two methods (and other things). 
+and|||Short-circuit Boolean and with lower precedence than &&
+begin|||Starts an exception handling block. 
+break|||Leaves a block early. 
+case|||Starts a case expression. 
+class|||Creates or opens a class. 
+def|||Defines a method. 
+defined?|||Returns a string describing its argument. 
+do|||Starts a block.
+else|||The unhandled condition in case, if and unless expressions. 
+elsif|||An alternate condition for an if expression. 
+end|||The end of a syntax block. Used by classes, modules, methods, exception handling and control expressions.
+ensure|||Starts a section of code that is always run when an exception is raised. 
+false|||Boolean false. 
+for|||A loop that is similar to using the each method. 
+if|||Used for if and modifier if expressions. 
+in|||Used to separate the iterable object and iterator variable in a for loop. 
+module|||Creates or opens a module. 
+next|||Skips the rest of the block. 
+nil|||A false value usually indicating “no value” or “unknown”. 
+not|||Inverts the following boolean expression. Has a lower precedence than !
+or|||Boolean or with lower precedence than ||
+redo|||Restarts execution in the current block. 
+rescue|||Starts an exception section of code in a begin block. 
+retry|||Retries an exception block. 
+return|||Exits a method. 
+self|||The object the current method is attached to. 
+super|||Calls the current method in a superclass. 
+then|||Indicates the end of conditional blocks in control structures. 
+true|||Boolean true. 
+undef|||Prevents a class or module from responding to a method call. 
+unless|||Used for unless and modifier unless expressions. 
+until|||Creates a loop that executes until the condition is true. 
+when|||A condition in a case expression. 
+while|||Creates a loop that executes while the condition is true. 
+yield|||Starts execution of the block sent to the current method. 
+` str|||Performs str by a subshell. The standard output from the commands are taken as the value. This method is called by a syntax sugar form like `str`.
+Array|||Converts the argument to the array using to_a.
+Float|||Converts the argument to the float value.
+Integer|||Converts the argument to the integer value. If the argument is string, and happen to start with 0x, 0b, 0, interprets it as hex, binary, octal string respectively.
+String|||Converts the argument to the string using Kernel#to_s.
+at_exit|||Register the block for clean-up to execute at the interpreter termination.
+autoload|||Specifies file to be loaded using the method require, when module accessed for the first time. module must be a string or a symbol.
+binding|||Returns the data structure of the variable/method binding, which can be used for the second argument of the eval.
+caller|||Returns the context information (the backtrace) of current call in the form used for the variable $@.\nWhen level specified, caller goes up to calling frames level times and returns the context information.\ncaller returns an empty array at toplevel.\nThe lines below prints stack frame:\n	for c in caller(0)\n	print c, "\^^^"\n	end\n	catch(tag){...}\n	Executes the block, and if an non-local exit named tag submitted by the throw, it returns with the value given by the throw.\n	For example, the code below returns the value 25, not 10, and the some_process never be called.\n	def throw_exit\n	throw :exit, 25\n	end\n	catch(:exit) {\n           throw_exit\n	some_process;\n	10;\n	}
+chop|||Removes off the last character of the value of the variable $_ (2 characters if the last characters are "\r\n"). chop makes a copy to modify.
+chop!|||Removes off the last character of the value of the variable $_ (2 characters if the last characters are "\r\n"). chop! modifies the string itself.
+chomp|||Removes off the line ending from the value of the variable $_. See String#chomp.
+chomp!|||Removes off the line ending from the value of the variable $_. See String#chomp.
+eval|||Evaluate expr as a Ruby program. If the Proc object or the binding data from binding is given to the optional second argument, the string is compiled and evaluated under its binding environment.\nWhen the expr contains nested methods, it is useful to have better traceback information than simply citing the eval and a line number. \nThe filetag provides this in two ways. If it is left as the default (which is "(eval)") then there is no traceback into the nested methods.\nIf it is set to anything else then there is full traceback information, and also the tag in the error message is changed to this value.\nThe lineno defaults to 1, and is used as the starting line number of expr when producing any error messages.\n
+exec|||Executes command as a subprocess, and never returns.\nIf multiple arguments are given, exec invokes command directly, so that whitespaces and shell's meta-characters are not processed by the shell.\nIf the first argument is an array that has two elements, the first element is the real path for the command, and the second element is for the argv[0] to execl(2).
+exit|||Exits immediately with status. if status is omitted, exits with 0 status.\nexit raises SystemExit to terminate the program, which can be handled by the rescue clause of the begin statement.
+exit!|||Exits with status. Unlike exit, it ignores any kind of exception handling (including ensure). Used to terminate sub-process after calling fork.
+fork|||Does a fork(2) system call. Returns the child pid to the parent process and nil to the child process. When called with the block, it creates the child process and execute the block in the child process.
+gets|||Reads a string from the virtual concatenation of each file listed on the command line or standard input (in case no files specified). \nIf the end of file is reached, nil will be the result.\nThe line read is also set to the variable $_. \nThe line terminator is specified by the optional argument rs, which default value is defined by the variable $/.\n
+readline|||Reads a string from the virtual concatenation of each file listed on the command line or standard input (in case no files specified). \nIf the end of file is reached, nil will be the result.\nThe line read is also set to the variable $_. \nThe line terminator is specified by the optional argument rs, which default value is defined by the variable $/.\nreadline functions just like gets, except it raises an EOFError exception at the end of file.
+global_variables|||Returns the list of the global variable names defined in the program.
+gsub|||Searches a string held in the variable $_ for a pattern, and if found, replaces all the occurrence of the pattern with the replace and returns the replaced string. gsub! modifies the original string in place, gsub makes copy, and keeps the original unchanged. See also String#gsub.
+gsub!|||Searches a string held in the variable $_ for a pattern, and if found, replaces all the occurrence of the pattern with the replace and returns the replaced string. gsub! modifies the original string in place, gsub makes copy, and keeps the original unchanged. See also String#gsub.
+iterator?|||Returns true, if called from within the methods called with the block (the iterators), otherwise false.
+load|||Loads and evaluates the Ruby program in the file.\nIf file is not an absolute path, it searches file to be load from the search path in the variable $:.\nThe tilde (`~') at begenning of the path will be expanded into the user's home directory like some shells.\nIf the optional argument priv is true, loading and evaluating is done under the unnamed module, to avoid global name space pollution.
+local_variables|||Returns the list of the local variable names defined in the current scope.
+loop|||Loops forever (until terminated explicitly).
+open|||Opens the file, and returns a File object associated with the file. The mode argument specifies the mode for the opened file, which is either "r", "r+", "w", "w+", "a", "a+". See fopen(3). If mode omitted, the default is "r"\nIf the file begins with "|", Ruby performs following string as a sub-process, and associates pipes to the standard input/output of the sub-process.\nNote for the converts from Perl: The command string starts with `|', not ends with `|'.\nIf the command name described above is "-", Ruby forks, and create pipe-line to the child process.\nWhen open is called with the block, it opens the file and evaluates the block, then after the evaluation, the file is closed for sure. That is:\n\n	open(path, mode) do |f|\n	 ...\n	end\n\n	# mostly same as above\n\n	f = open(path, mode)\n	begin\n	...\n	ensure\n	f.close\n	end\n
+p|||Prints human-readable representation of the obj to the stdout. It works just like:\n\n	print obj.inspect, "\^^^"\n
+print|||Prints arguments. If no argument given, the value of the variable $_ will be printed. If an argument is not a string, it is converted into string using Kernel#to_s.\n\n	If the value of $; is non-nil, its value printed between each argument. If the value of $\ is non-nil, its value printed at the end.\n
+printf|||Prints arguments formatted according to the format like sprintf. If the first argument is the instance of the IO or its subclass, print redirected to that object. the default is the value of $stdout.\n
+proc|||Returns newly created procedure object from the block. The procedure object is the instance of the class Proc.
+lambda|||Returns newly created procedure object from the block. The procedure object is the instance of the class Proc.
+putc|||Writes an obj to the default output ($>), then newline for each arguments.
+raise|||Raises an exception. In no argument given, re-raises last exception. With one arguments, raises the exception if the argument is the exception. If the argument is the string, raise creates a new RuntimeError exception, and raises it. If two arguments supplied, raise creates a new exception of type error_type, and raises it.\nIf the optional third argument traceback is specified, it must be the traceback infomation for the raising exception in the format given by variable $@ or caller function.\nThe exception is assigned to the variable $!, and the position in the source file is assigned to the $@.\nIf the first argument is not an exception class or object, the exception actually raised is determined by calling it's exception method (baring the case when the argument is a string in the second form). The exception method of that class or object must return it's representation as an exception.\n
+fail|||Raises an exception. In no argument given, re-raises last exception. With one arguments, raises the exception if the argument is the exception. If the argument is the string, raise creates a new RuntimeError exception, and raises it. If two arguments supplied, raise creates a new exception of type error_type, and raises it.\nIf the optional third argument traceback is specified, it must be the traceback infomation for the raising exception in the format given by variable $@ or caller function.\nThe exception is assigned to the variable $!, and the position in the source file is assigned to the $@.\nIf the first argument is not an exception class or object, the exception actually raised is determined by calling it's exception method (baring the case when the argument is a string in the second form). The exception method of that class or object must return it's representation as an exception.\nThe fail is an alias of the raise.
+rand|||Returns a random integer number greater than or equal to 0 and less than the value of max. (max should be positive.) Automatically calls srand unless srand() has already been called.\nIf max is 0, rand returns a random float number greater than or equal to 0 and less than 1.
+readlines|||Reads entire lines from the virtual concatenation of each file listed on the command line or standard input (in case no files specified), and returns an array containing the lines read.\nLines are separated by the value of the optional argument rs, which default value is defined by the variable $/.\n
+require|||Demands a library file specified by the feature. The feature is a string to specify the module to load. If the extension in the feature is ".so", then Ruby interpreter tries to load dynamic-load file. If the extension is ".rb", then Ruby script will be loaded. If no extension present, the interpreter searches for dynamic-load modules first, then tries to Ruby script. On some system actual dynamic-load modules have extension name ".o", ".dll" or something, though require always uses the extension ".so" as a dynamic-load modules.\nrequire returns true if modules actually loaded. Loaded module names are appended in $".\n
+select|||Calls select(2) system call. Reads, writes, excepts are specified arrays containing instances of the IO class (or its subclass), or nil.\nThe timeout must be either an integer, Float, Time, or nil. If the timeout is nil, select would not time out.\nselect returns nil in case of timeout, otherwise returns an array of 3 elements, which are subset of argument arrays.\n
+sleep|||Causes the script to sleep for sec seconds, or forever if no argument given.\nMay be interrupted by sending the process a SIGALRM or run from other threads (if thread available).\nReturns the number of seconds actually slept. sec may be a floating-point number.
+split|||Return an array containing the fields of the string, using the string sep as a separator.\nThe maximum number of the fields can be specified by limit.\n
+format|||format(format...) Returns a string formatted according to a format like usual printf conventions of the C language.\nSee sprintf(3) or printf(3). In addition, sprintf accepts %b for binary.\nRuby does not have unsigned integers, so unsigned specifier, such as %b, %o, or %x, converts negative integers into 2's complement form like %..f. supplying sign (+, -)\nor space option for the unsigned specifier changes its behavior to convert them in absolute value following - sign.
+sprintf|||sprintf(format...) Returns a string formatted according to a format like usual printf conventions of the C language.\nSee sprintf(3) or printf(3). In addition, sprintf accepts %b for binary.\nRuby does not have unsigned integers, so unsigned specifier, such as %b, %o, or %x, converts negative integers into 2's complement form like %..f. supplying sign (+, -)\nor space option for the unsigned specifier changes its behavior to convert them in absolute value following - sign.
+srand|||Sets the random number seed for the rand. If seed is omitted, uses the current time etc. as a seed.
+sub|||sub(pattern[, replace]) Searches a string held in the variable $_ for a pattern, and if found, replaces the first occurrence of the pattern with the replace and returns the replaced string. \nsub! modifies the original string in place, sub makes copy, and keeps the original unchanged. See also String#sub.
+sub!|||sub!(pattern[, replace]) Searches a string held in the variable $_ for a pattern, and if found, replaces the first occurrence of the pattern with the replace and returns the replaced string. \nsub! modifies the original string in place, sub makes copy, and keeps the original unchanged. See also String#sub.
+syscall|||Calls the system call specified as the first arguments, passing remaining as arguments to the system call. The arguments must be either a string or an integer.
+system|||Perform command in the sub-process, wait for the sub-process to terminate, then return true if it successfully exits, otherwise false. Actual exit status of the sub-process can be found in $?.\nIf multiple arguments are given, system invokes command directly, so that whitespaces and shell's meta-characters are not processed by the shell.\nSee exec for the execution detail.
+test|||test(cmd, file [, file])	Does a file test. the cmd would be one of following:\n\ncommands which takes one operand:\n?r File is readable by effective uid/gid. \n?w File is writable by effective uid/gid. \n?x File is executable by effective uid/gid. \n?o File is owned by effective uid. \n?R File is readable by real uid/gid. \n?W File is writable by real uid/gid. \n?X File is executable by real uid/gid. \n?O File is owned by real uid. \n?e File exists. \n?z File has zero size. \n?s File has non-zero size (returns size). \n?f File is a plain file. \n?d File is a directory. \n?l File is a symbolic link. \n?p File is a named pipe (FIFO). \n?S File is a socket. \n?b File is a block special file. \n?c File is a character special file. \n?u File has setuid bit set. \n?g File has setgid bit set. \n?k File has sticky bit set. \n?M File last modify time. \n?A File last access time \n?C File last status change time. \n\ncommands which takes two operands:\n?= Both files have same modify time. \n?> File1 is newer than file2. \n?< File1 is older than file2. \n?- File1 is a hard link to file2 \n
+throw|||throw(tag[, value]) Casts an non-local exit to the enclosing catch waiting for tag, or terminates the program if no such catch waiting. The tag must be the name of the non-local exit, which is either a symbol or a string. catch may not appear in the same method body. the value will be the return value of the catch. The default value is the nil.
+trace_var|||trace_var(variable, command)     Sets the hook to the variable, which is called when the value of the variable changed. the variable must be specified by the symbol. the command is either a string or a procedure object. To remove hooks, specify nil as a command or use untrace_var.
+trap|||trap(signal) {...} trap(signal, command) Specifies the signal handler for the signal. The handler command must be either a string or a procedure object. If the command is a string "SIG_IGN" or "IGNORE", then specified signal will be ignored (if possible). If the command is a string "SIG_DFL" or "DEFAULT", then system's default action will be took for the signal.\nThe special signal 0 or "EXIT" is for the termination of the script. The signal handler for EXIT will be called just before the interpreter terminates.\n
+untrace_var|||untrace_var(variable[, command]) Deletes the hook associated with the variable. If the second argument omitted, all the hooks will be removed. trace_var returns an array containing removed hooks.
