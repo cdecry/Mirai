@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ipAddress: localhost
   port: 7777
+  playerPrefab: {fileID: 8308299058979406246, guid: f495820d00581b14d8c6281783a02614,
+    type: 3}
 --- !u!4 &402976583
 Transform:
   m_ObjectHideFlags: 0

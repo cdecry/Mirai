@@ -54,6 +54,7 @@ public class Client : MonoBehaviour
 
 void Connect()
     {
+        ClientScene.RegisterPrefab(PlayerInfo.Instance.playerPrefab);
         _client = new NetworkClient();
         RegisterHandlers();
         _client.Connect("localhost", 7777);

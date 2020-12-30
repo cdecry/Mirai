@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.Networking.NetworkSystem;
 
 public class NetworkManager : MonoBehaviour
 {
     public string ipAddress;
     public int port;
+    public GameObject playerPrefab;
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class NetworkManager : MonoBehaviour
         NetworkServer.RegisterHandler(MessageType.Disconnect, OnDisconnected);
         NetworkServer.RegisterHandler(MessageType.ChatMessage, OnChatMessageReceived);
         NetworkServer.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceived);
+        NetworkServer.RegisterHandler(MessageType.AddPlayer, OnServerAddPlayer);
     }
 
     void OnConnected(NetworkMessage netMsg)
@@ -55,4 +58,13 @@ public class NetworkManager : MonoBehaviour
         checkUser.HandleRequest();
     }
 
+    public void OnServerAddPlayer(NetworkMessage extraMessageReader)
+    {
+        //init player, get info from db, sned daata to pleyer
+        Debug.Log("OnServerAddPlayer()");
+
+        GameObject player = Instantiate(playerPrefab) as GameObject;    
+
+        NetworkServer.AddPlayerForConnection(extraMessageReader.conn, player, 0);
+    }
 }

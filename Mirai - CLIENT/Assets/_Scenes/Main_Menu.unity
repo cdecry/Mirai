@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427c78a0c7d39084086ff60427afa3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 8308299058979406246, guid: f495820d00581b14d8c6281783a02614,
+    type: 3}
 --- !u!1 &107631056
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +571,8 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 8308299058979406246, guid: f495820d00581b14d8c6281783a02614,
+    type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 

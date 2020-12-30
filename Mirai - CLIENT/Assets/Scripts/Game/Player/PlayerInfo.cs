@@ -12,4 +12,5 @@ public class PlayerInfo : MonoSingleton<PlayerInfo>
     }
 
     public string PlayerName { get; set; }
+    public GameObject playerPrefab;
 }

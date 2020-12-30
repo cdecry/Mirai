@@ -30,7 +30,7 @@ public class LoginRequest : MessageBase
             case 0:
                 //assign playerInfo username
                 PlayerInfo.Instance.PlayerName = username;
-
+                ClientScene.AddPlayer(Client.Instance.connection, 0);
                 SceneManager.LoadScene("Game");
                 break;
             //invalid req for user/pass
