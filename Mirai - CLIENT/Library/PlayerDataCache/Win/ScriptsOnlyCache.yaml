@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - LoginView
     - PlayerInfo
     - RegisterSystem
+    - UIManager
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -40,8 +41,9 @@ ScriptsOnlyBuild:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkManager
+    - UnityEngine.Networking.NetworkTransform
   sceneClasses:
-    Assets/_Scenes/Game.unity:
+    Assets/Game/_Scenes/Game.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -59,11 +61,11 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11250}
+      Script: {instanceID: 11252}
     - Class: 114
-      Script: {instanceID: 11276}
+      Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11600}
     - Class: 114
       Script: {instanceID: 11654}
     - Class: 114
@@ -77,6 +79,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12778}
     - Class: 114
+      Script: {instanceID: 13160}
+    - Class: 114
       Script: {instanceID: 13314}
     - Class: 114
       Script: {instanceID: 13470}
@@ -86,6 +90,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13976}
     - Class: 114
       Script: {instanceID: 14648}
+    - Class: 114
+      Script: {instanceID: 32436}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -102,7 +108,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/_Scenes/Main_Menu.unity:
+    Assets/Menu/_Scenes/Main_Menu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -122,13 +128,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11250}
     - Class: 114
-      Script: {instanceID: 11276}
+      Script: {instanceID: 11252}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11386}
     - Class: 114
       Script: {instanceID: 11654}
+    - Class: 114
+      Script: {instanceID: 11732}
     - Class: 114
       Script: {instanceID: 12378}
     - Class: 114
@@ -170,6 +178,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: eafb77726b67b7571818a7210a3ce11e
+    assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
+    namespaceName: UnityEngine.Networking
+    className: NetworkIdentity
+  - hash:
+      serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -200,7 +214,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: d1f07c9e64b7817e6271f80bb03de25f
+      Hash: 881bfe8ce73f1188f9dd8f631d38a301
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInfo
@@ -240,12 +254,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Scrollbar
-  - hash:
-      serializedVersion: 2
-      Hash: eafb77726b67b7571818a7210a3ce11e
-    assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
-    namespaceName: UnityEngine.Networking
-    className: NetworkIdentity
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -608,7 +616,7 @@ ScriptsOnlyBuild:
     className: ChatController
   - hash:
       serializedVersion: 2
-      Hash: 02203a71b4891e0b37e29cc9bc9ab247
+      Hash: 02190f096538757834cd6453cf29f5c4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RegisterSystem
@@ -780,9 +788,15 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIManager
   platform: 5
   scenePathNames:
-  - Assets/_Scenes/Main_Menu.unity
-  - Assets/_Scenes/Game.unity
+  - Assets/Menu/_Scenes/Main_Menu.unity
+  - Assets/Game/_Scenes/Game.unity
   playerPath: C:/Users/admin2/Documents/GitHub/mirai/Mirai - CLIENT/BUILD_TEST/Mirai
     - CLIENT.exe

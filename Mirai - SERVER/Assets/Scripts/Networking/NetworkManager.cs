@@ -42,6 +42,7 @@ public class NetworkManager : MonoBehaviour
     void OnDisconnected(NetworkMessage netMsg)
     {
         Debug.Log("Client dropped connection");
+        NetworkServer.DestroyPlayersForConnection(netMsg.conn);
     }
 
     void OnChatMessageReceived(NetworkMessage netMsg)
@@ -63,7 +64,8 @@ public class NetworkManager : MonoBehaviour
         //init player, get info from db, sned daata to pleyer
         Debug.Log("OnServerAddPlayer()");
 
-        GameObject player = Instantiate(playerPrefab) as GameObject;    
+        GameObject player = Instantiate(playerPrefab) as GameObject;
+        player.transform.position = new Vector2(Random.Range(-3, 4), Random.Range(-2, 2));
 
         NetworkServer.AddPlayerForConnection(extraMessageReader.conn, player, 0);
     }

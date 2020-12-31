@@ -63,20 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Game\Chat\ChatController.cs" />
-    <Compile Include="Assets\Scripts\Game\Chat\ChatModel.cs" />
-    <Compile Include="Assets\Scripts\Game\Chat\ChatView.cs" />
-    <Compile Include="Assets\Scripts\Game\Player\PlayerInfo.cs" />
-    <Compile Include="Assets\Scripts\Main_Menu\Model\LoginModel.cs" />
-    <Compile Include="Assets\Scripts\Main_Menu\View\LoginView.cs" />
-    <Compile Include="Assets\Scripts\Networking\Client.cs" />
-    <Compile Include="Assets\Scripts\Networking\Message_Handlers\ChatMessage.cs" />
-    <Compile Include="Assets\Scripts\Networking\Message_Handlers\LoginRequest.cs" />
-    <Compile Include="Assets\Scripts\Networking\Message_Handlers\MessageType.cs" />
-    <Compile Include="Assets\Scripts\Register_Scripts\Encryptor.cs" />
-    <Compile Include="Assets\Scripts\Register_Scripts\IPManager.cs" />
-    <Compile Include="Assets\Scripts\Register_Scripts\RegisterSystem.cs" />
-    <Compile Include="Assets\Scripts\Utilities\MonoSingleton.cs" />
+    <Compile Include="Assets\Game\Content\Player\Scripts\PlayerInfo.cs" />
+    <Compile Include="Assets\Game\Networking\Client.cs" />
+    <Compile Include="Assets\Game\Networking\Message_Handlers\ChatMessage.cs" />
+    <Compile Include="Assets\Game\Networking\Message_Handlers\LoginRequest.cs" />
+    <Compile Include="Assets\Game\Networking\Message_Handlers\MessageType.cs" />
+    <Compile Include="Assets\Game\UI\Chat_System\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Game\UI\Chat_System\Scripts\ChatModel.cs" />
+    <Compile Include="Assets\Game\UI\Chat_System\Scripts\ChatView.cs" />
+    <Compile Include="Assets\Game\UI\UIManager.cs" />
+    <Compile Include="Assets\Menu\UI\Login_System\LoginModel.cs" />
+    <Compile Include="Assets\Menu\UI\Login_System\LoginView.cs" />
+    <Compile Include="Assets\Menu\UI\Register_System\Encryptor.cs" />
+    <Compile Include="Assets\Menu\UI\Register_System\IPManager.cs" />
+    <Compile Include="Assets\Menu\UI\Register_System\RegisterSystem.cs" />
+    <Compile Include="Assets\Utilities\MonoSingleton.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
