@@ -7,4 +7,5 @@ public class MessageType : MsgType
 {
     public const short ChatMessage = 48;
     public const short LoginRequest = 49;
+    public const short LogoutRequest = 50;
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using System.Linq;
 
 public class LoginRequest : MessageBase
 {
@@ -25,6 +26,7 @@ public class LoginRequest : MessageBase
 
     void ProcessLogin()
     {
+
         using (WebClient request = new WebClient())
         {
             NameValueCollection form = new NameValueCollection();
@@ -41,20 +43,40 @@ public class LoginRequest : MessageBase
             switch (requestCode)
             {
                 case 0:
-                    Debug.Log("Login successful");
 
-                    var dbUsername = Encoding.UTF8.GetString(responseData).Split(' ')[1];
-                    username = dbUsername;
+                    var alreadyLoggedIn = NetworkManager.Instance.connectedPlayers.Any(user => user.username.ToLower() == this.username.ToLower());
+                    Debug.Log("already looged in: " + alreadyLoggedIn);
+                    Debug.Log("this.username: " + this.username);
 
-                    NetworkServer.SendToClient(connectionID, MessageType.LoginRequest, this);
+                    if (alreadyLoggedIn == true)
+                    {
+                        Debug.Log("you are already logged in");
+                        requestCode = 2;
+                    }
+                    else
+                    {
+                        Debug.Log("Login successful");
+                        var dbUsername = Encoding.UTF8.GetString(responseData).Split(' ')[1];
+                        username = dbUsername;
+                        NetworkManager.Instance.connectedPlayers.Add(this);
+                    }
+
+                    for (var i = 0; i < NetworkManager.Instance.connectedPlayers.Count; i++)
+                    {
+                        Debug.Log("con users: " + NetworkManager.Instance.connectedPlayers[i].username);
+                    }
+                    
+
                     break;
                 case 1:
                     Debug.Log("Invalid username/password. Please try again.");
+                    //requestCode = 1;
                     break;
                 default:
                     Debug.Log("Server offline");
                     break;
             }
+            NetworkServer.SendToClient(connectionID, MessageType.LoginRequest, this);
         }
     }
 

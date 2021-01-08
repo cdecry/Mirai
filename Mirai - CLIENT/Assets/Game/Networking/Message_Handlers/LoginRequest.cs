@@ -18,7 +18,7 @@ public class LoginRequest : MessageBase
     {
         //encrypt pw
         password = Encryptor.Encrypt(password);
-        Client.Instance.Send(MessageType.LoginRequest, this);
+        Client.Instance.networkClient.Send(MessageType.LoginRequest, this);
     }
 
     public void ProcessServerResponse()
@@ -30,16 +30,23 @@ public class LoginRequest : MessageBase
             case 0:
                 //assign playerInfo username
                 PlayerInfo.Instance.PlayerName = username;
-                PlayerInfo.Instance.ipAddress = Client.Instance.connection.address;
-                ClientScene.AddPlayer(Client.Instance.connection, 0);
+                PlayerInfo.Instance.ipAddress = Client.Instance.networkClient.connection.address;
+                ClientScene.AddPlayer(Client.Instance.networkClient.connection, 0);
                 SceneManager.LoadScene("Game");
                 break;
             //invalid req for user/pass
             case 1:
                 Debug.Log("Incorrect user/pass");
+                Client.Instance.networkClient.Disconnect();
+                break;
+            // already logged in
+            case 2:
+                Debug.Log("Already logged in");
+                Client.Instance.networkClient.Disconnect();
                 break;
             default:
-                Debug.Log("Server offline");
+                Debug.Log("server offline");
+                Client.Instance.networkClient.Disconnect();
                 break;
         }
     }

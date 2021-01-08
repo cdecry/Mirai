@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8308299058979406246, guid: f495820d00581b14d8c6281783a02614,
     type: 3}
+  ipAddress: 
 --- !u!1 &107631056
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199aa0e543063d141ae5161a0de2f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usernameInput: {fileID: 798207309}
+  passwordInput: {fileID: 2041302141}
 --- !u!4 &215662734
 Transform:
   m_ObjectHideFlags: 0
@@ -3611,7 +3614,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 808814748}
-        m_MethodName: ProcessLogin
+        m_MethodName: ConnectToServer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

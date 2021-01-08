@@ -12,10 +12,25 @@ public class UIManager : MonoSingleton<UIManager>
         base.Init();
     }
 
-    public void Signout()
+    public void Logout()
     {
-        Debug.Log("Attempting to signout");
-        ClientScene.RemovePlayer(0);
+        Debug.Log("Attempting to logout");
+        //ClientScene.RemovePlayer(0);
+
+        /*LogoutRequest request = new LogoutRequest
+        {
+            connectionID = Client.Instance.networkClient.connection.connectionId
+        };
+
+        request.HandleRequest();*/
+
+        Client.Instance.networkClient.Disconnect();
+
+        Debug.Log("Dropped from server");
         SceneManager.LoadScene("Main_Menu");
+
+        //SceneManager.LoadScene("Main_Menu");
+
+
     }
 }

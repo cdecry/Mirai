@@ -67,7 +67,9 @@
     <Compile Include="Assets\Scripts\Networking\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\ChatMessage.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\LoginRequest.cs" />
+    <Compile Include="Assets\Scripts\Networking\Response_Type\LogoutRequest.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\MessageType.cs" />
+    <Compile Include="Assets\Utilities\MonoSingleton.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

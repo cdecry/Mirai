@@ -31,7 +31,7 @@ public class ChatMessage : MessageBase
         else
         {
             Debug.Log("sending message!");
-            Client.Instance.Send(MessageType.ChatMessage, this);
+            Client.Instance.networkClient.Send(MessageType.ChatMessage, this);
         }
     }
 

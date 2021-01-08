@@ -12,70 +12,79 @@ using UnityEngine.SceneManagement;
 
 public class Client : MonoBehaviour
 {
+    //public InputField usernameInput, passwordInput;
+
+    //public GameObject Username_field, Password_field;
+
+    private static Client _instance;
+    public static Client Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                throw new System.Exception();
+            }
+            return _instance;
+        }
+    }
 
     //public InputField usernameInputField, passwordInputField;
 
     //NetworkClient _client;
-
-    private static NetworkClient _client;
-    public static NetworkClient Instance
-    {
-        get
-        {
-            if (_client == null)
-            {
-                throw new Exception();
-            }
-            return _client;
-        }
-    }
+    public NetworkClient networkClient;
 
     void Awake()
     {
-        Application.runInBackground = true;
-        DontDestroyOnLoad(this);
+        if (_instance == null)
+        {
+            _instance = this;
+            networkClient = new NetworkClient();
+            DontDestroyOnLoad(this);
+            Application.runInBackground = true;
+            //Connect();
+        }
+        else if (_instance != this)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    void Start()
-    {
-        Application.runInBackground = true;
-        Connect();
-    }
-
-    /*public void Login()
-    {
-        LoginRequest user = new LoginRequest 
-        { 
-            username = usernameInputField.text,
-            password = passwordInputField.text
-        };
-    }*/
-
-
-void Connect()
+public void Connect()
     {
         ClientScene.RegisterPrefab(PlayerInfo.Instance.playerPrefab);
-        _client = new NetworkClient();
         RegisterHandlers();
-        _client.Connect("localhost", 7777);
+        networkClient.Connect("localhost", 7777);
+
     }
 
     void RegisterHandlers()
     {
-        _client.RegisterHandler(MessageType.Connect, OnConnectedToServer); //official
-        _client.RegisterHandler(MessageType.Disconnect, OnDisconnectedFromServer);
-        _client.RegisterHandler(MessageType.ChatMessage, OnChatMessageReceivedFromServer);
-        _client.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceivedFromServer);
+        networkClient.RegisterHandler(MessageType.Connect, OnConnectedToServer); //official
+        networkClient.RegisterHandler(MessageType.Disconnect, OnDisconnectedFromServer);
+        networkClient.RegisterHandler(MessageType.ChatMessage, OnChatMessageReceivedFromServer);
+        networkClient.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceivedFromServer);
     }
 
     void OnConnectedToServer(NetworkMessage netMsg)
     {
         Debug.Log("Connected to server");
-        ChatMessage msg = new ChatMessage();
+
+        GameObject userInput = GameObject.Find("Username_field");
+        InputField userInputField = userInput.GetComponent<InputField>();
+        GameObject passInput = GameObject.Find("Password_field");
+        InputField passInputField = passInput.GetComponent<InputField>();
+
+        LoginModel model = new LoginModel();
+        model.Username = userInputField.text.ToLower();
+        model.Password = passInputField.text;
+        model.Login();
+
+        /*ChatMessage msg = new ChatMessage();
         msg.target = null;
         msg.message = "helo, server!";
 
-        msg.HandleMessage();
+        msg.HandleMessage();*/
     }
 
     void OnDisconnectedFromServer(NetworkMessage netMsg)
