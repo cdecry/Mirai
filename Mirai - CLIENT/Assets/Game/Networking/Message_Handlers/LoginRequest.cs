@@ -41,8 +41,11 @@ public class LoginRequest : MessageBase
                 break;
             // already logged in
             case 2:
-                Debug.Log("Already logged in");
-                Client.Instance.networkClient.Disconnect();
+                Debug.Log("Already logged in,, kicking player");
+                PlayerInfo.Instance.PlayerName = username;
+                PlayerInfo.Instance.ipAddress = Client.Instance.networkClient.connection.address;
+                ClientScene.AddPlayer(Client.Instance.networkClient.connection, 0);
+                SceneManager.LoadScene("Game");
                 break;
             default:
                 Debug.Log("server offline");

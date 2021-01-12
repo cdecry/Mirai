@@ -16,6 +16,9 @@ public class PlayerInfo : MonoSingleton<PlayerInfo>
     public GameObject playerPrefab;
     public string PlayerName { get; set; }
     public string ipAddress;
+    public Vector2 playerPos;
 
     //input manager later
+
+
 }

@@ -167,6 +167,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 8308299058979406246, guid: f495820d00581b14d8c6281783a02614,
     type: 3}
   ipAddress: 
+  playerPos: {x: 0, y: 0}
 --- !u!1 &107631056
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +490,6 @@ GameObject:
   m_Component:
   - component: {fileID: 215662734}
   - component: {fileID: 215662733}
-  - component: {fileID: 215662735}
   - component: {fileID: 215662736}
   m_Layer: 0
   m_Name: Network_Client
@@ -510,8 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199aa0e543063d141ae5161a0de2f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInput: {fileID: 798207309}
-  passwordInput: {fileID: 2041302141}
 --- !u!4 &215662734
 Transform:
   m_ObjectHideFlags: 0
@@ -526,32 +524,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &215662735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215662732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36bbc7b3591b4b459bc6d8f80d9a918, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ipAddress: 
-  loginSelect: {fileID: 1040859654}
-  registerSelect: {fileID: 588898576}
-  loginPanel: {fileID: 808814744}
-  registerPanel: {fileID: 1088068361}
-  usernameRegister: {fileID: 1575426054}
-  passwordRegister: {fileID: 458405947}
-  passwordVerification: {fileID: 625450784}
-  email: {fileID: 1546804054}
-  pin: {fileID: 762802072}
-  pinVerification: {fileID: 2100801467}
-  registerButton: {fileID: 2003503184}
-  usernameLogin: {fileID: 798207309}
-  passwordLogin: {fileID: 2041302141}
 --- !u!114 &215662736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +594,7 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
+  m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -829,7 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -863,7 +835,7 @@ GameObject:
   - component: {fileID: 458405948}
   - component: {fileID: 458405947}
   m_Layer: 5
-  m_Name: Password_field
+  m_Name: Password_Register_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,6 +973,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1016,6 +989,32 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36bbc7b3591b4b459bc6d8f80d9a918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddress: 
+  loginSelect: {fileID: 1040859654}
+  registerSelect: {fileID: 588898576}
+  loginPanel: {fileID: 808814744}
+  registerPanel: {fileID: 1088068361}
+  usernameRegister: {fileID: 1575426054}
+  passwordRegister: {fileID: 458405947}
+  passwordVerification: {fileID: 625450784}
+  email: {fileID: 1546804054}
+  pin: {fileID: 762802072}
+  pinVerification: {fileID: 2100801467}
+  registerButton: {fileID: 2003503184}
+  usernameLogin: {fileID: 798207309}
+  passwordLogin: {fileID: 2041302141}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1091,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &588898575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1153,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 588898577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420028}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &588898577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1283,7 +1293,7 @@ GameObject:
   - component: {fileID: 625450785}
   - component: {fileID: 625450784}
   m_Layer: 5
-  m_Name: Password_verify_field
+  m_Name: Password_Verify_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,7 +1667,7 @@ GameObject:
   - component: {fileID: 762802073}
   - component: {fileID: 762802072}
   m_Layer: 5
-  m_Name: PIN_field
+  m_Name: PIN_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1797,7 +1807,7 @@ GameObject:
   - component: {fileID: 798207310}
   - component: {fileID: 798207309}
   m_Layer: 5
-  m_Name: Username_field
+  m_Name: Username_Login_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1974,7 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2013,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &808814745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2575,7 +2585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1040859653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2652,7 +2662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3186,7 +3196,7 @@ GameObject:
   - component: {fileID: 1546804055}
   - component: {fileID: 1546804054}
   m_Layer: 5
-  m_Name: Email_field
+  m_Name: Email_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3326,7 +3336,7 @@ GameObject:
   - component: {fileID: 1575426055}
   - component: {fileID: 1575426054}
   m_Layer: 5
-  m_Name: Username_field
+  m_Name: Username__Register_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3899,7 +3909,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 215662735}
+      - m_Target: {fileID: 519420030}
         m_MethodName: RegisterComplete
         m_Mode: 1
         m_Arguments:
@@ -3960,7 +3970,7 @@ GameObject:
   - component: {fileID: 2041302142}
   - component: {fileID: 2041302141}
   m_Layer: 5
-  m_Name: Password_field
+  m_Name: Password_Login_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4100,7 +4110,7 @@ GameObject:
   - component: {fileID: 2100801468}
   - component: {fileID: 2100801467}
   m_Layer: 5
-  m_Name: PIN_verify_field
+  m_Name: PIN_Verify_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

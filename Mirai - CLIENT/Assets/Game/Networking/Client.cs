@@ -50,7 +50,16 @@ public class Client : MonoBehaviour
         }
     }
 
-public void Connect()
+
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CameraController.Instance.CameraRight();
+        }
+    }*/
+
+    public void Connect()
     {
         ClientScene.RegisterPrefab(PlayerInfo.Instance.playerPrefab);
         RegisterHandlers();
@@ -64,15 +73,17 @@ public void Connect()
         networkClient.RegisterHandler(MessageType.Disconnect, OnDisconnectedFromServer);
         networkClient.RegisterHandler(MessageType.ChatMessage, OnChatMessageReceivedFromServer);
         networkClient.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceivedFromServer);
+        networkClient.RegisterHandler(MessageType.KickPlayer, OnKickPlayerFromServer);
+        networkClient.RegisterHandler(MessageType.MovePlayer, OnUpdatePlayerPositionFromServer);
     }
 
     void OnConnectedToServer(NetworkMessage netMsg)
     {
         Debug.Log("Connected to server");
 
-        GameObject userInput = GameObject.Find("Username_field");
+        GameObject userInput = GameObject.Find("Username_Login_Field");
         InputField userInputField = userInput.GetComponent<InputField>();
-        GameObject passInput = GameObject.Find("Password_field");
+        GameObject passInput = GameObject.Find("Password_Login_Field");
         InputField passInputField = passInput.GetComponent<InputField>();
 
         LoginModel model = new LoginModel();
@@ -103,8 +114,20 @@ public void Connect()
     {
         LoginRequest user = netMsg.ReadMessage<LoginRequest>();
         user.ProcessServerResponse();
+
     }
 
-    
+    void OnKickPlayerFromServer(NetworkMessage netMsg)
+    {
+        Debug.Log("Kicked from server.");
+        Client.Instance.networkClient.Disconnect();
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    void OnUpdatePlayerPositionFromServer(NetworkMessage netMsg)
+    {
+        MovePlayer user = netMsg.ReadMessage<MovePlayer>();
+        PlayerInfo.Instance.playerPrefab.transform.position = user.playerPosition;
+    }
 
 }

@@ -50,6 +50,7 @@ public class NetworkManager : MonoBehaviour
         NetworkServer.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceived);
         NetworkServer.RegisterHandler(MessageType.AddPlayer, OnServerAddPlayer);
         NetworkServer.RegisterHandler(MessageType.LogoutRequest, OnLogoutRequestReceived);
+        NetworkServer.RegisterHandler(MessageType.MovePlayer, OnMovePlayerReceived);
     }
 
     void OnConnected(NetworkMessage netMsg)
@@ -67,6 +68,7 @@ public class NetworkManager : MonoBehaviour
 
         int index = connectedPlayers.FindIndex(user => user.connectionID == netMsg.conn.connectionId);
         connectedPlayers.RemoveAt(index);
+        PlayerController.players.RemoveAt(index);
         Debug.Log("Connected Players Count: " + connectedPlayers.Count);
     }
 
@@ -89,17 +91,28 @@ public class NetworkManager : MonoBehaviour
     {
         //init player, get info from db, sned daata to pleyer
         Debug.Log("OnServerAddPlayer()");
+        PlayerController.SpawnPlayer(netMsg.conn);
+        //GameObject player = Instantiate(playerPrefab);
+        //player.transform.position = new Vector2(Random.Range(-5,5), Random.Range(-5,5));
+        //NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
 
-        GameObject player = Instantiate(playerPrefab) as GameObject;
-        player.transform.position = new Vector2(Random.Range(-3, 4), Random.Range(-2, 2));
-
-        NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
-        //NetworkManager.Instance.connectedPlayers.Add(this);
     }
 
     public void OnLogoutRequestReceived(NetworkMessage netMsg)
     {
         var receivedLogoutRequest = netMsg.ReadMessage<LogoutRequest>();
         receivedLogoutRequest.HandleRequest();
+    }
+
+    public void OnMovePlayerReceived(NetworkMessage netMsg)
+    {
+        MovePlayer playerMoved = netMsg.ReadMessage<MovePlayer>();
+        playerMoved.connectionID = netMsg.conn.connectionId;
+
+
+        PlayerController.MovePlayer(netMsg.conn, playerMoved.keyPressed);
+
+        //player.GetComponent<Rigidbody2D>().transform.position = new Vector2(-2, -2);
+
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Linq;
+using System.Threading;
 
 public class LoginRequest : MessageBase
 {
@@ -45,27 +46,26 @@ public class LoginRequest : MessageBase
                 case 0:
 
                     var alreadyLoggedIn = NetworkManager.Instance.connectedPlayers.Any(user => user.username.ToLower() == this.username.ToLower());
-                    Debug.Log("already looged in: " + alreadyLoggedIn);
-                    Debug.Log("this.username: " + this.username);
+                    int index = NetworkManager.Instance.connectedPlayers.FindIndex(user => user.username.ToLower() == this.username.ToLower());
 
-                    if (alreadyLoggedIn == true)
+                    if(alreadyLoggedIn)
                     {
-                        Debug.Log("you are already logged in");
+                        //in the future, prompt user to choose wheter or not to kick existing player
+                        KickPlayer player = new KickPlayer
+                        {
+                            connectionID = NetworkManager.Instance.connectedPlayers[index].connectionID
+                        };
+
+                        player.HandleRequest();
+
+                        Debug.Log("existing player kicked,, logging in...");
                         requestCode = 2;
                     }
-                    else
-                    {
-                        Debug.Log("Login successful");
-                        var dbUsername = Encoding.UTF8.GetString(responseData).Split(' ')[1];
-                        username = dbUsername;
-                        NetworkManager.Instance.connectedPlayers.Add(this);
-                    }
 
-                    for (var i = 0; i < NetworkManager.Instance.connectedPlayers.Count; i++)
-                    {
-                        Debug.Log("con users: " + NetworkManager.Instance.connectedPlayers[i].username);
-                    }
-                    
+                    Debug.Log("Login successful");
+                    var dbUsername = Encoding.UTF8.GetString(responseData).Split(' ')[1];
+                    username = dbUsername;
+                    NetworkManager.Instance.connectedPlayers.Add(this);
 
                     break;
                 case 1:

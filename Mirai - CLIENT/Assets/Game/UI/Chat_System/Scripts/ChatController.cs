@@ -30,6 +30,7 @@ public class ChatController : MonoBehaviour
     {
         GameObject message = Instantiate(messagePrefab) as GameObject;
         message.GetComponent<Text>().text = string.Format("{0}: {1}", playerName, newMessage);
-        message.transform.SetParent(messageContainer);
+        message.transform.SetParent(messageContainer, false);
+        //message.transform.localScale = messagePrefab.transform.localScale;
     }
 }

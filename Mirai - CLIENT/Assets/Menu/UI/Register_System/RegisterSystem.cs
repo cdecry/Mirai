@@ -18,6 +18,7 @@ public class RegisterSystem : MonoBehaviour
     //pre-selection screen (buttons :dd)
     public Button loginSelect, registerSelect;
 
+
     //login & signup panels
     public GameObject loginPanel, registerPanel;
 
@@ -27,6 +28,8 @@ public class RegisterSystem : MonoBehaviour
 
     //login fields
     public InputField usernameLogin, passwordLogin;
+
+    
 
     void Start()
     {
