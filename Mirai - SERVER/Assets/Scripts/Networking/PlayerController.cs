@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
         GameObject player = Instantiate(NetworkManager.Instance.playerPrefab) as GameObject;
         //player.transform.position = new Vector2(Random.Range(-3, 4), Random.Range(-2, 2));
         player.transform.position = new Vector2(-1, -3);
+        player.tag = "Player";
         NetworkManager.Instance.playerPrefab.transform.position = player.transform.position;
         NetworkServer.AddPlayerForConnection(netConn, player, 0);
         players.Add(player);

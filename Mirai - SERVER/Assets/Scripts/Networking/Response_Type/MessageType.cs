@@ -10,4 +10,5 @@ public class MessageType : MsgType
     public const short LogoutRequest = 50;
     public const short KickPlayer = 51;
     public const short MovePlayer = 52;
+    public const short ChangeRoom = 53;
 }

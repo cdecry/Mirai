@@ -51,6 +51,7 @@ public class NetworkManager : MonoBehaviour
         NetworkServer.RegisterHandler(MessageType.AddPlayer, OnServerAddPlayer);
         NetworkServer.RegisterHandler(MessageType.LogoutRequest, OnLogoutRequestReceived);
         NetworkServer.RegisterHandler(MessageType.MovePlayer, OnMovePlayerReceived);
+        NetworkServer.RegisterHandler(MessageType.ChangeRoom, OnChangeRoomReceived);
     }
 
     void OnConnected(NetworkMessage netMsg)
@@ -114,5 +115,13 @@ public class NetworkManager : MonoBehaviour
 
         //player.GetComponent<Rigidbody2D>().transform.position = new Vector2(-2, -2);
 
+    }
+    public void OnChangeRoomReceived(NetworkMessage netMsg)
+    {
+        ChangeRoom user = netMsg.ReadMessage<ChangeRoom>();
+        //user.connectionID = netMsg.conn.connectionId;
+        user.SwitchRoom();
+        //add player, then add client side,
+        //PlayerController.SpawnPlayer(netMsg.conn);
     }
 }

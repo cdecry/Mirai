@@ -17,6 +17,7 @@ public class PlayerInfo : MonoSingleton<PlayerInfo>
     public string PlayerName { get; set; }
     public string ipAddress;
     public Vector2 playerPos;
+    public string playerLocation;
 
     //input manager later
 

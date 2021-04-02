@@ -40,8 +40,13 @@ public class LoginRequest : MessageBase
             requestCode = -1;
             int.TryParse(Encoding.UTF8.GetString(responseData), out requestCode);
 
+            if(Encoding.UTF8.GetString(responseData) == "Error connecting to server")
+            {
+                requestCode = -1;
+            }
+
             // just for debug dlt later
-            switch (requestCode)
+                switch (requestCode)
             {
                 case 0:
 

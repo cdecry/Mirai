@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Menu/_Scenes/Main_Menu.unity
     guid: 6bdfef79fd0ed5048a0ad55f8a43745a
   - enabled: 1
-    path: Assets/Game/_Scenes/Game.unity
+    path: Assets/Game/_Scenes/Alley.unity
     guid: 13f7660f5037ac745bd7d5084ace3fd4
+  - enabled: 1
+    path: Assets/Game/_Scenes/BubbleTea.unity
+    guid: d5a1038b32504b744be7a4d07b19ee0a
   m_configObjects: {}

@@ -75,6 +75,7 @@ public class Client : MonoBehaviour
         networkClient.RegisterHandler(MessageType.LoginRequest, OnLoginRequestReceivedFromServer);
         networkClient.RegisterHandler(MessageType.KickPlayer, OnKickPlayerFromServer);
         networkClient.RegisterHandler(MessageType.MovePlayer, OnUpdatePlayerPositionFromServer);
+        networkClient.RegisterHandler(MessageType.ChangeRoom, OnChangeRoomFromServer);
     }
 
     void OnConnectedToServer(NetworkMessage netMsg)
@@ -101,6 +102,7 @@ public class Client : MonoBehaviour
     void OnDisconnectedFromServer(NetworkMessage netMsg)
     {
         Debug.Log("Dropped from server");
+        Destroy(GameObject.Find("Player(Clone)"));
         SceneManager.LoadScene("Main_Menu");
     }
 
@@ -121,6 +123,7 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Kicked from server.");
         Client.Instance.networkClient.Disconnect();
+        Destroy(GameObject.Find("Player(Clone)"));
         SceneManager.LoadScene("Main_Menu");
     }
 
@@ -130,4 +133,11 @@ public class Client : MonoBehaviour
         PlayerInfo.Instance.playerPrefab.transform.position = user.playerPosition;
     }
 
+
+    void OnChangeRoomFromServer(NetworkMessage netMsg)
+    {
+        ChangeRoom user = netMsg.ReadMessage<ChangeRoom>();
+        SceneManager.LoadScene(user.newLocation);
+        //user.HandleTransition();
+    }
 }

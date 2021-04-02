@@ -168,6 +168,7 @@ MonoBehaviour:
     type: 3}
   ipAddress: 
   playerPos: {x: 0, y: 0}
+  playerLocation: 
 --- !u!1 &107631056
 GameObject:
   m_ObjectHideFlags: 0

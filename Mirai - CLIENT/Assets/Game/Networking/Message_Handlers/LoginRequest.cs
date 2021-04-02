@@ -32,7 +32,7 @@ public class LoginRequest : MessageBase
                 PlayerInfo.Instance.PlayerName = username;
                 PlayerInfo.Instance.ipAddress = Client.Instance.networkClient.connection.address;
                 ClientScene.AddPlayer(Client.Instance.networkClient.connection, 0);
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("Alley");
                 break;
             //invalid req for user/pass
             case 1:
@@ -45,7 +45,7 @@ public class LoginRequest : MessageBase
                 PlayerInfo.Instance.PlayerName = username;
                 PlayerInfo.Instance.ipAddress = Client.Instance.networkClient.connection.address;
                 ClientScene.AddPlayer(Client.Instance.networkClient.connection, 0);
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("Alley");
                 break;
             default:
                 Debug.Log("server offline");

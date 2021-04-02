@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Networking\Login\ProcessLogin.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\Networking\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Networking\Response_Type\ChangeRoom.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\ChatMessage.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\KickPlayer.cs" />
     <Compile Include="Assets\Scripts\Networking\Response_Type\LoginRequest.cs" />
