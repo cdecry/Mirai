@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Shady.unity
+    guid: 422cfd6772fa1f246857142cc0deb1e4
+  - enabled: 1
+    path: Assets/Scenes/Slush-n-Rush.unity
+    guid: f163ed73720f4f241a3202af34b0a496
+  m_configObjects: {}

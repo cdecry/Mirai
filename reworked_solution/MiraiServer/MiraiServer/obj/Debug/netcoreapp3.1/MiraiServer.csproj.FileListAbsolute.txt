@@ -1,0 +1,13 @@
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.exe
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.deps.json
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.runtimeconfig.json
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.runtimeconfig.dev.json
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.dll
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.pdb
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.csprojAssemblyReference.cache
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.AssemblyInfoInputs.cache
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.AssemblyInfo.cs
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.csproj.CoreCompileInputs.cache
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.dll
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.pdb
+C:\Users\admin2\source\repos\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.genruntimeconfig.cache
