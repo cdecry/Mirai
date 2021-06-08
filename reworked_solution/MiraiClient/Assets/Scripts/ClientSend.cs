@@ -24,7 +24,7 @@ public class ClientSend : MonoBehaviour
         using (Packet _packet = new Packet((int)ClientPackets.welcomeReceived))
         {
             _packet.Write(Client.instance.myId);
-            _packet.Write(UIManager.instance.userInputField.text);
+            _packet.Write(UIManager.instance.usernameLogin.text);
 
             SendTCPData(_packet);
         }
@@ -47,12 +47,12 @@ public class ClientSend : MonoBehaviour
 
     public static void LoginRequest()
     {
-        string password = Encryptor.Encrypt(UIManager.instance.passInputField.text);
+        string password = Encryptor.Encrypt(UIManager.instance.passwordLogin.text);
 
         using (Packet _packet = new Packet((int)ClientPackets.loginRequest))
         {
             _packet.Write(Client.instance.myId);
-            _packet.Write(UIManager.instance.userInputField.text);
+            _packet.Write(UIManager.instance.usernameLogin.text);
             _packet.Write(password);
 
             SendTCPData(_packet);
@@ -90,5 +90,18 @@ public class ClientSend : MonoBehaviour
             SendTCPData(_packet);
         }
     }
+
+    /*
+    public static void AddItemRequest(int _itemID)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.addItemRequest))
+        {
+            _packet.Write(_itemID);
+            Debug.Log("sending packet to client to add item");
+
+            SendTCPData(_packet);
+        }
+    }
+    */
     #endregion
 }

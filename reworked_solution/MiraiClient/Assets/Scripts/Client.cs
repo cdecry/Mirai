@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Sockets;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using UnityEngine.UI;
 
 public class Client : MonoBehaviour
 {
@@ -35,13 +37,14 @@ public class Client : MonoBehaviour
         }
     }
 
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
             ToSlushNRush();
         }
-    }
+    }*/
 
     public void OnApplicationQuit()
     {
@@ -290,6 +293,7 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.removePlayerReceived, ClientHandle.RemovePlayerReceived },
             { (int)ServerPackets.removePlayers, ClientHandle.RemovePlayers },
             { (int)ServerPackets.changeRoom, ClientHandle.ChangeRoom },
+            { (int)ServerPackets.syncInventory, ClientHandle.SyncInventory },
         };
         Debug.Log("Initialized packets.");
     }
@@ -313,7 +317,20 @@ public class Client : MonoBehaviour
 
     public static void ToSlushNRush()
     {
-        Debug.Log("clicked buton");
         ClientSend.ChangeRoomRequest("Slush-N-Rush");
     }
+    public static void ToShady()
+    {
+        ClientSend.ChangeRoomRequest("Shady");
+    }
+
+    /*
+   
+    public static void AddItem(int _itemID)
+    {
+        //var requestedItem = ItemDatabase.items.FirstOrDefault(item => item.id == _itemID);
+        //Inventory.Instance.items.Add(requestedItem);
+
+        Debug.Log("a hat has been added to ur inventory :)");
+    }*/
 }

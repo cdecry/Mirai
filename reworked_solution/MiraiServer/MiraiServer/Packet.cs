@@ -15,7 +15,8 @@ namespace MiraiServer
         loginRequestReceived,
         removePlayerReceived,
         removePlayers,
-        changeRoom, // after requested
+        changeRoom,
+        syncInventory,
     }
 
     /// <summary>Sent from client to server.</summary>

@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &152608521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &244407100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1026,9 +1026,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0742f22a4ad5b4cbb1fbeb469305d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 152608520}
-  userInputField: {fileID: 2078731518}
-  passInputField: {fileID: 755873779}
+  ipAddress: 
+  loginSelect: {fileID: 244407101}
+  registerSelect: {fileID: 728758162}
+  loginPanel: {fileID: 152608520}
+  registerPanel: {fileID: 1992211361}
+  usernameLogin: {fileID: 2078731518}
+  passwordLogin: {fileID: 755873779}
+  usernameRegister: {fileID: 945852511}
+  passwordRegister: {fileID: 2005613230}
+  passwordVerification: {fileID: 1314544904}
+  email: {fileID: 527019260}
+  pin: {fileID: 584715865}
+  pinVerification: {fileID: 97872391}
+  registerButton: {fileID: 935074978}
 --- !u!1 &400192925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &728758161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2604,7 +2615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 386425228}
         m_MethodName: RegisterComplete
         m_Mode: 1
         m_Arguments:
@@ -4479,9 +4490,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0742f22a4ad5b4cbb1fbeb469305d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 1583335160}
-  userInputField: {fileID: 0}
-  passInputField: {fileID: 0}
+  ipAddress: 
+  loginSelect: {fileID: 0}
+  registerSelect: {fileID: 0}
+  loginPanel: {fileID: 0}
+  registerPanel: {fileID: 0}
+  usernameLogin: {fileID: 0}
+  passwordLogin: {fileID: 0}
+  usernameRegister: {fileID: 0}
+  passwordRegister: {fileID: 0}
+  passwordVerification: {fileID: 0}
+  email: {fileID: 0}
+  pin: {fileID: 0}
+  pinVerification: {fileID: 0}
+  registerButton: {fileID: 0}
 --- !u!1 &1964921663
 GameObject:
   m_ObjectHideFlags: 0

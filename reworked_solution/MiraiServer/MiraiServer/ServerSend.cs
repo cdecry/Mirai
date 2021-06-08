@@ -175,6 +175,33 @@ namespace MiraiServer
 
             RemovePlayerReceived(_toClient);
         }
+
+        public static void SyncInventory(int _toClient, int _itemID)
+        {
+            // for now is using a single item id for testing, but in the future shold try sending text file.
+            using (Packet _packet = new Packet((int)ServerPackets.syncInventory))
+            {
+                _packet.Write(_toClient);
+                _packet.Write(_itemID);
+
+                //Console.WriteLine("sending packet to client to add item..");
+                SendTCPData(_toClient, _packet);
+            }
+        }
+
+        /*
+        public static void AddItemToInventory(int _toClient, int _itemID)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.addItemToInventory))
+            {
+                _packet.Write(_toClient);
+                _packet.Write(_itemID);
+
+                Console.WriteLine("sending packet to client to add item..");
+                SendTCPData(_toClient, _packet);
+            }
+        }*/
+
         #endregion
     }
 }

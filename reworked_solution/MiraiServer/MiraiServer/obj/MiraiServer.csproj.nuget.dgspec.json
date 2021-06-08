@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {}
+    "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {
+    "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
+        "projectUniqueName": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
         "projectName": "MiraiServer",
-        "projectPath": "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
+        "projectPath": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
         "packagesPath": "C:\\Users\\admin2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\obj\\",
+        "outputPath": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin2\\AppData\\Roaming\\NuGet\\NuGet.Config",

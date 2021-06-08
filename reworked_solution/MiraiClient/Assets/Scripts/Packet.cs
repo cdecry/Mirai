@@ -15,6 +15,7 @@ public enum ServerPackets
     removePlayerReceived,
     removePlayers,
     changeRoom,
+    syncInventory,
 }
 
 /// <summary>Sent from client to server.</summary>

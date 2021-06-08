@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l/XhVLhLB6P80CUqkGOb4uIHiNAGiuSU9TUJZUMYA/H/jTySYwWmrXsfxolO5CVsYPLyrw/1ZJQl8wpTs5MnuQ==",
+  "dgSpecHash": "GmRsTd/FnBoWfQSoHGEqwBASDJjEsCBKZH6dCLZSZpI2mDpWpV7kOGhuMW0mKdjlJBtJdk5Yz3THGo0P9DkBvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin2\\source\\repos\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
+  "projectFilePath": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

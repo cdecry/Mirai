@@ -96,7 +96,7 @@ public class ClientHandle : MonoBehaviour
                 //disconnect
                 break;
             default:
-                Debug.Log("server offline");
+                Debug.Log("server offline" + _requestCode);
                 //disconnect
                 break;
         }
@@ -151,5 +151,24 @@ public class ClientHandle : MonoBehaviour
         Debug.Log("scene loaded");
 
     }
+
+    public static void SyncInventory(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+        int _itemID = _packet.ReadInt();
+
+        // inventory function
+        Inventory.AddItem(_itemID);
+
+    }
+
+    /*
+    public static void AddItemToInventory(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+        int _itemID = _packet.ReadInt();
+
+        Client.AddItem(_itemID);
+    }*/
 
 }

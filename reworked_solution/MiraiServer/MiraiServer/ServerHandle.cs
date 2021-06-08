@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using System.Linq;
 
 namespace MiraiServer
 {
@@ -26,7 +27,7 @@ namespace MiraiServer
                     _client.SpawnPlayersInRoom("Shady");
                 }
             }
-                //Server.clients[_fromClient].SpawnPlayersInRoom("");
+            //Server.clients[_fromClient].SpawnPlayersInRoom("");
             //spawn rest of players
         }
 
@@ -63,32 +64,15 @@ namespace MiraiServer
 
         public static void ChangeRoomRequest(int _fromClient, Packet _packet)
         {
-            Console.WriteLine("received change room req");
             string _room = _packet.ReadString();
-
-
-
-            /*foreach (Player _player in Server.playersOnline)
-            {
-                if (_player.id == _fromClient)
-                {
-                    _player.location = _room;
-                }
-            }*/
-
-            // find prev val, pop from list
-            // add to new room list
-            // serversend.spawn player ? for all in new room
-            // serversend.removep layer for all in old room
-
-            //changer player loc to new
-            //spawn players in room
 
             // all other clients remove this player
             ServerSend.RemovePlayerReceived(_fromClient);
+
             // this client removes all other players
             ServerSend.RemovePlayers(_fromClient);
 
+            // this can be moved to a client function or maybe not 
             foreach (Client _client in Server.clients.Values)
             {
                 if (_client.id == _fromClient)
@@ -107,36 +91,30 @@ namespace MiraiServer
                     _client.SpawnPlayersInRoom(_room);
                     Console.WriteLine("all players in room " + _room + " spawned for player " + _client.player.username);
                 }
-                /*if (_client.id == _fromClient)
-                {
-                    // this client is added to this room
-                    _client.player.location = _room;
-                    // this client spawns all clients in this room
-                    _client.SpawnPlayersInRoom(_room);
-                    Console.WriteLine("all players in room " + _room + " spawned for player " + _client.player.username);
 
-                }*/
             }
 
-            /*foreach (Client _client in Server.clients.Values)
-            {
-                if (_client.player != null)
-                {
-                    if (_client.id == _fromClient)
-                    {
-                        _client.player.location = _room;
-                        // despawn all other playres in previos uroom
-                        ServerSend.RemovePlayers(_fromClient);
-
-                        _client.SpawnPlayersInRoom(_room);
-                    }
-                }
-               
-            }*/
-
-
-
-            //ServerSend.ChangeRoom(_fromClient, _room);
         }
+        /*
+        public static void AddItemRequest(int _fromClient, Packet _packet)
+        {
+            int _itemID = _packet.ReadInt();
+
+            Console.Write("received add item req");
+
+            var requestedItem = ItemDatabase.items.FirstOrDefault(item => item.id == _itemID);
+
+            Console.WriteLine(ItemDatabase.items[0]);
+
+            if (requestedItem != null)
+            {
+                var _client = Server.clients.Values.FirstOrDefault(clients => clients.id == _fromClient);
+                _client.inventory.AddItem(requestedItem);
+
+                Console.WriteLine("recieved add item request");
+
+                ServerSend.AddItemToInventory(_fromClient, _itemID);
+            }
+        }*/
     }
 }

@@ -18,6 +18,7 @@ namespace MiraiServer
 
         public int id;
         public Player player;
+        public Inventory inventory;
         public TCP tcp;
         public UDP udp;
 
@@ -201,12 +202,12 @@ namespace MiraiServer
         {
 
             player = new Player(id, _playerName, "Shady", new Vector3(0, 0, 0));
+            inventory = new Inventory();
 
             Server.playersOnline.Add(player.username);
 
             Console.WriteLine($"added players online, list");
             Server.playersOnline.ForEach(Console.WriteLine);
-
 
             /*foreach (Client _client in Server.clients.Values)
             {
@@ -227,6 +228,9 @@ namespace MiraiServer
                     if (_client.id == id)
                     {
                         ServerSend.SpawnPlayer(_client.id, player);
+
+                        _client.inventory.AddItem(1);
+                        ServerSend.SyncInventory(_client.id, 1);
                     }
                     
                 }
@@ -254,6 +258,7 @@ namespace MiraiServer
             }
 
         }
+
         public void ProcessLogin(int _id, string _username, string _password)
         {
             using (WebClient request = new WebClient())
@@ -282,12 +287,21 @@ namespace MiraiServer
                 if (requestCode == 0)
                 {
                     ServerSend.Welcome(id, "Welcome to the server!");
-
+                    //InitializeItemDB();
                 }
             }
 
             // login request received send to client, logi
         }
+
+        /*
+        public void InitializeItemDB()
+        {
+            // rn jsut chec, in the future sent req to db for itemdb AND user invent
+            //Console.WriteLine("ItemDB length: " + ItemDatabase.items.Count + ", First item is: " + ItemDatabase.items[0].name);
+            Server
+        }*/
+
 
         public void Disconnect()
         {
