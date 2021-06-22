@@ -17,6 +17,7 @@ namespace MiraiServer
         removePlayers,
         changeRoom,
         syncInventory,
+        changeClothes,
     }
 
     /// <summary>Sent from client to server.</summary>
@@ -27,6 +28,7 @@ namespace MiraiServer
         loginRequest,
         removePlayer,
         changeRoomRequest,
+        changeClothesRequest,
     }
 
     public class Packet : IDisposable
@@ -188,12 +190,20 @@ namespace MiraiServer
             Write(_value.W);
         }
 
-        #endregion
+        public void Write(List<int> _value) //only use for clothing rn
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Write(_value[i]);
+            }
+        }
 
-        #region Read Data
-        /// <summary>Reads a byte from the packet.</summary>
-        /// <param name="_moveReadPos">Whether or not to move the buffer's read position.</param>
-        public byte ReadByte(bool _moveReadPos = true)
+            #endregion
+
+            #region Read Data
+            /// <summary>Reads a byte from the packet.</summary>
+            /// <param name="_moveReadPos">Whether or not to move the buffer's read position.</param>
+            public byte ReadByte(bool _moveReadPos = true)
         {
             if (buffer.Count > readPos)
             {
@@ -372,6 +382,11 @@ namespace MiraiServer
         public Quaternion ReadQuaternion(bool _moveReadPos = true)
         {
             return new Quaternion(ReadFloat(_moveReadPos), ReadFloat(_moveReadPos), ReadFloat(_moveReadPos), ReadFloat(_moveReadPos));
+        }
+
+        public List<int> ReadListInt(bool _moveReadPos = true)
+        {
+            return new List<int> { ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos) };
         }
         #endregion
 

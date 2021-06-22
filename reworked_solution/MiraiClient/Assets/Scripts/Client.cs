@@ -294,6 +294,7 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.removePlayers, ClientHandle.RemovePlayers },
             { (int)ServerPackets.changeRoom, ClientHandle.ChangeRoom },
             { (int)ServerPackets.syncInventory, ClientHandle.SyncInventory },
+            { (int)ServerPackets.changeClothes, ClientHandle.ChangeClothes },
         };
         Debug.Log("Initialized packets.");
     }

@@ -45,6 +45,7 @@ namespace MiraiServer
 
         public static void LoginRequest(int _fromClient, Packet _packet)
         {
+            Console.WriteLine("LoginRequest() in ServerHandle.cs");
             int _id = _packet.ReadInt();
             string _username = _packet.ReadString();
             string _password = _packet.ReadString();
@@ -95,6 +96,20 @@ namespace MiraiServer
             }
 
         }
+
+        public static void ChangeClothesRequest(int _fromClient, Packet _packet)
+        {
+            List<int> _items = _packet.ReadListInt();
+            for (int i = 0; i < _items.Count; i++)
+            {
+                //Console.WriteLine(_items[i] + ", ");
+                //check if user owns these items...
+            }
+            // user owns all:
+            Console.WriteLine("ChangeClothesReq(): itemID " + _items[0]);
+            ServerSend.ChangeClothes(_fromClient, _items);
+        }
+
         /*
         public static void AddItemRequest(int _fromClient, Packet _packet)
         {

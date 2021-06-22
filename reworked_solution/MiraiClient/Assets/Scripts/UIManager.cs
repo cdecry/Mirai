@@ -1,10 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Security.Cryptography;
-using System.Text;
-using System.Net;
 
 public class UIManager : MonoBehaviour
 {
@@ -43,11 +39,21 @@ public class UIManager : MonoBehaviour
 
     public void ConnectToServer()
     {
+        Debug.Log("ConnectToServer() in UIManager.cs");
         loginPanel.SetActive(false);
         //userInputField.interactable = false;
         Client.instance.ConnectToServer();
 
-        ClientSend.LoginRequest();
+        // is it this thing ??
+        StartCoroutine(ConnectCoroutine());
+
+        IEnumerator ConnectCoroutine()
+        {
+            yield return new WaitForSeconds(2);
+            ClientSend.LoginRequest();
+        }
+
+        
     }
 
 

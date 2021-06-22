@@ -146,10 +146,19 @@ public class ClientHandle : MonoBehaviour
         // linq thing faster
 
         GameManager.players[_id].location = _room;
-        SceneManager.LoadScene("Slush-N-Rush");
+        SceneManager.LoadScene(_room);
 
         Debug.Log("scene loaded");
 
+    }
+
+    public static void ChangeClothes(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+        List<int> _items = _packet.ReadListInt();
+
+        Inventory.ChangeClothes(_id, _items);
+        Debug.Log("client handling change clothes");
     }
 
     public static void SyncInventory(Packet _packet)
@@ -158,9 +167,19 @@ public class ClientHandle : MonoBehaviour
         int _itemID = _packet.ReadInt();
 
         // inventory function
-        Inventory.AddItem(_itemID);
-
+        //Inventory.AddItem(_itemID);
+        Debug.Log("syncinvent itemid sent was " + _itemID);
+        /*if (PlayerManager.inventory != null)
+        {
+            //PlayerManager.Added(_itemID, 1);
+            Debug.Log("added");
+        }
+        else
+        {
+            Debug.Log("it was null");
+        }*/
     }
+
 
     /*
     public static void AddItemToInventory(Packet _packet)

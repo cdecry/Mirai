@@ -18,14 +18,6 @@ namespace MiraiServer
             Server.clients[_toClient].udp.SendData(_packet);
         }
 
-        /*private static void SendTCPDataToAll(Packet _packet)
-        {
-            _packet.WriteLength();
-            for (int i = 1; i <= Server.MaxPlayers; i++)
-            {
-                Server.clients[i].tcp.SendData(_packet);
-            }
-        }*/
         private static void SendTCPDataToAll(int _exceptClient, Packet _packet)
         {
             _packet.WriteLength();
@@ -59,6 +51,7 @@ namespace MiraiServer
         }
 
         #region Packets
+
         public static void Welcome(int _toClient, string _msg)
         {
             using (Packet _packet = new Packet((int)ServerPackets.welcome))
@@ -74,15 +67,6 @@ namespace MiraiServer
         {
             int numInRoom = 0;
             List<int> ids = new List<int>();
-
-            /*foreach (Player pleyer in Server.playersOnline)
-            {
-                if (pleyer.location == _player.location)
-                {
-                    numInRoom++;
-                    ids.Add(pleyer.id);
-                }
-            }*/
 
             using (Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
             {
@@ -176,6 +160,17 @@ namespace MiraiServer
             RemovePlayerReceived(_toClient);
         }
 
+        public static void ChangeClothes(int _thatClient, List<int> _items)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.changeClothes))
+            {
+                _packet.Write(_thatClient);
+                _packet.Write(_items);
+
+                SendUDPDataToAll(_packet);
+            }
+        }
+
         public static void SyncInventory(int _toClient, int _itemID)
         {
             // for now is using a single item id for testing, but in the future shold try sending text file.
@@ -188,19 +183,6 @@ namespace MiraiServer
                 SendTCPData(_toClient, _packet);
             }
         }
-
-        /*
-        public static void AddItemToInventory(int _toClient, int _itemID)
-        {
-            using (Packet _packet = new Packet((int)ServerPackets.addItemToInventory))
-            {
-                _packet.Write(_toClient);
-                _packet.Write(_itemID);
-
-                Console.WriteLine("sending packet to client to add item..");
-                SendTCPData(_toClient, _packet);
-            }
-        }*/
 
         #endregion
     }

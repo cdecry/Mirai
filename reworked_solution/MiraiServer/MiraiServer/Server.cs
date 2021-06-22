@@ -14,10 +14,14 @@ namespace MiraiServer
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public static Dictionary<int, PacketHandler> packetHandlers;
 
+        // access for friends features later
         public static List<string> playersOnline = new List<string>();
 
         private static TcpListener tcpListener;
         private static UdpClient udpListener;
+
+        // TEST FIND BETTER SOLLUTION
+        public const int SIO_UDP_CONNRESET = -1744830452;
 
         public static void Start(int _maxPlayers, int _port)
         {
@@ -26,19 +30,20 @@ namespace MiraiServer
 
             Console.WriteLine("Starting server...");
             InitializeServerData();
-            //load assests () ..
-
-            /*Dictionary<int, Player> shady = new Dictionary<int, Player>();
-            Dictionary<int, Player> slush_n_rush = new Dictionary<int, Player>();
-
-            Room.Rooms.Add(shady);
-            Room.Rooms.Add(slush_n_rush);*/
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
             udpListener = new UdpClient(Port);
+
+            // TEST FIND BETTER SOLUTION !
+            udpListener.Client.IOControl(
+            (IOControlCode)SIO_UDP_CONNRESET, 
+            new byte[] { 0, 0, 0, 0 }, 
+            null
+            );
+
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
             Console.WriteLine($"Server started on port {Port}.");
@@ -56,7 +61,9 @@ namespace MiraiServer
                 if (clients[i].tcp.socket == null)
                 {
                     clients[i].tcp.Connect(_client);
-                    Console.WriteLine("connected new connection");
+
+                    // output for debug, should have no issues connecting after 06/25/2021 commmit
+
                     return;
                 }
             }
@@ -133,6 +140,7 @@ namespace MiraiServer
                 { (int)ClientPackets.loginRequest, ServerHandle.LoginRequest },
                 { (int)ClientPackets.removePlayer, ServerHandle.RemovePlayer },
                 { (int)ClientPackets.changeRoomRequest, ServerHandle.ChangeRoomRequest },
+                { (int)ClientPackets.changeClothesRequest, ServerHandle.ChangeClothesRequest },
             };
             Console.WriteLine("Initialized packets.");
         }

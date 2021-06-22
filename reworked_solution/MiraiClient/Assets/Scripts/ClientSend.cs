@@ -52,7 +52,7 @@ public class ClientSend : MonoBehaviour
         using (Packet _packet = new Packet((int)ClientPackets.loginRequest))
         {
             _packet.Write(Client.instance.myId);
-            _packet.Write(UIManager.instance.usernameLogin.text);
+            _packet.Write(UIManager.instance.usernameLogin.text.ToLower());
             _packet.Write(password);
 
             SendTCPData(_packet);
@@ -86,6 +86,16 @@ public class ClientSend : MonoBehaviour
         using (Packet _packet = new Packet((int)ClientPackets.changeRoomRequest))
         {
             _packet.Write(_room);
+
+            SendTCPData(_packet);
+        }
+    }
+
+    public static void ChangeClothesRequest(List<int> _items)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.changeClothesRequest))
+        {
+            _packet.Write(_items);
 
             SendTCPData(_packet);
         }

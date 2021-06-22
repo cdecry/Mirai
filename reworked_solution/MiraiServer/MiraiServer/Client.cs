@@ -209,17 +209,6 @@ namespace MiraiServer
             Console.WriteLine($"added players online, list");
             Server.playersOnline.ForEach(Console.WriteLine);
 
-            /*foreach (Client _client in Server.clients.Values)
-            {
-                if (_client.player != null)
-                {
-                    if (_client.id != id)
-                    {
-                        ServerSend.SpawnPlayer(id, _client.player);
-                    }
-                }
-            }*/
-
             foreach (Client _client in Server.clients.Values)
             {
                 if (_client.player != null)
@@ -230,7 +219,7 @@ namespace MiraiServer
                         ServerSend.SpawnPlayer(_client.id, player);
 
                         _client.inventory.AddItem(1);
-                        ServerSend.SyncInventory(_client.id, 1);
+                        //ServerSend.SyncInventory(_client.id, 1);   //SERVER INVENT TEST
                     }
                     
                 }
@@ -261,6 +250,7 @@ namespace MiraiServer
 
         public void ProcessLogin(int _id, string _username, string _password)
         {
+            Console.WriteLine("starting ProcessLogin() in Client.cs");
             using (WebClient request = new WebClient())
             {
                 NameValueCollection form = new NameValueCollection();

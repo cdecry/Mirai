@@ -31,10 +31,11 @@ namespace MiraiServer
 
                     _nextLoop = _nextLoop.AddMilliseconds(Constants.MS_PER_TICK);
 
-                    if (_nextLoop > DateTime.Now)
+                    // improve diagnostics, however issue w negative timmeout FIX!
+                    /*if (_nextLoop > DateTime.Now)
                     {
                         Thread.Sleep(_nextLoop - DateTime.Now); 
-                    }
+                    }*/
                 }
             }
         }

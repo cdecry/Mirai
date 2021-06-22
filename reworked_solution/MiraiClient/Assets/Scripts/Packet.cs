@@ -16,6 +16,7 @@ public enum ServerPackets
     removePlayers,
     changeRoom,
     syncInventory,
+    changeClothes,
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -26,6 +27,7 @@ public enum ClientPackets
     loginRequest,
     removePlayer,
     changeRoomRequest,
+    changeClothesRequest,
 }
 
 public class Packet : IDisposable
@@ -185,6 +187,14 @@ public class Packet : IDisposable
         Write(_value.y);
         Write(_value.z);
         Write(_value.w);
+    }
+
+    public void Write(List<int> _value) //only use for clothing rn
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Write(_value[i]);
+        }
     }
     #endregion
 
@@ -370,6 +380,11 @@ public class Packet : IDisposable
     public Quaternion ReadQuaternion(bool _moveReadPos = true)
     {
         return new Quaternion(ReadFloat(_moveReadPos), ReadFloat(_moveReadPos), ReadFloat(_moveReadPos), ReadFloat(_moveReadPos));
+    }
+
+    public List<int> ReadListInt(bool _moveReadPos = true)
+    {
+        return new List<int>{ ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos), ReadInt(_moveReadPos) };
     }
     #endregion
 
