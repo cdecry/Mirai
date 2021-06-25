@@ -1,0 +1,144 @@
+This snapshot was automatically generated on
+Thu, 04 Jul 2019 14:35:44 +0000
+
+Version: 7.3.7
+Branch: HEAD
+Build: D:\php-sdk2\php-sdk-binary-tools\phpdev\vc15\x86\php-7.3.7-src\Release_TS
+
+Built-in Extensions
+===========================
+Core
+bcmath
+calendar
+ctype
+date
+filter
+hash
+iconv
+json
+mcrypt
+SPL
+pcre
+readline
+Reflection
+session
+standard
+mysqlnd
+tokenizer
+zip
+zlib
+libxml
+dom
+PDO
+openssl
+SimpleXML
+xml
+wddx
+xmlreader
+xmlwriter
+curl
+ftp
+sqlite3
+Phar
+mbstring
+mysqli
+
+
+Dependency information:
+Module: php_curl.dll
+===========================
+	libssh2.dll
+	nghttp2.dll
+	libcrypto-1_1.dll
+	libssl-1_1.dll
+
+Module: libssh2.dll
+===========================
+	libcrypto-1_1.dll
+
+Module: libssl-1_1.dll
+===========================
+	libcrypto-1_1.dll
+
+Module: php_ftp.dll
+===========================
+	libcrypto-1_1.dll
+	libssl-1_1.dll
+
+Module: php_imagick.dll
+===========================
+	core_rl_wand_.dll
+	core_rl_magick_.dll
+
+Module: core_rl_wand_.dll
+===========================
+	core_rl_magick_.dll
+	vcomp90.dll
+
+Module: core_rl_magick_.dll
+===========================
+	core_rl_zlib_.dll
+	core_rl_lqr_.dll
+	core_rl_ttf_.dll
+	core_rl_lcms_.dll
+	core_rl_bzlib_.dll
+	vcomp90.dll
+
+Module: core_rl_lqr_.dll
+===========================
+	core_rl_glib_.dll
+
+Module: core_rl_glib_.dll
+===========================
+	core_rl_zlib_.dll
+
+Module: php_intl.dll
+===========================
+	icuuc60.dll
+	icuin60.dll
+	icuio60.dll
+
+Module: icuuc60.dll
+===========================
+	icudt60.dll
+
+Module: icuin60.dll
+===========================
+	icuuc60.dll
+
+Module: icuio60.dll
+===========================
+	icuuc60.dll
+	icuin60.dll
+
+Module: php_ldap.dll
+===========================
+	libsasl.dll
+	libcrypto-1_1.dll
+	libssl-1_1.dll
+
+Module: php_oauth.dll
+===========================
+	libssh2.dll
+	nghttp2.dll
+	libcrypto-1_1.dll
+	libssl-1_1.dll
+
+Module: php_openssl.dll
+===========================
+	libcrypto-1_1.dll
+	libssl-1_1.dll
+
+Module: php_pgsql.dll
+===========================
+	libpq.dll
+
+Module: libpq.dll
+===========================
+	libssl-1_1.dll
+	libcrypto-1_1.dll
+
+Module: php_pdo_pgsql.dll
+===========================
+	libpq.dll
+

@@ -1,0 +1,268 @@
+2020-11-15T15:40:35.454390Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-11-15T15:40:35.463326Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-11-15T15:40:35.464346Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-11-15T15:40:35.464419Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 15304 ...
+2020-12-24T19:58:12.790642Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-24T19:58:12.817645Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-24T19:58:12.841274Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-24T19:58:12.841314Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 19524 ...
+2020-12-24T19:58:33.237039Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-24T19:58:33.237140Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-24T19:58:33.237843Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-24T19:58:33.237870Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 20168 ...
+2020-12-25T21:14:11.418727Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-25T21:14:11.437649Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-25T21:14:11.438629Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-25T21:14:11.438660Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 5156 ...
+2020-12-25T23:00:24.644667Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-25T23:00:24.663384Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-25T23:00:24.673480Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-25T23:00:24.673534Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 9180 ...
+2020-12-26T01:21:58.258804Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-26T01:21:58.258909Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-26T01:21:58.259632Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-26T01:21:58.259662Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 4128 ...
+2020-12-26T08:13:37.232298Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-26T08:13:37.232397Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-26T08:13:37.233129Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-26T08:13:37.233154Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 13808 ...
+2020-12-26T14:37:25.824031Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-26T14:37:25.824137Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-26T14:37:25.824807Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-26T14:37:25.824835Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 4708 ...
+2020-12-31T04:23:20.643512Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-12-31T04:23:20.652432Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2020-12-31T04:23:20.686927Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2020-12-31T04:23:20.687117Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 21108 ...
+2021-01-07T14:02:46.474384Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-07T14:02:46.501188Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-07T14:02:46.535236Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-07T14:02:46.535313Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 16012 ...
+2021-01-08T07:08:03.978502Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-08T07:08:04.005831Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-08T07:08:04.040250Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-08T07:08:04.040291Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 376 ...
+2021-01-14T02:32:29.221972Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-14T02:32:29.257080Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-14T02:32:29.317269Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-14T02:32:29.317324Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 31704 ...
+2021-01-21T16:21:15.475911Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-21T16:21:15.484403Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-21T16:21:15.544174Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-21T16:21:15.544256Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 5868 ...
+2021-01-21T16:21:39.974271Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-21T16:21:39.974463Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-21T16:21:39.978845Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-21T16:21:39.980517Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 11496 ...
+2021-01-23T23:05:42.252762Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-01-23T23:05:42.252851Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-01-23T23:05:42.253742Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-01-23T23:05:42.253787Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 7652 ...
+2021-02-22T15:18:58.166294Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-02-22T15:18:58.179916Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-02-22T15:18:58.201985Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-02-22T15:18:58.202040Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 16648 ...
+2021-04-02T13:47:19.544274Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-04-02T13:47:19.905344Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-04-02T13:47:20.102810Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-04-02T13:47:20.102865Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 17220 ...
+2021-04-02T16:50:15.161910Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-04-02T16:50:15.162096Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-04-02T16:50:15.162864Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-04-02T16:50:15.162903Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 12104 ...
+2021-04-04T05:59:35.362959Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-04-04T05:59:35.428842Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-04-04T05:59:35.462045Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-04-04T05:59:35.462108Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 20900 ...
+2021-04-08T19:47:00.973279Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-04-08T19:47:00.999367Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-04-08T19:47:01.024766Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-04-08T19:47:01.024822Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 20680 ...
+2021-04-19T05:11:24.021118Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-04-19T05:11:24.049851Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-04-19T05:11:24.114524Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-04-19T05:11:24.114566Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 21040 ...
+2021-05-02T18:42:23.803667Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-05-02T18:42:23.843519Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-05-02T18:42:23.953915Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-05-02T18:42:23.953957Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 3728 ...
+2021-05-02T20:03:57.565618Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-05-02T20:03:57.565762Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-05-02T20:03:57.566386Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-05-02T20:03:57.566426Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 19264 ...
+2021-05-03T12:51:36.047727Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-05-03T12:51:36.097941Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-05-03T12:51:36.098810Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-05-03T12:51:36.106140Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 5124 ...
+2021-05-13T14:59:08.107804Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-05-13T14:59:08.142750Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-05-13T14:59:08.183696Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-05-13T14:59:08.183749Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 12204 ...
+2021-06-05T12:33:07.097570Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-05T12:33:07.134101Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-05T12:33:07.177572Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-05T12:33:07.188582Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 16056 ...
+2021-06-06T15:25:28.980488Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-06T15:25:29.017772Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-06T15:25:29.145930Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-06T15:25:29.224851Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 13824 ...
+2021-06-06T15:26:06.807512Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-06T15:26:06.807765Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-06T15:26:06.812147Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-06T15:26:06.812220Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 12868 ...
+2021-06-08T17:06:31.923725Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-08T17:06:31.924029Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-08T17:06:31.939297Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-08T17:06:31.939882Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 16628 ...
+2021-06-11T02:07:52.702152Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-11T02:07:52.856332Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-11T02:07:52.995451Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-11T02:07:52.995490Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 32 ...
+2021-06-19T17:21:15.697192Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-19T17:21:15.728877Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-19T17:21:15.729433Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-19T17:21:15.729482Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 11800 ...
+2021-06-20T22:45:14.191218Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-20T22:45:14.221367Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-20T22:45:14.308780Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-20T22:45:14.308959Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 13188 ...
+2021-06-20T22:45:14.982219Z 0 [Warning] You need to use --log-bin to make --binlog-format work.
+2021-06-20T22:45:15.063550Z 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-06-20T22:45:15.065340Z 0 [Note] InnoDB: Uses event mutexes
+2021-06-20T22:45:15.067061Z 0 [Note] InnoDB: Memory barrier is not used
+2021-06-20T22:45:15.068342Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-06-20T22:45:15.094728Z 0 [Note] InnoDB: Number of pools: 1
+2021-06-20T22:45:15.158259Z 0 [Note] InnoDB: Not using CPU crc32 instructions
+2021-06-20T22:45:15.220616Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2021-06-20T22:45:15.314540Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-06-20T22:45:15.867629Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2021-06-20T22:45:15.974639Z 0 [Note] InnoDB: Log scan progressed past the checkpoint lsn 3497380
+2021-06-20T22:45:15.976272Z 0 [Note] InnoDB: Doing recovery: scanned up to log sequence number 3497389
+2021-06-20T22:45:15.978341Z 0 [Note] InnoDB: Database was not shutdown normally!
+2021-06-20T22:45:15.979593Z 0 [Note] InnoDB: Starting crash recovery.
+2021-06-20T22:45:24.073236Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-06-20T22:45:24.075509Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-06-20T22:45:24.086127Z 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-06-20T22:45:24.870101Z 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2021-06-20T22:45:25.009506Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2021-06-20T22:45:25.011963Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2021-06-20T22:45:25.038919Z 0 [Note] InnoDB: Waiting for purge to start
+2021-06-20T22:45:25.101445Z 0 [Note] InnoDB: Waiting for purge to start
+2021-06-20T22:45:25.173158Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 9807ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)
+2021-06-20T22:45:25.219661Z 0 [Note] InnoDB: 5.7.24 started; log sequence number 3497389
+2021-06-20T22:45:25.282962Z 0 [Note] InnoDB: Loading buffer pool(s) from C:\MAMP\db\mysql\ib_buffer_pool
+2021-06-20T22:45:25.428457Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2021-06-20T22:45:27.209004Z 0 [Note] InnoDB: Buffer pool(s) load completed at 210620 18:45:27
+2021-06-20T22:45:27.320178Z 0 [Warning] InnoDB: Table mysql/innodb_table_stats has length mismatch in the column name table_name.  Please run mysql_upgrade
+2021-06-20T22:45:27.329307Z 0 [Warning] InnoDB: Table mysql/innodb_index_stats has length mismatch in the column name table_name.  Please run mysql_upgrade
+2021-06-20T22:45:27.344502Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+2021-06-20T22:45:27.360497Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2021-06-20T22:45:27.362463Z 0 [Note] IPv6 is available.
+2021-06-20T22:45:27.389719Z 0 [Note]   - '::' resolves to '::';
+2021-06-20T22:45:27.391907Z 0 [Note] Server socket created on IP: '::'.
+2021-06-20T22:45:42.798092Z 0 [Note] Failed to start slave threads for channel ''
+2021-06-20T22:45:52.135120Z 0 [Note] Event Scheduler: Loaded 0 events
+2021-06-20T22:45:52.138055Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.7.24'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2021-06-20T22:45:52.277159Z 24 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.278887Z 16 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.281957Z 21 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.279105Z 26 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.277692Z 18 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.279146Z 15 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.280233Z 30 [Note] Access denied for user 'root'@'localhost' (using password: NO)
+2021-06-20T22:45:52.280758Z 27 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.280919Z 29 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.280813Z 23 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.281324Z 28 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.281324Z 22 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.284368Z 19 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.284448Z 25 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.278150Z 17 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.285161Z 20 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.288842Z 14 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.289303Z 3 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.290966Z 13 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.291753Z 12 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.293092Z 10 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.293794Z 9 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.294814Z 8 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.296015Z 7 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.296820Z 6 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.297437Z 5 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.299996Z 4 [Note] Got an error reading communication packets
+2021-06-20T22:45:52.301036Z 2 [Note] Got an error reading communication packets
+2021-06-20T22:45:53.000138Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe: Normal shutdown
+
+2021-06-20T22:45:53.002600Z 0 [Note] Giving 0 client threads a chance to die gracefully
+2021-06-20T22:45:53.004580Z 0 [Note] Shutting down slave threads
+2021-06-20T22:45:53.009575Z 0 [Note] Forcefully disconnecting 0 remaining clients
+2021-06-20T22:45:53.011731Z 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-06-20T22:45:53.014824Z 0 [Note] Binlog end
+2021-06-20T22:45:53.016985Z 0 [Note] Shutting down plugin 'ngram'
+2021-06-20T22:45:53.051468Z 0 [Note] Shutting down plugin 'partition'
+2021-06-20T22:45:53.058895Z 0 [Note] Shutting down plugin 'BLACKHOLE'
+2021-06-20T22:45:53.060489Z 0 [Note] Shutting down plugin 'ARCHIVE'
+2021-06-20T22:45:53.063022Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2021-06-20T22:45:53.078852Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+2021-06-20T22:45:53.080477Z 0 [Note] Shutting down plugin 'MyISAM'
+2021-06-20T22:45:53.081681Z 0 [Note] Shutting down plugin 'INNODB_SYS_VIRTUAL'
+2021-06-20T22:45:53.083123Z 0 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2021-06-20T22:45:53.084656Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2021-06-20T22:45:53.090806Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2021-06-20T22:45:53.092254Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2021-06-20T22:45:53.093600Z 0 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2021-06-20T22:45:53.094893Z 0 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2021-06-20T22:45:53.096193Z 0 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2021-06-20T22:45:53.097635Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2021-06-20T22:45:53.099878Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2021-06-20T22:45:53.108804Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2021-06-20T22:45:53.110295Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2021-06-20T22:45:53.111696Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2021-06-20T22:45:53.113707Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2021-06-20T22:45:53.115281Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2021-06-20T22:45:53.265884Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2021-06-20T22:45:53.268008Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+2021-06-20T22:45:53.269833Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2021-06-20T22:45:53.279971Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2021-06-20T22:45:53.283105Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2021-06-20T22:45:53.287778Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2021-06-20T22:45:53.292395Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2021-06-20T22:45:53.293980Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2021-06-20T22:45:53.298507Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2021-06-20T22:45:53.299921Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2021-06-20T22:45:53.301174Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2021-06-20T22:45:53.302447Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+2021-06-20T22:45:53.308283Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2021-06-20T22:45:53.309562Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+2021-06-20T22:45:53.311132Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+2021-06-20T22:45:53.316222Z 0 [Note] Shutting down plugin 'InnoDB'
+2021-06-20T22:45:53.344323Z 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-06-20T22:45:53.346597Z 0 [Note] InnoDB: Starting shutdown...
+2021-06-20T22:45:53.468472Z 0 [Note] InnoDB: Dumping buffer pool(s) to C:\MAMP\db\mysql\ib_buffer_pool
+2021-06-20T22:45:53.510683Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 210620 18:45:53
+2021-06-20T22:45:55.397876Z 0 [Note] InnoDB: Shutdown completed; log sequence number 3497784
+2021-06-20T22:45:55.400133Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-06-20T22:45:55.401565Z 0 [Note] Shutting down plugin 'MEMORY'
+2021-06-20T22:45:55.402569Z 0 [Note] Shutting down plugin 'CSV'
+2021-06-20T22:45:55.403549Z 0 [Note] Shutting down plugin 'sha256_password'
+2021-06-20T22:45:55.404703Z 0 [Note] Shutting down plugin 'mysql_native_password'
+2021-06-20T22:45:55.408199Z 0 [Note] Shutting down plugin 'binlog'
+2021-06-20T22:45:55.411948Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe: Shutdown complete
+
+2021-06-20T22:46:54.149694Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-20T22:46:54.150056Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-20T22:46:54.244313Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-20T22:46:54.244563Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 3928 ...
+2021-06-21T13:23:19.859184Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-21T13:23:19.859285Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-21T13:23:19.859799Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-21T13:23:19.859834Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 14596 ...
+2021-06-21T14:04:10.495420Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-21T14:04:10.560831Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-21T14:04:10.709467Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-21T14:04:10.709530Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 1452 ...
+2021-06-23T16:34:43.153623Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2021-06-23T16:34:43.153719Z 0 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+2021-06-23T16:34:43.154174Z 0 [ERROR] Cannot open Windows EventLog; check privileges, or start server with --log_syslog=0
+2021-06-23T16:34:43.154200Z 0 [Note] C:\MAMP\\bin\mysql\bin\mysqld.exe (mysqld 5.7.24) starting as process 22764 ...

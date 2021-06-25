@@ -1,0 +1,5 @@
+2021/05/03 09:55:37 [emerg] 4876#8608: CreateFile() "C:\MAMP\bin\nginx/conf/nginx.conf" failed (2: The system cannot find the file specified)
+2021/05/03 11:01:33 [emerg] 10676#3344: CreateFile() "C:\MAMP\bin\nginx/conf/nginx.conf" failed (2: The system cannot find the file specified)
+2021/05/03 11:01:55 [emerg] 6208#3284: CreateFile() "C:\MAMP\bin\nginx/conf/nginx.conf" failed (2: The system cannot find the file specified)
+2021/06/23 15:10:27 [notice] 14636#5072: signal process started
+2021/06/23 15:10:27 [error] 14636#5072: CreateFile() "C:/MAMP/bin/nginx/pid/nginx.pid" failed (2: The system cannot find the file specified)

@@ -1,0 +1,1180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>E-MailRelay Reference</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="emailrelay.css" type="text/css">
+ </head>
+ <body>
+  <!-- index:0::::E-MailRelay Reference -->
+ <div class="div-main">
+  <h1><a class="a-header" name="H_1">E-MailRelay Reference</a></h1> <!-- index:1:H:1::E-MailRelay Reference -->
+   <h2><a class="a-header" name="SH_1_1">Command line usage</a></h2> <!-- index:2:SH:1:1:Command line usage -->
+    <p>
+     The <em class="quote">emailrelay</em> program supports the following command-line usage:
+    </p>
+
+      <div class="div-pre">
+       <pre>emailrelay [&lt;option&gt; [&lt;option&gt; ...]]
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     where &lt;option&gt; is:
+    </p>
+    <dl>
+     <dt>--admin (-a)</dt>
+      <dd>
+       Enables the administration interface and specifies its listening port number.
+      </dd>
+     <dt>--admin-terminate (-Q)</dt>
+      <dd>
+       Enables the terminate command on the admin interface.
+      </dd>
+     <dt>--anonymous (-A)</dt>
+      <dd>
+       Disables the smtp vrfy command and sends less verbose smtp responses.
+      </dd>
+     <dt>--as-client (-q)</dt>
+      <dd>
+       Runs as a client, forwarding all spooled mail to &lt;host&gt;: equivalent to <em class="quote">--log --no-syslog --no-daemon --dont-serve --forward --forward-to</em>.
+      </dd>
+     <dt>--as-proxy (-y)</dt>
+      <dd>
+       Runs as a proxy server, forwarding each mail immediately to &lt;host&gt;: equivalent to <em class="quote">--log --close-stderr --poll=0 --forward-to</em>.
+      </dd>
+     <dt>--as-server (-d)</dt>
+      <dd>
+       Runs as a server, storing mail in the spool directory: equivalent to <em class="quote">--log --close-stderr</em>.
+      </dd>
+     <dt>--client-auth (-C)</dt>
+      <dd>
+       Enables smtp authentication with the remote server, using the given secrets file.
+      </dd>
+     <dt>--client-filter (-Y)</dt>
+      <dd>
+       Specifies an external program to process messages when they are forwarded.
+      </dd>
+     <dt>--client-tls (-j)</dt>
+      <dd>
+       Enables negotiated tls/ssl for smtp client (if openssl built in).
+      </dd>
+     <dt>--client-tls-connection (-b)</dt>
+      <dd>
+       Enables smtp over tls/ssl for smtp client (if openssl built in).
+      </dd>
+     <dt>--close-stderr (-e)</dt>
+      <dd>
+       Closes the standard error stream soon after start-up.
+      </dd>
+     <dt>--connection-timeout (-U)</dt>
+      <dd>
+       Sets the timeout (in seconds) when connecting to a remote server (default is 40).
+      </dd>
+     <dt>--debug (-g)</dt>
+      <dd>
+       Generates debug-level logging if built in.
+      </dd>
+     <dt>--domain (-D)</dt>
+      <dd>
+       Sets an override for the host's fully qualified domain name.
+      </dd>
+     <dt>--dont-serve (-x)</dt>
+      <dd>
+       Disables acting as a server on any port (part of --as-client and usually used with --forward).
+      </dd>
+     <dt>--filter (-z)</dt>
+      <dd>
+       Specifies an external program to process messages as they are stored.
+      </dd>
+     <dt>--filter-timeout (-W)</dt>
+      <dd>
+       Sets the timeout (in seconds) for running the --filter processor (default is 300).
+      </dd>
+     <dt>--forward (-f)</dt>
+      <dd>
+       Forwards stored mail on startup (requires --forward-to).
+      </dd>
+     <dt>--forward-to (-o)</dt>
+      <dd>
+       Specifies the remote smtp server (required by --forward, --poll, --immediate and --admin).
+      </dd>
+     <dt>--help (-h)</dt>
+      <dd>
+       Displays help text and exits.
+      </dd>
+     <dt>--immediate (-m)</dt>
+      <dd>
+       Enables immediate forwarding of messages as soon as they are received (requires --forward-to).
+      </dd>
+     <dt>--interface (-I)</dt>
+      <dd>
+       Defines the listening interface(s) for incoming connections (comma-separated list with optional smtp=,pop=,admin= qualifiers).
+      </dd>
+     <dt>--log (-l)</dt>
+      <dd>
+       Writes log information on standard error and syslog (but see --close-stderr and --no-syslog).
+      </dd>
+     <dt>--log-time (-L)</dt>
+      <dd>
+       Adds a timestamp to the logging output.
+      </dd>
+     <dt>--no-daemon (-t)</dt>
+      <dd>
+       Does not detach from the terminal.
+      </dd>
+     <dt>--no-smtp (-X)</dt>
+      <dd>
+       Disables listening for smtp connections (usually used with --admin or --pop).
+      </dd>
+     <dt>--no-syslog (-n)</dt>
+      <dd>
+       Disables syslog output (always overridden by --syslog).
+      </dd>
+     <dt>--pid-file (-i)</dt>
+      <dd>
+       Defines a file for storing the daemon process-id.
+      </dd>
+     <dt>--poll (-O)</dt>
+      <dd>
+       Enables polling of the spool directory for messages to be forwarded with the specified period (zero means on client disconnection) (requires --forward-to).
+      </dd>
+     <dt>--pop (-B)</dt>
+      <dd>
+       Enables the pop server.
+      </dd>
+     <dt>--pop-auth (-F)</dt>
+      <dd>
+       Defines the pop server secrets file (default is <em class="quote">/etc/emailrelay.auth</em>).
+      </dd>
+     <dt>--pop-by-name (-J)</dt>
+      <dd>
+       Modifies the pop spool directory according to the pop user name (requires --pop).
+      </dd>
+     <dt>--pop-no-delete (-G)</dt>
+      <dd>
+       Disables message deletion via pop (requires --pop).
+      </dd>
+     <dt>--pop-port (-E)</dt>
+      <dd>
+       Specifies the pop listening port number (default is 110) (requires --pop).
+      </dd>
+     <dt>--port (-p)</dt>
+      <dd>
+       Specifies the smtp listening port number (default is 25).
+      </dd>
+     <dt>--prompt-timeout (-w)</dt>
+      <dd>
+       Sets the timeout (in seconds) for getting an initial prompt from the server (default is 20).
+      </dd>
+     <dt>--remote-clients (-r)</dt>
+      <dd>
+       Allows remote clients to connect.
+      </dd>
+     <dt>--response-timeout (-T)</dt>
+      <dd>
+       Sets the response timeout (in seconds) when talking to a remote server (default is 1800).
+      </dd>
+     <dt>--server-auth (-S)</dt>
+      <dd>
+       Enables authentication of remote clients, using the given secrets file.
+      </dd>
+     <dt>--server-tls (-K)</dt>
+      <dd>
+       Enables negotiated tls/ssl for smtp server using the given openssl certificate file (which must be in the directory trusted by openssl).
+      </dd>
+     <dt>--size (-M)</dt>
+      <dd>
+       Limits the size of submitted messages.
+      </dd>
+     <dt>--spool-dir (-s)</dt>
+      <dd>
+       Specifies the spool directory (default is <em class="quote">/var/spool/emailrelay</em>).
+      </dd>
+     <dt>--syslog (-k)</dt>
+      <dd>
+       Forces syslog output if logging is enabled (overrides --no-syslog).
+      </dd>
+     <dt>--tls-config (-0)</dt>
+      <dd>
+       Sets tls configuration flags (eg. 2 for SSLv2 support).
+      </dd>
+     <dt>--user (-u)</dt>
+      <dd>
+       Names the effective user to switch to if started as root (default is <em class="quote">daemon</em>).
+      </dd>
+     <dt>--verbose (-v)</dt>
+      <dd>
+       Generates more verbose output (works with --help and --log).
+      </dd>
+     <dt>--verifier (-Z)</dt>
+      <dd>
+       Specifies an external program for address verification.
+      </dd>
+     <dt>--version (-V)</dt>
+      <dd>
+       Displays version information and exits.
+      </dd>
+    </dl>
+    <p>
+     Under Windows there are a few minor differences. Use <em class="quote">--help --verbose</em> to see
+     the complete list.
+    </p>
+   <h2><a class="a-header" name="SH_1_2">Message store</a></h2> <!-- index:2:SH:1:2:Message store -->
+    <p>
+     Mail messages are stored as text files in the configured spool directory. Each
+     message is represented as an envelope file and a content file. The envelope
+     file contains parameters relevant to the SMTP dialogue, and the content file
+     contains the RFC822 headers and body text.
+    </p>
+
+    <p>
+     The filenames used in the message store have a prefix of <em class="quote">emailrelay</em>, followed
+     by a process-id, timestamp and sequence number, and then <em class="quote">envelope</em> or
+     <em class="quote">content</em>. The envelope files then have an additional suffix to implement a
+     simple locking scheme.
+    </p>
+
+    <p>
+     The envelope file suffixes are:
+    </p>
+
+    <ul>
+     <li><em class="quote">.new</em> -- while the envelope is first being written</li>
+     <li>&lt;none&gt; -- while the message is spooled</li>
+     <li><em class="quote">.busy</em> -- while the message is being forwarded</li>
+     <li><em class="quote">.bad</em> -- if the message cannot be forwarded</li>
+     <li><em class="quote">.local</em> -- for copies of the envelope file for delivery to local recipients</li>
+    </ul>
+
+    <p>
+     If a message cannot be forwarded the envelope file is given a <em class="quote">.bad</em> suffix,
+     and the failure reason is written into the file.
+    </p>
+   <h2><a class="a-header" name="SH_1_3">Forwarding</a></h2> <!-- index:2:SH:1:3:Forwarding -->
+    <p>
+     Spooled messages can be forwarded at various times, depending on the
+     command-line options:
+    </p>
+
+    <ul>
+     <li>when E-MailRelay first starts up (<em class="quote">--as-client</em> or <em class="quote">--forward</em>)</li>
+     <li>as each message is submitted, just before receipt is acknowledged (<em class="quote">--immediate</em>)</li>
+     <li>as soon as the submitting client connection disconnects (<em class="quote">--poll=0</em>)</li>
+     <li>periodically (<em class="quote">--poll=&lt;seconds&gt;</em>)</li>
+     <li>on demand using the administration interface's <em class="quote">flush</em> command (<em class="quote">--admin=&lt;port&gt;</em>)</li>
+    </ul>
+
+    <p>
+     These modes of operation can be mixed, although more than one <em class="quote">--poll</em> option is
+     not allowed.
+    </p>
+
+    <p>
+     When using <em class="quote">--as-client</em> the spooled messages begin to be forwarded as soon as
+     the program starts up, and the program terminates once they have all been sent.
+    </p>
+
+    <p>
+     A pending <em class="quote">--poll</em> timer can be forced to expire immediately if a <em class="quote">--filter</em>
+     script exits with a special value of 103, as described below.
+    </p>
+
+    <p>
+     All receipent addresses must be accepted by the remote server when E-MailRelay
+     forwards a message. If any one recipient is rejected then the message will be
+     left in the spool directory with a <em class="quote">.bad</em> suffix on the envelope file.
+    </p>
+   <h2><a class="a-header" name="SH_1_4">Mail processing</a></h2> <!-- index:2:SH:1:4:Mail processing -->
+    <p>
+     The <em class="quote">--filter</em> command-line option allows you to specify a mail pre-processor
+     program which operates on mail messages as they pass through the E-MailRelay
+     system. The mail pre-processor program is run as soon as the mail message has
+     been stored in the spool directory, with the full path of the content file
+     added onto the end of the given command-line.
+    </p>
+
+    <p>
+     For example, the following command will start a proxy server on port 10025
+     which processes mail using the specified filter program, and then forwards the
+     mail on to the system's default MTA (on port 25):
+    </p>
+
+      <div class="div-pre">
+       <pre>emailrelay --as-proxy=localhost:smtp --port=10025 --no-syslog \
+  --filter=$HOME/myfilter --spool-dir=$HOME/spool
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     The pre-processor program should terminate with an exit code of zero to
+     indicate success, or a value between 1 and 99 to indicate failure. Exit codes
+     between 100 and 107 are reserved for special processing: 100 is used to cancel
+     all further processing of the message, and 103 has the effect of immediately
+     expiring any <em class="quote">--poll</em> timer.
+    </p>
+
+    <p>
+     If the pre-processor program terminates with a non-zero exit code then the
+     first few thousand characters of the standard output stream are searched for a
+     line starting with <em class="quote">&lt;&lt;</em> or <em class="quote">[[</em> followed by <em class="quote">&gt;&gt;</em> or <em class="quote">]]</em> respectively. The text
+     in between is taken as a failure reason, and passed back to the SMTP client.
+    </p>
+
+    <p>
+     The pre-processor program can edit any part of the message's envelope file or
+     content file: E-MailRelay remembers nothing about the message while the
+     pre-processor is running except the filename. But if the message is deleted
+     by the pre-processor then E-MailRelay may be upset, so to avoid the error
+     message use an exit code of 100.
+    </p>
+
+    <p>
+     If the pre-processor program creates completely new messages in the spool
+     directory then they may not be processed immediately, or they may be completely
+     ignored. To get E-MailRelay to pick up any new messages you create in the spool
+     directory use the <em class="quote">--poll</em> option, or run <em class="quote">emailrelay --as-client</em> from within
+     the pre-processor program.
+    </p>
+
+    <p>
+     As an example of a simple pre-processor this shell script examines the sending
+     client's IP address and conditionally passes the message into <em class="quote">sendmail</em> (using
+     the sendmail command-line interface rather than SMTP):
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# filter.sh
+content="${1}"
+envelope="`echo \"${content}\" | sed 's/content/envelope.new/'`"
+ip="`awk '/MailRelay-Client:/ {print $2;exit}' \"${envelope}\"`"
+if test "${ip}" = "192.168.0.2"
+then
+	cat "${content}" | /usr/sbin/sendmail -t
+	rm -f "${envelope}" "${content}"
+	exit 100 # &lt;= cancel further processing by emailrelay
+fi
+exit 0
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     The first thing this script does is convert the path of the content file which
+     it is given, into the corresponding envelope file. It then extracts the
+     client's IP address out of the envelope file using <em class="quote">awk</em>. If this matches the
+     fixed address then it pipes the message content into sendmail, deletes the
+     message and exits with a value of 100. The exit value of 100 tells E-MailRelay
+     to forget the message, and not to complain about the files disappearing.
+    </p>
+
+    <p>
+     For Windows this example can be rewritten in JavaScript:
+    </p>
+
+      <div class="div-pre">
+       <pre>// filter.js
+var content = WScript.Arguments(0) ;
+var envelope = content.substr(0,content.length-7) + "envelope.new" ;
+var fs = WScript.CreateObject( "Scripting.FileSystemObject" ) ;
+var ts = fs.OpenTextFile( envelope , 1 , false ) ;
+var e = ts.ReadAll() ;
+ts.Close() ;
+var re = new RegExp( "MailRelay-Client: \(.*\)" ) ;
+var ip = e.match(re)[1] ;
+if( ip == "192.168.0.2" )
+{
+	var sh = WScript.CreateObject( "Wscript.Shell" ) ;
+	sh.Run( "sendmail " + content ) ; // bogus
+	fs.DeleteFile( content ) ;
+	fs.DeleteFile( envelope ) ;
+	WScript.Quit( 100 )
+}
+WScript.Quit( 0 ) ;
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     Windows pre-processor programs written in JavaScript can be run using
+     <em class="quote">cscript</em>, with an E-MailRelay <em class="quote">--filter</em> option something like this:
+    </p>
+
+      <div class="div-pre">
+       <pre>--filter="c:/program\ files/emailrelay/filter.js"
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     Note how the space character in <em class="quote">program files</em> is escaped with a backslash.
+    </p>
+
+    <p>
+     Example <em class="quote">--filter</em> scripts are included in the distribution, including
+     <em class="quote">emailrelay-process.sh</em> which does rot-13 masking of messages. This script also
+     does some simple MIME encoding, so that the masked message appears as an
+     attachment within a plaintext bearer message.
+    </p>
+
+    <p>
+     E-MailRelay also has a <em class="quote">--client-filter</em> option that enables pre-processing of
+     messages just before they are forwarded, rather then after they are stored. The
+     disadvantage is that by then it is too late to notify the submitting SMTP client
+     of any processing failures, so in many applications using <em class="quote">--filter</em> is more
+     useful. The special exit code of 100 can be used to ignore the current message,
+     and 102 to stop looking for spooled messages after processing the current one.
+    </p>
+
+    <p>
+     Bear in mind the following points when writing <em class="quote">--filter</em> programs:
+    </p>
+
+    <ul>
+     <li>The standard input and output are not used; the content filename is passed on the command-line.</li>
+     <li>Programs run with a reduced set of environment variables.</li>
+     <li>The E-MailRelay process is completely blocked while the <em class="quote">--filter</em> program runs so it should be fast.</li>
+     <li>E-MailRelay files use CR-LF line terminators, as required by the RFCs.</li>
+     <li>Envelope files will have a file extension of <em class="quote">.new</em> or <em class="quote">.busy</em> when the program runs.</li>
+     <li>Windows scripts may need to be run via <em class="quote">cscript</em> or a batch file wrapper.</li>
+    </ul>
+
+    <p>
+     It is also possible to do message pre-processing in a separate process by using
+     <em class="quote">net:&lt;address&gt;:&lt;port&gt;</em> as the <em class="quote">--filter</em> or <em class="quote">--client-filter</em> option parameter.
+     E-MailRelay connects to this address and then uses a simple line-based dialog as
+     each e-mail message is processed where it sends the full path of the message
+     content file in one line and expects the remote process to respond with an <em class="quote">ok</em>
+     line if the message is to be accepted or an error message. One advantage of
+     using a network pre-processor compared to running a program is that the
+     E-MailRelay server is not blocked while the messages are being pre-processed.
+    </p>
+   <h2><a class="a-header" name="SH_1_5">Authentication</a></h2> <!-- index:2:SH:1:5:Authentication -->
+    <p>
+     E-MailRelay supports the SMTP <em class="quote">AUTH</em> extension, as defined in RFC2554, on both
+     the server-side and client-side.
+    </p>
+
+    <p>
+     The authentication mechanisms currently supported are:
+    </p>
+
+    <dl>
+     <dt><em class="quote">PLAIN</em></dt>
+      <dd>
+       Passwords are stored in clear-text, sent over the network in clear-text, and
+       are replayable. Defined in RFC2595.
+      </dd>
+     <dt><em class="quote">LOGIN</em></dt>
+      <dd>
+       Similar to <em class="quote">PLAIN</em>. Officially obsolete although widely used.
+      </dd>
+     <dt><em class="quote">CRAM-MD5</em></dt>
+      <dd>
+       Passwords are not stored in clear-text, not sent over the network, and are
+       not replayable. Defined in RFC2195.
+      </dd>
+    </dl>
+    <p>
+     Authentication is enabled with the <em class="quote">--client-auth</em> and <em class="quote">--server-auth</em>
+     command-line options and the option's parameter is the name of a secrets file,
+     containing usernames and passwords:
+    </p>
+
+      <div class="div-pre">
+       <pre>emailrelay --as-server --server-auth=/etc/emailrelay-clients.auth
+emailrelay --as-client=myisp.net:smtp --client-auth=/etc/emailrelay-myisp.auth
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     The secrets file has a line-based format: blank lines are ignored and the hash
+     character (#) is used for comments.
+    </p>
+
+    <p>
+     Lines have four white-space delimited fields:
+    </p>
+
+    <ul>
+     <li><em class="quote">client-or-server</em></li>
+     <li><em class="quote">mechanism</em></li>
+     <li><em class="quote">userid</em></li>
+     <li><em class="quote">secret</em></li>
+    </ul>
+
+    <p>
+     The <em class="quote">mechanism</em> field must be <em class="quote">LOGIN</em>, <em class="quote">APOP</em> or <em class="quote">CRAM-MD5</em> (case-insensitive);
+     the <em class="quote">client-or-server</em> field must be <em class="quote">client</em> or <em class="quote">server</em> (also
+     case-insensitive); the <em class="quote">userid</em> field is xtext-encoded user identifier; and the
+     <em class="quote">secret</em> field is the xtext-encoded <em class="quote">LOGIN</em> password, or the <em class="quote">CRAM-MD5</em> digest
+     key.
+    </p>
+
+    <p>
+     The <em class="quote">xtext</em> encoding scheme is defined properly in RFC1891, but basically it
+     says that non alphanumeric characters, space, <em class="quote">+</em> and <em class="quote">=</em> should be represented
+     in hexadecimal ascii as <em class="quote">+XX</em>.
+    </p>
+
+    <p>
+     The client-side secrets file specified with <em class="quote">--client-auth</em> is used when
+     E-MailRelay acts as a client to talk to a remove server. The file should contain
+     at least one <em class="quote">client LOGIN</em> or <em class="quote">client CRAM-MD5</em> entry.
+    </p>
+
+    <p>
+     A server-side secrets file specified with <em class="quote">--server-auth</em> is used when a remote
+     client tries to authenticate with the E-MailRelay server. The file should
+     normally contain several <em class="quote">server LOGIN</em> or <em class="quote">server CRAM-MD5</em> entries, one for
+     each client.
+    </p>
+
+    <p>
+     The same secrets file may be specified for both <em class="quote">--client-auth</em> and
+     <em class="quote">--server-auth</em> options.
+    </p>
+
+    <p>
+     The <em class="quote">CRAM-MD5</em> keys can be generated using the <em class="quote">emailrelay-passwd</em> utility.
+    </p>
+
+    <p>
+     As an example, the following secrets file defines <em class="quote">jsmith</em> as the username to be
+     used when E-MailRelay authenticates with a remote SMTP server, and defines two
+     usernames (<em class="quote">user1</em> and <em class="quote">user2</em>) which can be used by clients when they
+     authenticate with the E-MailRelay server:
+    </p>
+
+      <div class="div-pre">
+       <pre>#
+# emailrelay secrets file
+#
+client LOGIN jsmith my+20password
+server LOGIN user1 secret
+server LOGIN user2 e+3Dmc2
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     A <em class="quote">CRAM-MD5</em> version would look like this:
+    </p>
+
+      <div class="div-pre">
+       <pre>#
+# emailrelay secrets file
+#
+client CRAM-MD5 jsmith 688498119.2977922305.1278051807.3015243256.2216875978.2833592318.2902375592.3156808220
+server CRAM-MD5 user1 4059553961.2316091643.3282746241.1444639637.3735501773.3404060330.2760590371.1201092398
+server CRAM-MD5 user2 2798539199.3144534242.3784876256.2879973305.2327113479.216533878.2436460291.2361831919
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     When using the <em class="quote">LOGIN</em> mechanism you have to store plaintext passwords in the
+     secrets file, so you should make sure that the secrets file has tight
+     permissions and the passwords in it are not also used for anything important.
+    </p>
+
+    <p>
+     On the server side authentication is advertised by E-MailRealy in the response
+     to the SMTP <em class="quote">EHLO</em> command if the <em class="quote">--server-auth</em> command-line option is used.
+     Authentication by the client is then mandatory unless the client's IP address is
+     configured as a trusted address.
+    </p>
+
+    <p>
+     Trusted IP addresses are configured with lines in the secrets file having <em class="quote">NONE</em>
+     in the first field, <em class="quote">server</em> in the second field, a wildcarded IP address in
+     the third field, and an arbitrary keyword in the fourth field. The keyword field
+     is passed to any external address verifier program specified by the <em class="quote">--verifier</em>
+     command-line option; it is not used for any other purpose. Wildcarded IPv4
+     addresses can use a format like 192.168.0.0/24 or 192.168.0.*; wildcarded IPv6
+     addresses must have the full set of 32 lowercase hex digits followed by the CIDR
+     netmask.
+    </p>
+
+    <p>
+     For example, this secrets file allows any client connecting from the
+     192.168.0.0/24 domain to connect without authentication desipte the
+     <em class="quote">--server-auth</em> option:
+    </p>
+
+      <div class="div-pre">
+       <pre>#
+# emailrelay secrets file
+#
+server NONE 192.168.0.* localdomain
+server LOGIN user1 secret
+server LOGIN user2 e+3Dmc2
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     On the client side authentication is performed when E-MailRelay has connected to
+     a server which implements the AUTH extension with one of the supported
+     mechanisms. If client authentication is enabled (with the <em class="quote">--client-auth</em>
+     option) but the remote server does not support the AUTH extension, or does not
+     support the LOGIN or CRAM-MD5 mechanism, then E-MailRelay will log an error
+     and not forward any messages.
+    </p>
+
+    <p>
+     If E-MailRelay successfully authenticates with the remote server then the
+     client's authentication name (if any) is passed as a parameter to the MAIL
+     command when the message is forwarded. Some SMTP servers are reported to reject
+     the message if the name on the MAIL command does not match the name used to
+     authenticate with them. However, the name passed as a parameter to the MAIL
+     command is stored in the message's envelope file, so a <em class="quote">--filter</em> script can be
+     used to change this to match whatever the remote server expects. An example
+     script is provided in the distribution.
+    </p>
+
+    <p>
+     Note that some ISPs require separate POP/IMAP authentication before SMTP access
+     from a particular IP address is allowed. This type of POP-before-SMTP
+     authentication can be done outside the E-MailRelay system by POP/IMAP utilities
+     such as <em class="quote">fetchmail</em>.
+    </p>
+   <h2><a class="a-header" name="SH_1_6">TLS/SSL</a></h2> <!-- index:2:SH:1:6:TLS/SSL -->
+    <p>
+     E-MailRelay can use negotiated TLS/SSL to encrypt SMTP and POP3 sessions: to
+     enable TLS/SSL encryption when E-MailRelay is acting as an SMTP client use the
+     <em class="quote">--client-tls</em> command-line option, and to enable TLS/SSL when E-MailRelay is
+     acting as an SMTP or POP3 server use <em class="quote">--server-tls</em>. The connections start off
+     as unencrypted and use the STARTTLS command to negotiate TSL/SSL encryption
+     before any plaintext passwords are exchanged.
+    </p>
+
+    <p>
+     The <em class="quote">--server-tls</em> option requires the name of an X.509 certificate in the <em class="quote">PEM</em>
+     format. This file must be in a directory that the OpenSSL library considers to
+     be secure. On some systems this is <em class="quote">/etc/ssl/certs</em>.
+    </p>
+
+    <p>
+     Certificate files can be created with the <em class="quote">openssl</em> utility using the
+     <em class="quote">req -x509</em> sub-command. Refer to the OpenSSL documentation for the full details
+     but something like this might work for testing purposes:
+    </p>
+
+      <div class="div-pre">
+       <pre>$ cd /etc/ssl/certs
+$ openssl req -x509 -nodes -days 365 -subj "/O=`uname -n`/CN=$USER" -newkey rsa:1024 -keyout emailrelay.pem  -out emailrelay.pem
+$ ln -s emailrelay.pem `openssl x509 -noout -hash -in emailrelay.pem`.0
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     E-MailRelay can also make outgoing SMTP connections using TLS/SSL encryption
+     where the whole SMTP dialog is encrypted from the start, without a negotiation
+     step (<em class="quote">--client-tls-connection</em>). This is sometimes called SMTP-over-TLS or
+     secure SMTP (ssmtp) and it is normally used with port number 465.
+    </p>
+
+    <p>
+     The behaviour of the TLS/SSL layer can be tweaked by using <em class="quote">--tls-config</em> option
+     with a special number that is made up of the following:
+    </p>
+    <ul>
+     <li>2 - allow SSL v2 or later</li>
+     <li>3 - allow SSL v3 or later</li>
+     <li>4 - ask for peer certificates but just log them</li>
+     <li>8 - ask for peer certificates and verify them</li>
+    </ul>
+   <h2><a class="a-header" name="SH_1_7">PAM Authentication</a></h2> <!-- index:2:SH:1:7:PAM Authentication -->
+    <p>
+     E-MailRelay supports the use of PAM (Pluggable Authentication Modules) for
+     authentication if it has been built with the <em class="quote">--with-pam</em> configure option.
+    </p>
+
+    <p>
+     PAM authentication can be used by E-MailRelay to authenticate SMTP and POP3
+     sessions coming in from remote clients; it cannot be used by E-MailRelay to
+     supply passwords when acting as an SMTP client.
+    </p>
+
+    <p>
+     Use <em class="quote">--server-auth=/pam</em> and/or <em class="quote">--pop-auth=/pam</em> on the command-line to enable
+     PAM authentication at run-time. The E-MailRelay server will then advertise an
+     SMTP authentication mechanism of PLAIN and do the actual authentication via PAM.
+    </p>
+
+    <p>
+     The PAM system itself must be configured with a service of <em class="quote">emailrelay</em>. This
+     normally involves creating a file <em class="quote">/etc/pam.d/emailrelay</em> containing somthing
+     like the following:
+    </p>
+
+      <div class="div-pre">
+       <pre>auth requisite pam_unix.so nullok_secure
+session required pam_permit.so
+account required pam_permit.so
+password required pam_deny.so
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     With this configuration the E-MailRelay server will use normal unix system
+     account names and passwords to authenticate remote clients, but note that on
+     some systems this will require special permissioning to allow the E-MailRelay
+     server to read the shadow password database.
+    </p>
+
+    <p>
+     The passwords for system accounts are usually very sensitive so E-MailRelay
+     requires the <em class="quote">--server-tls</em> command-line option when using PAM authentication,
+     and clients are required to establish a TLS/SSL session before authenticating.
+    </p>
+   <h2><a class="a-header" name="SH_1_8">SOCKS</a></h2> <!-- index:2:SH:1:8:SOCKS -->
+    <p>
+     E-MailRelay can use a SOCKS 4a proxy for establishing outgoing SMTP connections
+     if the SOCKS proxy address is appended to the SMTP server's address separated by
+     <em class="quote">@</em>.
+    </p>
+
+    <p>
+     For example, this could be used to send e-mails via the Tor network, assuming
+     there is a local Tor server listening on port 9050:
+    </p>
+
+      <div class="div-pre">
+       <pre>emailrelay --forward-to myisp.net:smtp@localhost:9050 ...
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     In this example the target SMTP server will receive a connection from the Tor
+     exit node rather than from E-MailRelay directly.
+    </p>
+   <h2><a class="a-header" name="SH_1_9">Pop server</a></h2> <!-- index:2:SH:1:9:Pop server -->
+    <p>
+     E-MailRelay can be used as a POP3 server so that POP clients have access to
+     spooled messages.
+    </p>
+
+    <p>
+     The following command-line options are used:
+    </p>
+
+    <dl>
+     <dt>--pop</dt>
+      <dd>
+       Enables the POP3 server. Negotiated TLS/SSL (using <em class="quote">STLS</em>) will be enabled if
+       the <em class="quote">--client-tls</em> or <em class="quote">--server-tls</em> options are also given.
+      </dd>
+     <dt>--pop-port=&lt;port&gt;</dt>
+      <dd>
+       Changes the POP3 listening port from its default of 110.
+      </dd>
+     <dt>--pop-auth=&lt;path&gt;</dt>
+      <dd>
+       Changes the authentication secrets file. The default is typically
+       <em class="quote">/etc/emailrelay.auth</em>.
+       <p class="p-break"></p>
+       The format of the authentication secrets file is the same as for
+       <em class="quote">--server-auth</em> and the same file can be used for both SMTP and POP3
+       authentication.
+       <p class="p-break"></p>
+       <em class="quote">server APOP</em> entries are used for <em class="quote">APOP</em> authentication, <em class="quote">server LOGIN</em>
+       entries are used for <em class="quote">USER/PASS</em> authentication, and <em class="quote">server CRAM-MD5</em> entries
+       are used for <em class="quote">AUTH</em> authentication.
+       <p class="p-break"></p>
+       Note that the basic POP3 protocol defines only <em class="quote">APOP</em> and <em class="quote">USER/PASS</em>
+       authentication, so some POP client programs may not be able to cope with
+       CRAM-MD5 authentication using the POP3 <em class="quote">AUTH</em> extension.
+       <p class="p-break"></p>
+       The CRAM-MD5 authentication mechanism will only be advertised to clients
+       if there are <em class="quote">server CRAM-MD5</em> entries in the secrets file.
+       <p class="p-break"></p>
+       If E-MailRelay was built with PAM support then a special value of <em class="quote">/pam</em> can
+       be used to enable authentication using the PAM infrastructure rather than a
+       secrets file. In this case only the PLAIN authentication mechanism will be
+       advertised to the client but transport level encryption using TLS/SSL will be
+       mandatory.
+      </dd>
+     <dt>--pop-by-name</dt>
+      <dd>
+       Modifies the POP spool directory according to the name used by the client
+       to authenticate with the E-MailRelay server. The client name is used as a
+       sub-directory off the standard spool directory. So, for example, if a client
+       authenticates as <em class="quote">bob</em> then the POP3 server will serve messages from the <em class="quote">bob</em>
+       sub-directory, <em class="quote">/var/spool/emailrelay/bob</em>.
+       <p class="p-break"></p>
+       If E-MailRelay finds only the envelope file in the sub-directory and not the
+       content file then it will look for the content file in the main spool
+       directory, eg. <em class="quote">/var/spool/emailrelay</em>. This feature can be used to save
+       disk space if serving the same message to multiple POP clients.
+      </dd>
+     <dt>--pop-no-delete</dt>
+      <dd>
+       Disables message deletion: the POP3 DELE command will appear to succeed, but
+       no files will be deleted from the spool directory.
+      </dd>
+    </dl>
+   <h2><a class="a-header" name="SH_1_10">Address verification</a></h2> <!-- index:2:SH:1:10:Address verification -->
+    <p>
+     By default the E-MailRelay server will accept all recipient addresses for
+     incoming e-mails as valid. This default behaviour can be modified by using an
+     external verifier program, specified with the <em class="quote">--verifier</em> command-line option,
+     so that you get to choose which recipient addresses are accepted as valid and
+     which are rejected.
+    </p>
+
+    <p>
+     Your verifier script is passed a command-line containing: (1) the full e-mail
+     address as supplied by the remote client, (2) the user-name part of the address
+     in upper-case, (3) the host-name part in upper-case, (4) the local host's fully
+     qualified domain name in upper-case, (5) the <em class="quote">MAIL</em> command's <em class="quote">FROM:</em> address as
+     supplied by the client or the empty string in the case of the <em class="quote">VRFY</em> command,
+    </p>
+    <ol>
+     <li>the IP address of the client connection, (7) the authentication mechanism</li>
+    </ol>
+    <p>
+     used by the client (<em class="quote">NONE</em> if trusted), and (8) either the authentication name
+     or the fourth field from authentication secrets file if a trusted IP address.
+    </p>
+
+    <p>
+     So, for example, a verifier script called <em class="quote">myverifier</em> might be run with the
+     following command-line:
+    </p>
+
+      <div class="div-pre">
+       <pre>myverifier me@myhost.mydomain ME MYHOST.MYDOMAIN MYHOST.MYDOMAIN bob@other.net 192.168.0.1 LOGIN bob
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     The verifier script is expected to generate two lines of output on the standard
+     output stream and then terminate with a specific exit code.
+    </p>
+
+    <p>
+     For valid addresses the first line of output is ignored, the second line should
+     be copied from the first command-line argument, and the exit value should be
+     one.
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- accept all (252)
+echo ""
+echo $1
+exit 1
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     If the address is valid but it should be delivered to a local mailbox rather
+     than forwarded then the verifier script should write two lines to the standard
+     output -- the full name associated with the mailbox, and the canonical mailbox
+     name -- and then exit with a value of zero.
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- accept as local (250)
+echo Local Postmaster '&lt;postmaster@localhost&gt;'
+echo postmaster
+exit 0
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     For E-MailRelay local delivery just means that the message file in the spool
+     directory is given a <em class="quote">.local</em> filename suffix. This can be used to create a
+     separate channel for adminstrative messages such as delivery reports.
+    </p>
+
+    <p>
+     For invalid addresses the exit value should be non-zero and anything written to
+     the standard output is taken as the reason for the failure.
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- reject as invalid (550)
+echo invalid address: $1
+exit 2
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     To indicate a temporary failure this can be changed to an exit code of 3.
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- reject as temporarily invalid (450)
+echo address unavailable: $1
+exit 3
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     If the verifier exit code is 100 then the connection is aborted immediately,
+     which may be useful in limiting the impact of denial of service attacks:
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- abort
+exit 100
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     In this more complete example the verifier script accepts all addresses as valid
+     as long as they contain an <em class="quote">at</em> character:
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier -- accept only if containing an at sign
+address="$1"
+expr "${address}" : ".*@" &gt; /dev/null || exit 2
+echo ""
+echo "${address}"
+exit 1 # accept
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     As another example, this verifier script accepts all recipient addresses by
+     default but rejects remote addresses if the client has bypassed authentication
+     by connecting on a trusted IP address:
+    </p>
+
+      <div class="div-pre">
+       <pre>#!/bin/sh
+# address verifier
+address="$1"
+host="$3"
+local_domain="$4"
+auth_mechanism="$7"
+if test -z "${auth_mechanism}" ; then auth_mechanism="NONE" ; fi
+if test "${auth_mechanism}" = "NONE" -a "${host}" != "${local_domain}"
+then
+	echo "cannot relay without authentication"
+	exit 2 # reject the recipient address
+fi
+echo ""
+echo "${address}"
+exit 1 # accept the recipient address
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     or written in JavaScript for Windows:
+    </p>
+
+      <div class="div-pre">
+       <pre>// verifier.js
+var address = WScript.Arguments(0) ;
+var host = WScript.Arguments(2) ;
+var local_domain = WScript.Arguments(3) ;
+var auth_mechanism = WScript.Arguments(6) ;
+if( ( auth_mechanism == "NONE" || auth_mechanism == "" ) &amp;&amp; host != local_domain )
+{
+	WScript.Stdout.WriteLine( "cannot relay without authentication" ) ;
+	WScript.Quit( 2 ) ;
+}
+WScript.Stdout.WriteLine( "" ) ;
+WScript.Stdout.WriteLine( address ) ;
+WScript.Quit( 1 ) ;
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     If this verifier script is used with a suitable <em class="quote">--server-auth</em> file then it can
+     be used to prevent open relay without restricting authenticated clients.
+    </p>
+
+    <p>
+     It is also possible to verify addresses in a separate daemon process by using a
+     <em class="quote">--verifier</em> option of the form <em class="quote">net:&lt;address&gt;:&lt;port&gt;</em>. In this case E-MailRelay
+     will connect to the specified verifier daemon over the network and send address
+     verification requests as lines with pipe-delimited fields. The expected response
+     is another pipe-delimited line containing the same information as returned by
+     verifier scripts but in reverse, such as <em class="quote">3|address unavailable</em> or
+     <em class="quote">0|postmaster|Local Postmaster &lt;postmaster@localhost&gt;</em>. The <em class="quote">inetd</em> super-server
+     daemon would be a convenient way to connect up the pieces in this case.
+    </p>
+   <h2><a class="a-header" name="SH_1_11">Security issues</a></h2> <!-- index:2:SH:1:11:Security issues -->
+    <p>
+     The following are some security issues that have been taken into consideration:
+    </p>
+
+    <dl>
+     <dt>Effective userid</dt>
+      <dd>
+       Suid privileges are revoked at start-up, switching the effective
+       userid/groupid to be the real userid/groupid values. If started as <em class="quote">root</em>
+       then the effective userid/groupid are switched at start-up to those of user
+       <em class="quote">daemon</em>. Special privileges are only reclaimed when needed to bind sockets
+       and do file i/o. Normally this means temporarily switching the userid and
+       groupid back to what they were at start-up. However, when writing spool files
+       after being started as <em class="quote">root</em> only the effective userid is changed, not the
+       groupid, so that new files have group ownership corresponding to the
+       <em class="quote">daemon</em> user.
+      </dd>
+     <dt>Execution environment</dt>
+      <dd>
+       The external pre-processor programs are run with an almost empty set of
+       environment variables (<em class="quote">PATH</em> and <em class="quote">IFS</em>), and with no open file descriptors
+       other than <em class="quote">stdin</em> and <em class="quote">stderr</em> open onto <em class="quote">/dev/null</em>, and <em class="quote">stdout</em> open onto a
+       pipe.
+      </dd>
+     <dt>Configuration</dt>
+      <dd>
+       The mail pre-processor filenames have to be configured using a full path, so
+       there is no dependence on the current working directory or the PATH
+       environment variable.
+      </dd>
+     <dt>Umask</dt>
+      <dd>
+       The program runs for most of the time with a <em class="quote">umask</em> of 177, switching to 117
+       when creating spool files.
+      </dd>
+     <dt>Buffer overflow</dt>
+      <dd>
+       Strings are dynamically allocated in c++, so buffer overflow/truncation issues
+       are avoided.
+      </dd>
+     <dt>Remote clients</dt>
+      <dd>
+       By default connections will be rejected if they come from remote machines.
+      </dd>
+     <dt>Remote configuration</dt>
+      <dd>
+       No configuration parameters can be changed through the administrative
+       interface.
+      </dd>
+     <dt>Use of <em class="fn">exec()</em> and <em class="fn">system()</em></dt>
+      <dd>
+       No <em class="fn">exec()</em>, <em class="fn">system()</em> or <em class="fn">popen()</em> calls are used other than <em class="fn">execve()</em> to spawn the
+       mail pre-processor and/or address verifier.
+      </dd>
+     <dt>File permissions</dt>
+      <dd>
+       After a normal installation the spool directory is has ownership of
+       <em class="quote">root.daemon</em> with permissions of <em class="quote">-rwxrwxr-x</em> and messages files are created
+       with permissions of <em class="quote">-rw-rw----</em>. This allows normal users to list messages
+       files but not read them.
+       <p class="p-break"></p>
+       The <em class="quote">emailrelay-submit</em> program is given group ownership of <em class="quote">daemon</em> with its
+       group set-user-id flag set. This allows it to create message files in the
+       spool directory, and the files created end up owned by the submitter but with
+       group ownership of <em class="quote">daemon</em>.
+      </dd>
+     <dt>Logging</dt>
+      <dd>
+       Logging output is conditioned so that ANSI escape sequences cannot appear
+       in the log.
+       <p class="p-break"></p>
+       Passwords and message content are not logged (except if using the <em class="quote">--debug</em>
+       option at run time with debug logging enabled at build time).
+      </dd>
+     <dt>Information leakage</dt>
+      <dd>
+       The <em class="quote">--anonymous</em> option can be used to reduce the amount of information
+       released to remote clients, especially with an empty <em class="quote">--domain</em>.
+      </dd>
+     <dt>Mandatory encryption</dt>
+      <dd>
+       When using Linux PAM for authentication all clients are required to use
+       TLS/SSL encryption.
+      </dd>
+    </dl>
+    <p>
+     Security issues which relate to the SMTP protocol itself are beyond the scope of
+     this document, but RFC2821 makes the following observation: "SMTP mail is
+     inherently insecure in that it is feasible for even [..] casual users to [..]
+     create messages that will trick a [..] recipient into believing that they came
+     from somewhere else. [..] Real [..] security lies [..] in end-to-end methods
+     [..] such as those which use digital signatures."
+    </p>
+
+    <p>
+     The <em class="quote">Authentication</em> and <em class="quote">Linux PAM</em> sections above also relate to security.
+    </p>
+   <h2><a class="a-header" name="SH_1_12">Administration interface</a></h2> <!-- index:2:SH:1:12:Administration interface -->
+    <p>
+     If enabled with the <em class="quote">--admin</em> command-line option, the E-MailRelay server will
+     provide a network interface for performing administration tasks. This is a
+     simple command-line interface which is compatible with <em class="quote">telnet</em>:
+    </p>
+
+      <div class="div-pre">
+       <pre>$ emailrelay --as-server --port=125 --forward-to=localhost:25 --admin=10026
+$ telnet localhost 10026
+E-MailRelay&gt; help
+E-MailRelay&gt; quit
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     The <em class="quote">flush</em> command is used to get the E-MailRelay server to forward spooled
+     mail to the next SMTP server, as an alternative to running
+     <em class="quote">emailrelay --as-client</em> as a separate process. In proxy mode it is a way of
+     getting the proxy server to scan the spool-directory for new messages.
+    </p>
+
+    <p>
+     The <em class="quote">list</em> command lists the messages in the spool directory, <em class="quote">info</em> provides
+     network status information and activity statistics, and <em class="quote">notify</em> enables
+     asynchronous event notification.
+    </p>
+   <h2><a class="a-header" name="SH_1_13">Files and directories</a></h2> <!-- index:2:SH:1:13:Files and directories -->
+    <p>
+     Following a normal build from source, a <em class="quote">make install</em> puts files in the
+     following locations:
+    </p>
+    <ul>
+     <li>/usr/local/etc/emailrelay.conf</li>
+     <li>/usr/local/etc/emailrelay.conf.template</li>
+     <li>/usr/local/etc/pam.d/emailrelay</li>
+     <li>/usr/local/libexec/emailrelay/emailrelay-filter-copy</li>
+     <li>/usr/local/libexec/emailrelay/emailrelay-poke</li>
+     <li>/usr/local/libexec/emailrelay/examples/*</li>
+     <li>/usr/local/libexec/emailrelay/init/emailrelay</li>
+     <li>/usr/local/man/man1/emailrelay*.1.gz</li>
+     <li>/usr/local/sbin/emailrelay</li>
+     <li>/usr/local/sbin/emailrelay-passwd</li>
+     <li>/usr/local/sbin/emailrelay-submit</li>
+     <li>/usr/local/share/emailrelay/doc/*</li>
+     <li>/usr/local/share/emailrelay/doc/index.html</li>
+     <li>/usr/local/share/emailrelay/doc/README</li>
+     <li>/usr/local/var/spool/emailrelay/emailrelay.*.content</li>
+     <li>/usr/local/var/spool/emailrelay/emailrelay.*.envelope</li>
+    </ul>
+
+    <p>
+     For finer control of the directory structure the following can be specified on
+     the <em class="quote">configure</em> command-line:
+    </p>
+    <ul>
+     <li>--mandir=&lt;dir&gt;</li>
+     <li>--sbindir=&lt;dir&gt;</li>
+     <li>--datadir=&lt;dir&gt;</li>
+     <li>e_libexecdir=&lt;dir&gt;</li>
+     <li>e_sysconfdir=&lt;dir&gt;</li>
+     <li>e_docdir=&lt;dir&gt;</li>
+     <li>e_examplesdir=&lt;dir&gt;</li>
+     <li>e_initdir=&lt;dir&gt;</li>
+     <li>e_spooldir=&lt;dir&gt;</li>
+     <li>e_pamdir=&lt;dir&gt;</li>
+     <li>e_icondir=&lt;dir&gt;</li>
+    </ul>
+
+    <p>
+     For example, running <em class="quote">./configure --prefix=/usr e_spooldir=/tmp/spool</em> will
+     install to a directory structure under <em class="quote">/usr</em> rather than <em class="quote">/usr/local</em>,
+     and create the E-MailRelay spool directory as <em class="quote">/tmp/spool</em> rather than
+     <em class="quote">/usr/local/var/spool/emailrelay</em>.
+    </p>
+
+    <p>
+     For a directory structure conforming more closely to the FHS use this configure
+     command:
+    </p>
+
+      <div class="div-pre">
+       <pre>./configure --prefix=/usr --localstatedir=/var --libexecdir=/usr/lib --sysconfdir=/etc e_init_dir=/etc/init.d
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     As usual, it is possible to change the installation root directory after
+     building by using <em class="quote">make DESTDIR=&lt;root&gt; install</em> or
+     <em class="quote">DESTDIR=&lt;root&gt; make -e install</em>. However, this will not affect the default
+     spool directory path built into the scripts and executables so the correct spool
+     directory will have to be specified at run-time with the <em class="quote">--spool-dir</em> option.
+    </p>
+
+
+
+
+    <p>
+     Copyright (C) 2001-2013 Graeme Walker &lt;graeme_walker@users.sourceforge.net&gt;. All rights reserved.
+    </p>
+ </div> <!-- div-main -->
+ </body>
+</html>

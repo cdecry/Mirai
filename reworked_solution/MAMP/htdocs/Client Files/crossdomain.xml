@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+    <allow-access-from domain="*.fantage.com"/>
+    <allow-access-from domain="upload.fantage.com" />
+    <allow-access-from domain="*.fantage.de"/>
+    <allow-access-from domain="*.fantage.fr"/>
+    <allow-access-from domain="fantage-2"/>
+</cross-domain-policy>

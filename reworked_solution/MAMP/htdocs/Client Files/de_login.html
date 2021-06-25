@@ -1,0 +1,365 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="http://play.localhost/css/css_login.css" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="Description" content="Fantage is the best virtual world to chat with friends, dress up your avatar, play free games, collect pets, and complete missions!"/>
+
+<LINK REL="SHORTCUT ICON" HREF="icon.ico">
+<title>Willkommen im Fantastischen Zeitalter!</title>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="/Scripts/AC_RunActiveContent.js" language="javascript"></script>
+<script src="/js/cometscript.js" language="javascript"></script>
+<script src="/swfobject.js" language="javascript"></script>
+<script src="/js/login_script.js" language="javascript"></script>
+<script src="/js/global.js" language="javascript"></script>
+<script type="text/javascript" src="http://play.localhost/js/cookie_util.js" language="javascript"></script>
+
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+
+<script type="text/javascript"> 
+
+  deleteCookie("international_location_info", "/", ".fantage.com");
+  setCookie("international_location_info", "DE", 90, "/", ".fantage.com", false);
+</script>
+<script type="text/javascript">
+
+        var defaultWidth = 800;
+        var defaultHeight = 520;
+        var currentSize = readCookie("screenSize");
+        if(currentSize) {
+                if(currentSize == 800) {
+                        defaultWidth=800; 
+                        defaultHeight=520;
+                } else if(currentSize == 1000) {
+                        defaultWidth=1000; 
+                        defaultHeight=650; 
+                } else if(currentSize == 1200) {
+                        //defaultWidth=1200; 
+                        defaultWidth=1000; 
+                        defaultHeight=650; 
+			currentSize = 1000;
+                }
+        }
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        var rtSmooth = 'true';
+        var rtPixelSnapping = 'auto';
+
+        for(var i=0; i<hashes.length; i++) {
+                hash = hashes[i].split('=');
+                if(hash[0] == "smooth") rtSmooth = hash[1];
+                if(hash[0] == "pixelSnapping") rtPixelSnapping = hash[1];       
+        }
+
+    var flashvars = {
+        FlashVars: "nestedMovie=/login_page_standalone_eu.swf|hostname=prod|version=1.1|smoothing=true|lang=de|pixelSnapping=" + rtPixelSnapping
+    };
+    var params = {
+        align: "middle",
+        play: "true",
+        loop: "true",
+        scale: "",
+        wmode: "window",
+        devicefont: "false",
+        id: "mainscreen",
+        bgcolor: "#FFFFFF",
+        name: "mainscreen",
+        menu: "false",
+        allowFullScreen: "false",
+        allowScriptAccess: "always"
+    };
+    var attributes = {};
+    swfobject.embedSWF("/microloaderparam_enlarge.swf?v1.0", "loginPage", defaultWidth, defaultHeight, "10.0.0", "/expressInstall.swf", flashvars, params, attributes);
+
+function langselection( obj ) {
+
+	var targetUrl = "";
+	var paramText = window.location.href.split('?')[1];
+
+
+	switch( obj.value )
+	{
+		case "en":
+		{
+			targetUrl = "login.html"
+
+			break;
+		}
+		case "fr":
+		{
+			targetUrl = "fr_login.html"
+			break;
+		}
+		case "de":
+		{
+			targetUrl = "de_login.html"
+			break;
+		}
+	}
+
+	if( paramText != "" && paramText != "undefined" )
+	{
+		targetUrl += "?" + paramText;
+	}
+
+	window.location.href = targetUrl;
+
+
+}
+
+
+function roll(img_name, img_src)
+   {
+   document[img_name].src = img_src;
+   }
+
+function getFlashMovie(movieName) {
+  var isIE = navigator.appName.indexOf("Microsoft") != -1;
+  return (isIE) ? window[movieName] : document[movieName];
+}
+
+
+function showLogoutPage()
+{
+  getFlashMovie("loginPage").showLogout();
+}
+
+
+function openBlog() {
+	openPopup('http://blog.fantage.de/','860','500')
+  	getFlashMovie("loginPage").blogClicked();
+}
+
+function hasNewBlog() {
+	document.getElementById("blogNew").style.visibility = "visible";
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+
+    if (window.location.href.indexOf('?') == -1) return "";
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
+    return "?" + hashes;
+}
+   
+</script> 
+
+<style>
+	#blogNew {
+		visibility:hidden;
+	}
+</style>
+
+<body style="padding-top:0px;">
+
+<script>
+        if(window.parent != null && window.parent.isMiniClip) {
+                location.href = "login_miniclip.html" + getUrlVars();
+        }
+</script>
+
+<div class="narrowtopbar" >
+   <CENTER><table cellspacing="0" border="0" cellpadding="0" width="800" id="resizeWrapper">
+    <tr>
+        <td align="left" valign=bottom>
+<a href="http://secure.fantage.com/membershipv3/pmSelectPayment.do" target="_blank" onmouseover="roll('membership', '/de/fun/img/top/new_white_top/but_membership_gold.png')"  onmouseout="roll('membership', '/de/fun/img/top/new_white_top/but_membership_r.png')"><img src="/de/fun/img/top/new_white_top/but_membership_r.png" width="140" height="27" border="0" alt="" name="membership"></a>
+&nbsp;
+<a href="http://secure.fantage.com/membershipv3/pmSelectPayment.do" target="_blank" onmouseover="roll('ecoin', '/de/fun/img/top/new_white_top/but_ecoin_gold.png')"  onmouseout="roll('ecoin', '/de/fun/img/top/new_white_top/but_ecoin_r.png')"><img src="/de/fun/img/top/new_white_top/but_ecoin_r.png" width="81" height="27" border="0" alt="" name="ecoin"></a>
+</td>
+        <td align="right" valign="bottom">
+		<img src="/de/fun/img/login_screensize_head.png" />
+		<a href="javascript:resize('800');"><img src="/fun/img/login_screensize_size_s.png" name="size_s" id="size_s" border=0></a>
+		<a href="javascript:resize('1000');"><img src="/fun/img/login_screensize_size_m.png" name="size_m" id="size_m" border=0></a>
+		</td>
+		<td align="right" valign="bottom" width="111">
+
+			<style type="text/css">
+			.language_select {
+				/*background: url('/img/bg_language_select.png') no-repeat;*/
+				border: 0;
+				margin: auto;
+				padding: 0px;
+				width: 111px;
+				height: 24px;
+				text-align: right;
+				}
+			.language_select_option {
+				background: #f9f9fc;
+				color: #636363;
+				font: bold 11px arial, verdana, sans-serif;				
+				border: #a7b9be solid 1px;
+				margin-top: 3px;
+				text-align: center;
+				padding: 0px;
+				width: 101px;
+			}
+			</style>
+
+			<div class="language_select">
+			<select class="language_select_option" name="langselect" onchange="langselection(this);" >
+				<option value="en"> English</option>
+				<option value="de" selected> Deutsch </option>
+				<option value="fr"> Français </option>
+			</select>
+			</div>		
+		</td>
+		<td align="right" valign="bottom" width="81">
+		<a href="javascript:showLogoutPage();" onmouseover="roll('logout', '/de/fun/img/top/new_white_top/but_n_logout_a.png')"  onmouseout="roll('logout', '/de/fun/img/top/new_white_top/but_n_logout.png')"><img src="/de/fun/img/top/new_white_top/but_n_logout.png" width="78" height="24" border="0" alt="" name="logout"></a>
+	</td>
+    </tr>
+  </table></CENTER>
+</div>
+<center>
+<div class="playScreen">
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+<tr>
+<td background="http://play.localhost/themes/plainwhite/topleft.png" width=15 height=29></td>
+<td background="http://play.localhost/themes/plainwhite/topmiddle.png" width=800 height=29 align=right style="padding-bottom:6px;" >
+<td background="http://play.localhost/themes/plainwhite/topright.png" width=15 height=29></td>
+</tr><tr>
+<td background="http://play.localhost/themes/plainwhite/left.png" width=15 height=520></td>
+<td>
+<div id="loginPage">
+<a href="http://www.adobe.com/go/getflashplayer"><img style="border-style: none" src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    <noscript>
+       You must enable Javascript to access this content
+    </noscript>
+</div>
+</td>
+<td background="http://play.localhost/themes/plainwhite/right.png" width=15 height=520></td>
+</tr><tr>
+<td background="http://play.localhost/themes/plainwhite/bottomleft.png" width=15 height=15></td>
+<td background="http://play.localhost/themes/plainwhite/bottommiddle.png" width=800 height=15></td>
+<td background="http://play.localhost/themes/plainwhite/bottomright.png" width=15 height=15></td>
+</tr>
+<tr>
+    <td colspan=3 align="center">
+
+	<!-- Update: 12/23/11 START-->
+		<table width="820" border="0" cellspacing="0" cellpadding="0" align="center" style="margin: 0px 0 0 0; padding: 0;"> 
+			<tr>
+				<td rowspan="3" align="right"><img src="http://play.localhost/fun/img/top/new_white_top/logo_big_worldbelow.png" style="width: 101px; margin: 25px 0 0 11px;"></td>
+				<td align="center" colspan="3" height="21px" style="padding: 5px 0;">
+					<div style="float: left; padding: 0; margin: 0 -3 0 7px; width: 35px; height: 25px;"><img src="de/but_new.png" border="0" id="blogNew" width="35px" height="25px"/></div>
+					<div style="float: left; margin: 7px 0 0 0;">
+					<a href="javascript:openBlog()" class="bottomlink">Blog</a> |  
+					<a href="javascript:openPopup('/de/privacypopup.html','860','500')" class="bottomlinkOrange">Datenschutz</a> |
+					<a href="javascript:openPopup('/de/codeofconductpopup.html','860','500')" class="bottomlink">Chat und Benimmregeln</a> | 
+					<a href="javascript:openPopup('/de/contactpopup.html','860','500')" class="bottomlink">Kontakt</a> 
+					</div>
+					<div style="clear: both;"></div>
+				</td>  
+				<td rowspan="3" align="left" width="151"><!-- <a href="javascript:openPopup('http://secure.fantage.com/membershipv3/pmCreditCard.do?ccType=fgc&paymentMethodType=fgc&countryCode=de','860','500')"><img src="http://play.localhost/de/fun/img/top/new_white_top/but_gift_certificate.png"/></a> -->
+				</td>
+			</tr> 
+			<tr> 
+				<td align="center" colspan="3" style="height: 2px; overflow: hidden; padding: 0; margin: 0;"> 
+					<img src="http://play.localhost/fun/img/bottom_bar.png" width="501" height="2" border="0" alt="" style="display: block"/> 
+				</td> 
+			</tr> 
+			<tr>				
+				<td align="center" class="footerText" style="padding-left: 27px;">
+				 &copy;2012.  All rights reserved. FANTAGE und das FANTAGE Logo sind geschützte Marken der Firma Fantage.com Inc.
+				Zuletzt im Januar 2012 aktualisiert.
+				</td>
+			</tr>
+		</table>		
+	<!-- Update: 12/23/11 END-->
+
+	</td>
+</tr>
+</table>
+
+</div>
+
+<!-- Google tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "http://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4936009-1");
+pageTracker._setDomainName(".fantage.com");
+pageTracker._setAllowHash(false);
+pageTracker._trackPageview();
+</script>
+<!-- End Google Tracking -->
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-d2ql1touvbOE6";quantserve();</script>
+<noscript><a href="http://www.quantcast.com/p-d2ql1touvbOE6" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d2ql1touvbOE6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+<!-- End Quantcast tag -->
+<div style="display:none"> 
+        <a href="#" id="hiddenComicBtn" onClick="javascript:popupComic();">comic</a> 
+        <a href="#" id="hiddenArtBtn" onClick="javascript:popupArt();">fanart</a> 
+        <a href="#" id="hiddenSubmissionBtn" onClick="javascript:popupSubmission();">submission</a> 
+        <a href="#" id="hiddenPopupBtn" onClick="javascript:popupImage();">popup</a> 
+        <a href="" id="hiddenTarget"></a> 
+        <input type=hidden id="hiddenPopupTarget" value=""> 
+
+</div> 
+<script language="javascript">
+        if(currentSize) {
+		var obj = document.getElementById("resizeWrapper");
+                if(currentSize == 800) {
+			document["size_s"].src = "/fun/img/login_screensize_size_s_.png";
+			obj.width = currentSize;
+                } else if(currentSize == 1000 || currentSize == 1200) {
+			document["size_m"].src = "/fun/img/login_screensize_size_m_.png";
+			obj.width = 1000;
+                }
+        } else {
+		document["size_s"].src = "/fun/img/login_screensize_size_s_.png";
+	}
+
+var withinMiniClip = checkMiniClip();
+
+function resize(width) {
+
+	var obj = document.getElementById("resizeWrapper");
+	obj.width = width;
+
+        createCookie("screenSize", width);
+
+	var wS = document.getElementById("size_s");
+	var wM = document.getElementById("size_m");
+	var newSize=0;
+
+        if(width == "800") {
+                document.getElementById("loginPage").width = "800";
+                document.getElementById("loginPage").height = "520";
+		wS.src = "/fun/img/login_screensize_size_s_.png";
+		wM.src = "/fun/img/login_screensize_size_m.png";
+                getFlashMovie("loginPage").resizeScreen(800);
+		newSize = 800;
+        } else if(width == "1200") {
+                document.getElementById("loginPage").width = "1200";
+                document.getElementById("loginPage").height = "780";
+		wS.src = "/fun/img/login_screensize_size_s.png";
+		wM.src = "/fun/img/login_screensize_size_m.png";
+                getFlashMovie("loginPage").resizeScreen(1200);
+		newSize = 1200;
+        } else if(width ==  "1000") {
+                document.getElementById("loginPage").width = "1000";
+                document.getElementById("loginPage").height = "650";
+		wS.src = "/fun/img/login_screensize_size_s.png";
+		wM.src = "/fun/img/login_screensize_size_m_.png";
+                getFlashMovie("loginPage").resizeScreen(1000);
+		newSize = 1000; 
+        }
+
+	if(withinMiniClip) {
+		if(newSize != 0) {
+			callParentResizeIframe(newSize);
+		}
+	}
+	
+}
+</script>
+</body>
+</html>
+
+

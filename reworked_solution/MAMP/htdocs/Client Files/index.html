@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Description" content="Fantage is a safe and fun world where you can dress up, play games, and make friends!"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<LINK REL="SHORTCUT ICON" HREF="http://play.localhost/icon.ico"> 
+<script type="text/javascript" src="http://play.localhost/swfobject.js"></script>
+<script src="http://play.localhost/js/cometscript.js" language="javascript"></script>
+<script type="text/javascript" src="http://play.localhost/js/cookie_util.js" language="javascript"></script>
+<script type="text/javascript" src="http://play.localhost/js/cometscript.js" language="javascript"></script>
+<script type="text/javascript"> 
+  setCookie("main_index", document.location, 1, "/", ".fantage.com", false);
+  setCookie("main_referrer", document.referrer, 1, "/", ".fantage.com", false);
+</script>
+<script src="js/global.js" language="javascript"></script>
+<script language="javascript">
+
+function detectMobile() {
+	var uagent = navigator.userAgent.toLowerCase();
+
+	var apDevice = new Array("iphone", "ipod", "ipad", "android");
+
+	var i = 0;
+	var length = apDevice.length;
+
+	for(i=0; i<length; i++) {
+		if(uagent.search(apDevice[i]) >-1) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function detectBrowser() {
+	if(detectMobile()) {
+		location.href = "m/";	
+	}
+}
+
+function boot() {
+
+	var isInstalled = swfobject.hasFlashPlayerVersion("10") 
+	//var playerVersion = swfobject.getFlashPlayerVersion();
+
+	var loc = "http://play.localhost";
+
+	if (!isInstalled) {
+		document.getElementById("alert").innerHTML= "<a href='http://www.adobe.com/go/getflashplayer'><img src='http://play.localhost/img_main_needFlash_n.png' /></a>";
+	} else {
+
+    		var flashvars = {
+        		FlashVars: "rightMovie="+loc+"/homepage_register_2013_3.swf|topMovie="+loc+"/topbar_2013_3.swf|mainMovie="+loc+"/homepage_mainscreen2013.swf|lang=en"
+        		//FlashVars: "rightMovie=http://play.localhost/homepage_register_2013.swf|topMovie=http://play.localhost/topbar_2013.swf"
+    		};
+    		var params = {
+	       		align: "middle",
+	       		play: "true",
+	       		loop: "true",
+	       		scale: "default",
+	       		wmode: "window",
+	       		devicefont: "false",
+			bgcolor: "#29f1ff",
+	       		id: "newLogin",
+	       		name: "newLogin",
+	       		menu: "true",
+	       		allowFullScreen: "false",
+	       		allowScriptAccess: "always"
+	    	};
+	    	var attributes = {};
+		swfobject.embedSWF(loc + "/homepage_loader_2013_4.swf?v1.0", "newLogin", "100%", "475", "10.0.0", loc + "/expressInstall.swf", flashvars, params, attributes);
+	}
+
+	//callparent(850);
+}
+
+function goRegister() {
+	location.href="http://play.localhost/register.html" + getUrlVars();
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+
+    if (window.location.href.indexOf('?') == -1) return ""; 
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
+    return "?" + hashes;
+}
+
+</script>
+
+ 
+<title>Play Games and Fashion Shows, Dress Up, and Chat in Safe and Fantastic Online World for Kids! | Fantage!</title>
+<link href="css/index.css?v1.0" rel="stylesheet" type="text/css" />
+<link href="css/jquery.tweet.css" media="all" rel="stylesheet" type="text/css"/> 
+</head>
+ 
+<body> 
+<script>
+	if(window.parent != null && window.parent.isMiniClip) {
+		location.href = "index_miniclip.html";
+	}
+</script>
+<script>
+	detectBrowser();
+</script>
+
+<!-- start Updated 5/29/2013 -->
+<div class="header_wrapper">
+	<div class="header">
+		<div class="login" id="newLogin">
+			<!--
+			<div style="float: left;">
+				<img src="http://play.localhost/img/logo.png"/>
+			</div>
+			<div style="float: right;">
+				<img src="http://play.localhost/img/Untitled-2.png"/>
+			</div>
+			-->
+		</div>
+		<!--
+		<div style="top: 237px; position: relative;"><a href="http://play.localhost/register.html"><img src="http://play.localhost/img/btn_new_user.png"/></a></div>
+		-->
+	</div>
+</div>
+<div class="dvdr"></div>
+<div style="width: 1000px; margin: 0 auto;">
+	<div><img src="http://play.localhost/img/welcome.png"/></div>
+	<div class="wrap_how" style="padding: 0; margin: 0 0 21px 0;">
+		<div class="boxing_how rounded bordered">
+			<h3 class="h3_bg_blue">Create and customize yourself!</h3>
+			<div>
+				<img src="http://play.localhost/img/how_01.png"/>
+			</div>
+		</div>
+		<div class="boxing_how rounded bordered">
+			<h3 class="h3_bg_blue">Make friends in an amazing world!</h3>
+			<div>
+				<img src="http://play.localhost/img/how_02.png"/>
+			</div>
+		</div>
+		<div class="boxing_how rounded bordered">
+			<h3 class="h3_bg_blue">Host Parties in your own home!</h3>
+			<div>
+				<img src="http://play.localhost/img/how_03.png"/>
+			</div>
+		</div>
+		<div class="boxing_how rounded bordered margin_right_end">
+			<h3 class="h3_bg_blue">Take part in Fashion Shows and other games!</h3>
+			<div>
+				<img src="http://play.localhost/img/how_04.png"/>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 0; margin-left: 23px;">
+		<div style="float: left; width: 385px; margin: 0 21px 0 0;">
+			<div class="boxing rounded bordered" style="height: 300px;">
+				<h3 class="h3_bg_blue" style="padding-top: 15px; height: 24px; font-size: 18px;">What’s new at Fantage?</h3>
+				
+				<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+				<script src="js/jquery.infinitecarousel3.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function () {
+			
+					$.get('r1/playpages/list.xml', xmlParser); 				
+		
+				});
+
+				function xmlParser(xml) {
+					var first = "";
+
+					//$("#storeListContent").append("<ul>");
+					$(xml).find('item').each(function (i, e) {
+						if (first == "") {
+							first = $(this).attr("src");
+						} else {
+
+							//console.log('### ' + $(this).attr("src"));
+							$("#playpages").append('<li><img width="380" height="240" alt="" src="http://play.localhost/' + $(this).attr("src") + '"/></li>');
+						}
+					});
+					
+					$("#playpages").append('<li><img width="380" height="240" alt="" src="http://play.localhost/' + first + '"/></li>');
+					//console.log('#### ' + typeof ($('#playpages')));
+
+					$('#playpages').infiniteCarousel({
+						imagePath: 'js/images/',
+						displayTime: 3000,
+						autoPilot: true,
+						displayProgressRing: false,
+						showControls:false
+					});
+				
+				}
+				</script>
+				<div style="margin-left: 1px;">
+					<ul id="playpages">
+						<!--<img src="http://play.localhost/img/pp-theaterrelagain-5-2013.png"/>-->
+					</ul>
+				</div>
+			</div>
+			<div class="boxing rounded bordered" style="height: 320px; margin-top: 31px;">
+				<h3 class="h3_bg_blue">Follow <br/>your favorite Fantage Characters!</h3>
+					<div class="twitter_feed">
+						<div style="float: left; width: 255px; height: 250px; margin-top: -15px;">
+							
+							<a class="twitter-timeline" href="http://twitter.com/FantageMichelle" data-widget-id="346688386632908801">Tweets by @FantageMichelle</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						</div>
+						<div class="social_btn">
+							<a href="http://www.facebook.com/FantageFans?ref=hl" target="_blank"><img src="http://play.localhost/img/btn_fb.png"/></a>
+							<a href="http://twitter.com/FantageMichelle" target="_blank"><img src="http://play.localhost/img/btn_twitter.png"/></a>
+							<a href="http://blog.fantage.com/" target="_blank"><img src="http://play.localhost/img/btn_blg.png"/></a>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="boxing rounded bordered" style="float: left; width: 440px; height: 565px; padding: 45px; background: white url('img/bg_join.png') no-repeat bottom right;">
+			<div><img src="http://play.localhost/img/what_can_u_do.png"/></div>
+			<p>
+				Fantage.com is a virtual world for children where they can play, socialize, and learn in a safe and exciting online environment! Players can explore the world with their own personal avatar, which they can customize by choosing distinctive features, hairstyles, and clothing. Children can also use Fantage to learn new social skills and play enriching educational games. The combination of social gaming, education, advanced customization, and safety makes Fantage a unique experience for children. Fantage truly is a Fantastic age!
+			</p>
+			<div style="margin: 193px 0 0 15px; text-align: left;"><a href="javascript:goRegister();"><img src="http://play.localhost/img/btn_sign_up.png"/></a></div>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+	<div class="main_menu" style="padding: 0; margin: 41px 0;">
+		<a href="http://secure.fantage.com/membershipv3/pmSelectPayment.do"><img src="http://play.localhost/img/menu_01.png"/></a>
+		<a href="http://secure.fantage.com/membershipv3/pmSelectPayment.do"><img src="http://play.localhost/img/menu_02.png"/></a>
+		<a href="http://play.localhost/fun/what_is_fantage.html"><img src="http://play.localhost/img/menu_03.png"/></a>
+		<a href="http://play.localhost/fun/faq.html"><img src="http://play.localhost/img/menu_04.png"/></a>
+		<a href="http://play.localhost/fun/fun_stuff_preview.html"><img src="http://play.localhost/img/menu_05.png"/></a>
+	</div>
+</div>
+
+<!-- end Updated 5/29/2013 -->
+
+<!-- Start SEALS Update: 12/12/11 -->
+<table border="0" cellspacing="0" cellpadding="0" align="center" style="margin: 0 auto;">
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td>
+			<a href="http://play.localhost/fun/what_is_fantage.html"><img src="http://play.localhost/img/seal/esrb.png" border="0"/></a>
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<a href="http://play.localhost/fun/what_is_fantage.html"><img src="http://play.localhost/img/seal/editorsChoice.png" border="0"/></a>
+		</td>
+		<td>
+			<a href="http://play.localhost/fun/what_is_fantage.html"><img src="http://play.localhost/img/seal/momsChoice.png" border="0"/></a>
+		</td>
+		<td>
+			<a href="http://clicktoverify.truste.com/pvr.php?page=validate&url=www.fantage.com&lang=en&sealid=105" target="_blank"><img src="http://play.localhost/img/seal/truste.png" border="0"/></a>
+		</td>
+		<td align="left" width="125" valign="top" style="padding: 19px 0 0 5px;">
+			
+			<a href="http://www.kidsafeseal.com/certifiedproducts/fantage.html" target="_blank"><img border="0" alt="Fantage.com is certified by the kidSAFE Seal Program." src="http://www.kidsafeseal.com/sealimage/9223372036854775807/fantage_medium_darktm.png"></a>
+		</td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- End SEALS Update: 12/12/11 -->
+ 
+<div> 
+	<div> 
+		<a href="http://play.localhost/terms_conditions.html" class="bottomlink">Terms & Conditions</a> | 
+		<a href="http://play.localhost/privacy_policy.html" class="bottomlinkOrange">Privacy Policy</a> |
+		<a href="http://play.localhost/chat_and_behavior.html" class="bottomlink">Chat and Behavior Code</a> | 
+		<a href="http://play.localhost/contact_us.html" class="bottomlink">Contact Us</a> | 
+		<a href="http://play.localhost/career_opportunities.html" class="bottomlink">Career Opportunities</a> 
+	</div>  
+	<div class="copy_right"> 
+		Fantage<sup>SM</sup> Fantage Inc. &copy 2007. All rights reserved. Last Updated on June 2013<br><br> 
+	</div> 
+</div>
+ 
+<!-- Google tracking -->
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "http://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-4936009-1");
+pageTracker._setDomainName(".fantage.com");
+pageTracker._setAllowHash(false);
+pageTracker._trackPageview();
+</script>
+<!-- End Google Tracking -->
+
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-d2ql1touvbOE6";quantserve();</script>
+<noscript><a href="http://www.quantcast.com/p-d2ql1touvbOE6" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d2ql1touvbOE6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+<!-- End Quantcast tag -->
+
+<!-- Google Code for Logged In, Remarketing -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1054205302;
+var google_conversion_label = "AiuICJKt0gEQ9srX9gM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+boot();
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1054205302/?value=0&amp;label=AiuICJKt0gEQ9srX9gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- End Google Code for Logged In, Remarketing -->
+  
+</body>
+</html>
+ 

@@ -1,0 +1,97 @@
+{
+  "app": "MAMP",
+  "version": "4.2.0",
+  "components": [
+        {
+      "name": "Apache",
+      "version": "2.2.31"
+    },
+    {
+      "name": "Nginx",
+      "version": "1.13.1"
+    },
+{      "name": "MySQL",
+      "version": "5.7.24"
+    },
+{      "name": "PHP",
+      "version": "5.3.23 & 5.4.45 & 5.5.38 & 5.6.0 & 5.6.31 & 7.0.0 & 7.0.21 & 7.1.0 & 7.1.20 & 7.2.1 & 7.2.10 & 7.3.0 & 7.3.7"
+    },
+{      "name": "OpenSSL",
+      "version": "1.0.2o"
+    },
+{      "name": "APCu",
+      "version": "5.1.12"
+    },
+{      "name": "APC",
+      "version": "3.1.13"
+    },
+{      "name": "eAccelerator",
+      "version": "1.0"
+    },
+{      "name": "XCache",
+      "version": "3.2.0"
+    },
+	{      
+	  "name": "OPCache",
+      "version": "7.0.4"
+    },
+	{      
+	  "name": "XDebug",
+      "version": "2.6.0 & 2.5.0"
+    },
+{      "name": "Python",
+      "version": "2.7.6"
+    },
+{      "name": "mod_wsgi",
+      "version": "3.4.0"
+    },
+{      "name": "Perl",
+      "version": "5.16.1"
+    },
+{      "name": "mod_perl",
+      "version": "2.0.8"
+    },
+{      "name": "phpMyAdmin",
+      "version": "4.8.3"
+    },
+{      "name": "SQLiteManager",
+      "version": "1.2.4"
+    },
+{      "name": "phpLiteAdmin",
+      "version": "1.9.4.1"
+    },
+{      "name": "Freetype",
+      "version": "2.4.10"
+    },
+{      "name": "curl",
+      "version": "7.36.0"
+    },
+{      "name": "libpng",
+      "version": "1.5.18"
+    },
+{      "name": "ImageMagick",
+      "version": "6.8.9-1"
+    },
+{      "name": "Imagick",
+      "version": "3.4.3"
+    },
+{      "name": "gd",
+      "version": "2.1.0"
+    },
+{      "name": "zlib",
+      "version": "1.2.8"
+    },
+{      "name": "libxml2",
+      "version": "2.9.1"
+    },
+{      "name": "gettext",
+      "version": "0.18.1.1"
+    },
+{      "name": "iconv",
+      "version": "1.14"
+    },
+{      "name": "mcrypt",
+      "version": "2.5.8"
+    }
+  ]
+}

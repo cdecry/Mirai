@@ -1,0 +1,9 @@
+6/23/2021 3:10:19 PM:::stopProcess process is started.
+6/23/2021 3:10:19 PM:::stopProcess argument is stop.
+6/23/2021 3:10:19 PM:::stopProcess is stopping MAMP processes...
+6/23/2021 3:10:19 PM:::stopprocess - Stopping Apache instances.
+6/23/2021 3:10:19 PM:::stopprocess - Stopping MySQL instances.
+6/23/2021 3:10:23 PM:::stopprocess - Stopping Nginx instances.
+6/23/2021 3:10:27 PM:::stopprocess - Stopping PHP CGI instances.
+6/23/2021 3:10:27 PM:::stopprocess - Stopping MySQL instances.
+6/23/2021 3:10:27 PM:::stopProcess process is finished.

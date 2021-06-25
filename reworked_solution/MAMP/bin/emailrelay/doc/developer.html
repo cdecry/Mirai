@@ -1,0 +1,574 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>E-MailRelay Internals</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="emailrelay.css" type="text/css">
+ </head>
+ <body>
+  <!-- index:0::::E-MailRelay Internals -->
+ <div class="div-main">
+  <h1><a class="a-header" name="H_1">E-MailRelay Internals</a></h1> <!-- index:1:H:1::E-MailRelay Internals -->
+   <h2><a class="a-header" name="SH_1_1">Module structure</a></h2> <!-- index:2:SH:1:1:Module structure -->
+    <p>
+     The main C++ libraries in the E-MailRelay code are: <em class="quote">glib</em>, providing low-level
+     classes for file-system abstraction, date and time representation, string
+     utility functions, logging, command line parsing etc.; <em class="quote">gssl</em>, which is a thin
+     abstraction over OpenSSL; <em class="quote">gnet</em>, which provides network classes using the
+     Berkley socket and Winsock APIs; <em class="quote">gauth</em>, which implements various
+     authentication mechanisms; <em class="quote">gsmtp</em>, containing SMTP and message-store classes;
+     and <em class="quote">gpop</em>, which contains POP3 classes. All of these libraries are portable
+     between POSIX-like systems (eg. Linux) and Windows.
+    </p>
+
+    <p>
+     Under Windows there is an additional library for event handling. Windows has
+     historically built network event processing on top of the GUI event system which
+     means that the <em class="quote">gnet</em> library has to be able to create GUI windows in order to
+     process network events. The extra GUI and event classes are put into a separate
+     library in the <em class="quote">src/win32</em> directory, using the namespace <em class="quote">GGui</em>.
+    </p>
+
+    <p>
+     There is also a separate configuration GUI program which uses the <em class="quote">glib</em> library
+     together with TrollTech's Qt.
+    </p>
+   <h2><a class="a-header" name="SH_1_2">Event model</a></h2> <!-- index:2:SH:1:2:Event model -->
+    <p>
+     The E-MailRelay server uses non-blocking socket i/o, with a <em class="fn">select()</em> event loop.
+     This event model means that the server can handle multiple clients
+     simultaneously from a single thread and the only significant blocking occurs
+     when external programs are executed (see <em class="quote">--filter</em> and <em class="quote">--verifier</em>).
+    </p>
+
+    <p>
+     In some ways this makes the implementation more complicated than the equivalent
+     multi-threaded approach since (for example) it is not possible to wait for a
+     complete line of input to be received from a remote SMTP client because there
+     might be other connection that need servicing.
+    </p>
+
+    <p>
+     See <a class="a-href" href="http://www.kegel.com/c10k.html">C10K Problem</a> for a discussion of
+     different network event models.
+    </p>
+
+    <p>
+     At higher levels the C++ slot/signal design pattern is used to propagate events
+     between objects (not to be confused with operating system signals). The
+     slot/signal implementation has been simplified compared to Qt or boost by not
+     supporting signal multicasting, so each signal connects to no more than one
+     slot. For historical reasons the slot/signal pattern is not used in the lowest
+     layers of the network library.
+    </p>
+   <h2><a class="a-header" name="SH_1_3">Event handling and exceptions</a></h2> <!-- index:2:SH:1:3:Event handling and exceptions -->
+    <p>
+     The use of non-blocking i/o in the network library means that most processing
+     operates within the context of an i/o event or timeout callback so the top level
+     of the call stack is nearly always the event loop code. This can make using C++
+     exceptions a bit awkward compared to a multi-threaded approach because it is not
+     possible to put a single catch block around a particular high-level feature.
+    </p>
+
+    <p>
+     The event loop delivers all asynchronous events to the abstract <em class="quote">EventHandler</em>
+     and <em class="quote">AbstractTimer</em> interfaces. If these callbacks throw exceptions then the
+     event loop will catch them and deliver them back to the same interface through
+     the virtual functions <em class="fn">onException()</em> and <em class="fn">onTimerException()</em> respectively. If
+     exceptions are thrown out of _these_ callbacks then the event loop code lets
+     them propagate back to <em class="fn">main()</em>, typically terminating the program.
+    </p>
+
+    <p>
+     The two callback interfaces are brought together by having a concrete <em class="quote">Timer</em>
+     class that requires an <em class="quote">EventHandler</em> object to be associated with each timer.
+     The <em class="quote">Timer</em> class routes any exceptions thrown out of the timeout callback to
+     the designated <em class="quote">EventHandler</em> interface so that both i/o and timeout exceptions
+     are delivered to the same place.
+    </p>
+
+    <p>
+     In common with other event-driven frameworks this leads to a programming
+     model where objects are instantiated on the heap and the objects delete
+     themselves when they receive certain events from the framework. In the
+     <em class="quote">gnet</em> library the <em class="quote">ServerPeer</em> and <em class="quote">HeapClient</em> classes do this lifetime
+     management; instances of these classes delete themselves when the associated
+     network connection goes away or when an exception is thrown out their
+     event-handling code.
+    </p>
+   <h2><a class="a-header" name="SH_1_4">Core class structure</a></h2> <!-- index:2:SH:1:4:Core class structure -->
+    <p>
+     The message-store functionality uses three abstract interfaces: <em class="quote">MessageStore</em>,
+     <em class="quote">NewMessage</em> and <em class="quote">StoredMessage</em>. The <em class="quote">NewMessage</em> interface is used to create
+     messages within the store, and the <em class="quote">StoredMessage</em> interface is used for
+     reading and extracting messages from the store. The concrete implementation
+     classes based on these interfaces are respectively <em class="quote">FileStore</em>, <em class="quote">NewFile</em> and
+     <em class="quote">StoredFile</em>.
+    </p>
+
+    <p>
+     Protocol classes such as <em class="quote">GSmtp::ServerProtocol</em> receive network and timer
+     events from their container and use an abstract <em class="quote">Sender</em> interface to send
+     network data. This means that the protocols can be largely independent of the
+     network and event loop framework.
+    </p>
+
+    <p>
+     The interaction between the SMTP server protocol class and the message store is
+     mediated by the <em class="quote">ProtocolMessage</em> interface. Two main implementations of this
+     interface are available: one for normal spooling (<em class="quote">ProtocolMessageStore</em>), and
+     another for immediate forwarding (<em class="quote">ProtocolMessageForward</em>). The <em class="quote">Decorator</em>
+     pattern is used whereby the forwarding class uses an instance of the storage
+     class to do the message storing and pre-processing, while adding in an instance
+     of the <em class="quote">GSmtp::Client</em> class to do the forwarding.
+    </p>
+
+    <p>
+     Message pre-processing (see <em class="quote">--filter</em>) is implemented via an abstract
+     <em class="quote">Processor</em> interface. Concrete implementations are provided for doing nothing,
+     running an external executable program and talking to an external network server.
+    </p>
+
+    <p>
+     The protocol, processor and message-store interfaces are brought together by the
+     high-level <em class="quote">GSmtp::Server</em> and <em class="quote">GSmtp::Client</em> classes. Dependency injection is
+     used to create the concrete instances of the <em class="quote">ProtocolMessage</em> and <em class="quote">Processor</em>
+     interfaces.
+    </p>
+
+    <p>
+     Simplified class diagrams for the <a class="a-href" href="gnet-classes.png">GNet</a> and
+     <a class="a-href" href="gsmtp-classes.png">GSmtp</a> namespaces are available.
+    </p>
+   <h2><a class="a-header" name="SH_1_5">Windows service</a></h2> <!-- index:2:SH:1:5:Windows service -->
+    <p>
+     To get E-MailRelay to run as a Windows service there is a service wrapper
+     program called <em class="quote">emailrelay-service.exe</em>. This program registers itself as
+     a service when run with the <em class="quote">--install</em> commandline option. When the service
+     runs the wrapper starts the actual E-MailRelay server by looking for a batch
+     file called <em class="quote">emailrelay-start.bat</em> in the same directory as service wrapper
+     executable. It reads the contents of this batch file in order to construct the
+     E-MailRelay command-line, adding <em class="quote">--no-daemon</em> and <em class="quote">--hidden</em> options if they
+     are not there already.
+    </p>
+
+    <p>
+     The service name and display name can be added to the wrapper's <em class="quote">--install</em>
+     command-line, and it is the service name that is used to derive the name of the
+     <em class="quote">start</em> batch file. This allows more than one server to be run as services,
+     using different server command-line options on each one.
+    </p>
+   <h2><a class="a-header" name="SH_1_6">Diagrams</a></h2> <!-- index:2:SH:1:6:Diagrams -->
+    <p>
+     Class diagrams:
+    </p>
+    <ul>
+     <li><a class="a-href" href="gnet-classes.png">GNet namespace</a></li>
+     <li><a class="a-href" href="gsmtp-classes.png">GSmtp namespace</a></li>
+    </ul>
+
+    <p>
+     State transition diagrams:
+    </p>
+    <ul>
+     <li><a class="a-href" href="gnet-client.png">GNet::Client</a></li>
+     <li><a class="a-href" href="gsmtp-serverprotocol.png">GSmtp::ServerProtocol</a></li>
+    </ul>
+
+    <p>
+     Sequence diagrams:
+    </p>
+    <ul>
+     <li><a class="a-href" href="sequence-3.png">Proxy mode forwarding</a></li>
+    </ul>
+   <h2><a class="a-header" name="SH_1_7">E-MailRelay GUI</a></h2> <!-- index:2:SH:1:7:E-MailRelay GUI -->
+    <p>
+     The optional GUI program <em class="quote">emailrelay-gui</em> uses TrollTech Qt v4 for its user
+     interface components. The GUI can run as a stand-alone configuration helper
+     (<em class="quote">--as-configure</em>) or as part of a self-extracting installation
+     (<em class="quote">--as-install</em>). When it runs it checks whether it has a payload of packed
+     files. If it has then it runs as an installer; if it does not then it runs as a
+     configuration helper. Refer to the comments in <em class="quote">src/gui/guimain.cpp</em> for more
+     details.
+    </p>
+
+    <p>
+     The user interface is structured as a <em class="quote">wizard</em> having a dialog box with the
+     forward and back buttons at the bottom and a single Qt layout object for the
+     main area. A stack of Qt widgets representing the various pages of the wizard
+     are installed into the main layout object in turn as the user navigates from
+     one page to the next.
+    </p>
+
+    <p>
+     Once the wizard is completed it asks each page to dump its state as a set of
+     key-value pairs into a stringstream (see <em class="quote">src/gui/pages.cpp</em>). These key-value
+     pairs are processed by an installer class into a list of action objects (in the
+     <em class="quote">Command</em> design pattern) and then the action objects are run in turn. In order
+     to display the progress of the installation each action object is run within a
+     timer callback so that the Qt framework gets a chance to update the GUI between
+     each one.
+    </p>
+
+    <p>
+     During development the user interface pages and the installer can be tested
+     separately since the interface between them is a simple text stream containing
+     key-value pairs.
+    </p>
+
+    <p>
+     When run in <em class="quote">--as-configure</em> mode the GUI normally ends up simply editing
+     the <em class="quote">emailrelay.conf</em> file and/or the <em class="quote">emailrelay.auth</em> secrets file.
+    </p>
+
+    <p>
+     When run in <em class="quote">--as-install</em> mode the GUI expects to unpack all the E-MailRelay
+     files from a <em class="quote">payload</em> archive into target directories.
+    </p>
+
+    <p>
+     The packing scheme used for a payload archive is a simple concatenation of the
+     <em class="quote">stub</em> executable followed by a table of contents for the payload files,
+     followed by the payload files themselves (possibly compressed by <em class="quote">zlib</em>), and
+     ending with an twelve-byte ascii representation of the offset of the table of
+     contents.
+    </p>
+
+    <p>
+     The payload may be appended to the GUI executable to make a self-extracting
+     installer, usually then called <em class="quote">emailrelay-setup</em>.
+    </p>
+
+    <p>
+     However, on Windows two levels of packing are required: the <em class="quote">emailrelay-setup</em>
+     program has a stub executable written in <em class="quote">C</em> that prints an <em class="quote">extracting...</em>
+     message to the standard output, with a payload comprising another packed
+     executable and a small number of <em class="quote">C++</em> runtime library files. The inner packed
+     executable has the emailrelay GUI program as its stub and all the other
+     installable files, including the main emailrelay executable, as its payload.
+    </p>
+
+    <p>
+     On unix-like operating systems it is more natural to use some sort of package
+     derived from the <em class="quote">make install</em> process rather than an installer program, so
+     <em class="quote">emailrelay-setup</em> ia typically never built.
+    </p>
+
+    <p>
+     On Mac OS X the payload is better stored in the installer's application
+     bundle rather than simply appended to the binary. This is desribed in the next
+     section.
+    </p>
+   <h2><a class="a-header" name="SH_1_8">Windows build</a></h2> <!-- index:2:SH:1:8:Windows build -->
+    <p>
+     On Windows E-MailRelay can be built using MinGW or Visual Studio. Makefiles and
+     Visual Studio 2012 project files are provided in the <em class="quote">src</em> directory.
+    </p>
+
+    <p>
+     For a MinGW build of the E-MailRelay server without TLS/SSL support it should
+     be sufficient to run make from the <em class="quote">src</em> directory:
+    </p>
+
+      <div class="div-pre">
+       <pre>C:\emailrelay\src&gt; PATH=c:\mingw\bin;%PATH%
+C:\emailrelay\src&gt; mingw32-make -f mingw.mak
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     To add TLS/SSL support first install ActiveState perl and make sure that your
+     MinGW installation contains the MSYS subsystem. Unpack the OpenSSL tarball and
+     build it as follows:
+    </p>
+
+      <div class="div-pre">
+       <pre>C:\openssl&gt; PATH=c:\perl\bin;c:\mingw\msys\1.0\bin;c:\mingw\bin;%PATH%
+C:\openssl&gt; bash -l
+$ ./config
+$ mingw32-make
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     Then edit the E-MailRelay <em class="quote">src/mingw-common.mak</em> file to enable openssl and run
+     <em class="quote">mingw32-make</em> as above.
+    </p>
+
+    <p>
+     If building the E-MailRelay GUI then it is best to use MinGW with Qt 5 static
+     libraries. Start by installing zlib source (eg. to c:/zlib) and then build Qt
+     using the following <em class="quote">configure</em> options:
+    </p>
+
+      <div class="div-pre">
+       <pre>-prefix /c/qt/qt5-static
+-I c:/zlib
+-L c:/zlib
+-static
+-release
+-force-debug-info
+-separate-debug-info
+-opensource
+-confirm-license
+-no-c++11
+-fully-process
+-no-largefile
+-accessibility
+-no-sql-sqlite
+-no-sql-sqlite2
+-no-javascript-jit
+-no-qml-debug
+-platform win32-g++
+-no-sse2
+-no-sse3
+-no-ssse3
+-no-sse4.1
+-no-sse4.2
+-no-avx
+-no-avx2
+-no-neon
+-no-mips_dsp
+-no-mips_dspr2
+-no-pkg-config
+-system-zlib
+-no-gif
+-qt-libpng
+-no-libjpeg
+-no-openssl
+-qt-pcre
+-qt-xcb
+-qt-xkbcommon
+-gui
+-widgets
+-no-rpath
+-no-optimized-qmake
+-no-nis
+-no-cups
+-no-iconv
+-no-icu
+-strip
+-no-pch
+-no-dbus
+-no-xcb
+-no-eglfs
+-no-directfb
+-no-linuxfb
+-no-kms
+-no-opengl
+-no-system-proxies
+-no-glib
+</pre>
+      </div><!-- div-pre -->
+    <p>
+     Start the Qt build by running <em class="quote">mingw32-make</em> from the <em class="quote">qtbase</em> directory and
+     finish off with <em class="quote">mingw32-make install</em>.
+    </p>
+
+    <p>
+     Edit the E-MailRelay GUI makefile <em class="quote">src/gui/mingw.mak</em> so that the E-MailRelay
+     build uses similar compiler options to the Qt examples and then then build with:
+    </p>
+
+      <div class="div-pre">
+       <pre>$ mingw32-make -f mingw.mak</pre>
+      </div><!-- div-pre -->
+   <h2><a class="a-header" name="SH_1_9">Mac OS X packaging</a></h2> <!-- index:2:SH:1:9:Mac OS X packaging -->
+    <p>
+     On Mac OS X the standard <em class="quote">configure ; make ; make install</em> procedure works best
+     if the <em class="quote">configure</em> script is given Mac-like directories on its command-line. The
+     script <em class="quote">bin/configure-mac.sh</em> can be used to do this.
+    </p>
+
+    <p>
+     The <em class="quote">make</em> step in <em class="quote">src/main</em> on Mac OS X additionally builds a simple wrapper
+     program <em class="quote">emailrelay-start</em> from <em class="quote">start.cpp</em> that runs the E-MailRelay server
+     using a command-line assembled from the <em class="quote">emailrelay.conf</em> file. This is then
+     used from the <em class="quote">E-MailRelay-Start</em> application bundle to provide a Mac-friendly
+     way of running the server.
+    </p>
+
+    <p>
+     Similary the <em class="quote">make</em> in <em class="quote">src/gui</em> builds a wrapper program <em class="quote">emailrelay-start-gui</em>
+     from <em class="quote">guistart.cpp</em> that runs <em class="quote">emailrelay-gui.real</em> and this is used from the
+     <em class="quote">E-MailRelay-Configure</em> application bundle.
+    </p>
+
+    <p>
+     The self-extracting installer scheme (described above) does work on Mac OS X,
+     but it is more sensible to use a Mac application bundle (E-MailRelay-Install) to
+     hold the payload and then wrap the whold thing up in a <em class="quote">.dmg</em> disk image. The
+     GUI code supports this by looking for a separate file called <em class="quote">payload</em> and using
+     that in preference to any payload archive it finds appended to its own executable.
+    </p>
+
+    <p>
+     The format of the <em class="quote">payload</em> file in the application bundle is the same as is used
+     in a self-extracting installer.
+    </p>
+
+    <p>
+     The makefile in the <em class="quote">src/gui</em> directory provides the <em class="quote">image</em> target to create
+     the E-MailRelay-Install application bundle and the disk image.
+    </p>
+   <h2><a class="a-header" name="SH_1_10">Source control</a></h2> <!-- index:2:SH:1:10:Source control -->
+    <p>
+     The source code is stored in the SourceForge <em class="quote">svn</em> repository. A working
+     copy can be checked out as follows:
+    </p>
+
+      <div class="div-pre">
+       <pre>$ svn co https://svn.code.sf.net/p/emailrelay/code/trunk</pre>
+      </div><!-- div-pre -->
+   <h2><a class="a-header" name="SH_1_11">Directory structure</a></h2> <!-- index:2:SH:1:11:Directory structure -->
+    <dl>
+     <dt>src</dt>
+      <dd>
+       Parent directory for source code.
+      </dd>
+     <dt>src/glib</dt>
+      <dd>
+       A low-level class library, including classes for file-system abstraction,
+       date and time, string utility functions, logging, command line parsing etc.
+      </dd>
+     <dt>src/gnet</dt>
+      <dd>
+       A network library using Berkley sockets or Winsock.
+      </dd>
+     <dt>src/gssl</dt>
+      <dd>
+       A library for using OpenSSL.
+      </dd>
+     <dt>src/gauth</dt>
+      <dd>
+       A library for SASL and PAM authentication.
+      </dd>
+     <dt>src/gsmtp</dt>
+      <dd>
+       An SMTP library.
+      </dd>
+     <dt>src/gpop</dt>
+      <dd>
+       A POP3 library.
+      </dd>
+     <dt>src/win32</dt>
+      <dd>
+       Additional classes for windows event processing.
+      </dd>
+     <dt>src/main</dt>
+      <dd>
+       Application-level classes for E-MailRelay.
+      </dd>
+     <dt>src/gui</dt>
+      <dd>
+       Installation and configuration GUI program using Qt v4.
+      </dd>
+     <dt>lib</dt>
+      <dd>
+       Parent directory for ISO C++ fixups for various older compilers.
+      </dd>
+     <dt>test</dt>
+      <dd>
+       Test scripts and utilities.
+      </dd>
+    </dl>
+   <h2><a class="a-header" name="SH_1_12">Source file names</a></h2> <!-- index:2:SH:1:12:Source file names -->
+    <p>
+     Generally the source file names are follow the name of the principal class,
+     (often including the namespace) but all in lowercase. Any underscores in the
+     name indicate a choice of implementation, so class <em class="quote">G::Foo</em> might have two
+     implementations in the files <em class="quote">gfoo_main.cpp</em> and <em class="quote">gfoo_alternate.cpp</em>.
+     The choice is normally made by the makefile.
+    </p>
+   <h2><a class="a-header" name="SH_1_13">Portability</a></h2> <!-- index:2:SH:1:13:Portability -->
+    <p>
+     The E-MailRelay code is written in ISO C++, although avoiding less-widely
+     supported language features such as <em class="quote">mutable</em>, templated methods and <em class="quote">export</em>.
+    </p>
+
+    <p>
+     The header files <em class="quote">gdef.h</em> in <em class="quote">src/glib</em>, and <em class="quote">gnet.h</em> in <em class="quote">src/gnet</em> are intended
+     to be used to fix up compiler portability issues such as missing standard types,
+     non-standard system headers etc. Conditional compilation directives (<em class="quote">#if</em>
+     etc.) are confined to these headers as far as possible in order to improve
+     readability.
+    </p>
+
+    <p>
+     Deficiencies in the standard headers files provided by older compilers are fixed
+     up by files in the <em class="quote">lib</em> directory tree. For example, the msvc6.0 compiler
+     sometimes does not put its names into the <em class="quote">std</em> namespace, even though the
+     std-namespace headers are used. This can be worked round by additional <em class="quote">using</em>
+     declarations in the <em class="quote">lib/msvc6.0</em> headers.  These work-rounds are kept out of
+     the <em class="quote">src</em> tree because they are not necessary for more modern compilers.
+    </p>
+
+    <p>
+     Windows/unix portability is generally addressed by providing a common class
+     declaration with two implementations. Where necessary a <em class="quote">pimple</em> (or <em class="quote">Bridge</em>)
+     pattern is used to hide the system-specific parts of the declaration.
+    </p>
+
+    <p>
+     A good example is the <em class="quote">G::Directory</em> class used for iterating through files in
+     a directory. The header file <em class="quote">src/glib/gdirectory.h</em> is common to both systems,
+     but two implementations are provided in <em class="quote">gdirectory_unix.cpp</em> and
+     <em class="quote">gdirectory_win32.cpp</em>. The unix implementation uses <em class="fn">opendir()</em> and <em class="fn">glob()</em>,
+     while the windows implementation uses <em class="fn">FindFirstFile()</em>.
+    </p>
+
+    <p>
+     Sometimes only small parts of the implementation are system-specific. In
+     these cases there are three source files per header. For example, <em class="quote">gsocket.cpp</em>,
+     <em class="quote">gsocket_win32.cpp</em> and <em class="quote">gsocket_unix.cpp</em> in the <em class="quote">src/gnet</em> directory.
+    </p>
+   <h2><a class="a-header" name="SH_1_14">Compile-time features</a></h2> <!-- index:2:SH:1:14:Compile-time features -->
+    <p>
+     Compile-time features can be selected with options passed to the <em class="quote">configure</em>
+     script. These include the following:
+    </p>
+
+    <ul>
+     <li>Debug-level logging (<em class="quote">--enable-debug</em>)</li>
+     <li>IPv6 (Linux only) (<em class="quote">--enable-ipv6</em>)</li>
+     <li>Configuration GUI (<em class="quote">--enable-gui</em>)</li>
+     <li>PAM support (<em class="quote">--with-pam</em>)</li>
+    </ul>
+
+    <p>
+     Some functionality can be disabled at compile-time in order to reduce the size
+     of the executable, typically when building for embedded systems:
+    </p>
+
+    <ul>
+     <li>Disable POP3 protocol, <em class="quote">--disable-pop</em></li>
+     <li>Disable authentication, <em class="quote">--disable-auth</em> (requires <em class="quote">--disable-pop</em>)</li>
+     <li>Disable administration interface, <em class="quote">--disable-admin</em></li>
+     <li>Disable execution of external programs, <em class="quote">--disable-exec</em></li>
+    </ul>
+
+    <p>
+     The <em class="quote">--enable-small-config</em> option can be used to change the command-line
+     parsing code to use a configuration file instead, resulting in a smaller
+     executable. This also removes a lot of the configuration checking code, so it is
+     not recommended unless size is critical. (The format of the configuration file
+     is similar to the command-line using the long-form options without the
+     double-dash and using '=' to separate the option from the option value.)
+    </p>
+
+    <p>
+     Use <em class="quote">./configure --help</em> to see a complete list of options and refer to
+     <em class="quote">acinclude.m4</em> for more detailed comments.
+    </p>
+   <h2><a class="a-header" name="SH_1_15">Idioms</a></h2> <!-- index:2:SH:1:15:Idioms -->
+    <p>
+     The <em class="quote">&lt;&lt;=</em> operator defined in <em class="quote">src/glib/gmemory.h</em> is used idiomatically
+     to reassign a std::auto_ptr&lt;&gt; since <em class="fn">reset()</em> is not always available.
+    </p>
+
+
+
+    <p>
+     Copyright (C) 2001-2013 Graeme Walker &lt;graeme_walker@users.sourceforge.net&gt;. All rights reserved.
+    </p>
+ </div> <!-- div-main -->
+ </body>
+</html>

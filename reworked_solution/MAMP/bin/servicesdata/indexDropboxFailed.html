@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>Dropbox</title>
+		<style>
+			html {
+				margin: 6rem;
+			}
+			
+			* {
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+				color: #000;
+				font-size: 24px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				line-height: 32px;
+				text-align: center;
+			}
+			
+			p.db { 
+				color: #2961F6;
+			}
+		</style>
+		<script type="text/javascript">
+			var lang = navigator.language || navigator.userLanguage;
+			if (lang.indexOf('-') !== -1) {
+				lang = lang.split('-')[0];				
+			} else if (lang.indexOf('_') !== -1) {
+				lang = lang.split('_')[0];				
+			}
+		</script>
+	</head>
+	<body>
+		<main>
+			<script>
+				if (lang === 'de') {
+					document.write('<p class="db">Sie haben sich entschieden, Dropbox nicht zu benutzen.</p><p>Sie können dieses Fenster nun schließen und zu MAMP PRO wechseln.</p>');
+				} else {
+					document.write('<p class="db">You decided not to use Dropbox.</p><p>You may close this window now and switch to MAMP PRO.</p>');
+				}
+			</script>
+		</main>
+	</body>
+</html>

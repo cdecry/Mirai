@@ -1,0 +1,884 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="Description" content="Fantage is the best virtual world to chat with friends, dress up your avatar, play free games, collect pets, and complete missions!"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<LINK REL="SHORTCUT ICON" HREF="icon.ico">
+
+	<title>Fantage: Virtual World where you can Dress Up, Play Games, Chat with Friends, Collect Pets!</title>
+
+	<link rel="stylesheet" type="text/css" href="http://play.localhost/css/css_login.css" >
+
+	<script src="/swfobject.js" language="javascript"></script>
+	<script src="/js/admodule.js?v1.43" language="javascript"></script>
+	<script src="/js/login_script.js" language="javascript"></script>
+	<script type="text/javascript" src="/js/cookie_util.js" language="javascript"></script>
+	<script src="/fun/js/cometscript.js" language="javascript"></script>
+	<!--
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script>
+                !window.jQuery && document.write('<script src="/ad/fancyboxo/jquery-1.4.3.min.js"><\/script>');
+        </script>
+        <script type="text/javascript" src="/ad/fancyboxo/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+        <script type="text/javascript" src="/ad/fancyboxo/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+        <link rel="stylesheet" type="text/css" href="/ad/fancyboxo/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	<script type="text/javascript" src="http://static.socialvi.be/js/easyXDM.min.js"></script>
+	<script type="text/javascript" src="http://static.socialvi.be/js/socialvibe.client.js"></script>
+        <script src="//iframe.sponsorpay.com/javascripts/widget/v2/widgets.js" charset="utf-8"></script>
+        <script src="/js/adcampaign.js" language="javascript"></script>
+
+
+	<!-- Google tracking -->
+	<style>
+		div {
+		}
+
+		#blogNew {
+			visibility:hidden;
+		}
+		
+		#mainWrapper {
+			width:800px;
+			height:520px;
+			float:left;
+		}
+
+		.floatDiv {
+			width:800px;
+			height:520px;
+			top:30px;
+			visible:hidden;
+			position:absolute;
+		}
+		iframe {
+			padding:0px;
+			margin:0px;
+		}
+
+		#loginPageWrapper {
+			z-index:1;
+		}
+
+		#loginPage {
+			z-index:2;
+			position:absolute;
+		}
+
+		#divad {
+			z-index:5;
+			/*
+			display:none;
+			visibility:hidden;
+			*/
+			background: url('/images/divbg_anim.gif') no-repeat;
+			top:30px;
+			visible:hidden;
+			position:absolute;
+		}
+		#divgl {
+			z-index:6;
+			/*
+			display:none;
+			visibility:hidden;
+			*/
+			background: url('/images/divbg_anim.gif') no-repeat;
+			top:30px;
+			visible:hidden;
+			position:absolute;
+		}
+		#divsp {
+			z-index:20;
+			/*
+			display:none;
+			visibility:hidden;
+			*/
+			top:30px;
+			visible:hidden;
+			position:absolute;
+			width:100%;
+			height:100%;
+		}
+		#divbb {
+			z-index:20;
+			/*
+			display:none;
+			visibility:hidden;
+			*/
+			top:30px;
+			visible:hidden;
+			position:absolute;
+			width:800px;
+			height:560px;
+		}
+	</style>
+	<script language="javascript">
+		var force = "";
+	        var defaultWidth = 800;
+	        var defaultHeight = 520;
+	        var currentSize = readCookie("screenSize");
+
+		var isFullScreen = "false";
+
+	        if(currentSize) {
+	                if(currentSize == 800) {
+	                        defaultWidth=800;
+	                        defaultHeight=520;
+	                } else if(currentSize == 1000) {
+	                        defaultWidth=1000;
+	                        defaultHeight=650;
+	                } else if(currentSize == 1200) {
+	                        //defaultWidth=1200;
+	                        defaultWidth=1000;
+	                        defaultHeight=650;
+	                        currentSize = 1000;
+	                }
+	
+	        }
+	        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	        var rtSmooth = 'true';
+	        var rtPixelSnapping = 'auto';
+
+	        for(var i=0; i<hashes.length; i++) {
+	                hash = hashes[i].split('=');
+	                if(hash[0] == "smooth") rtSmooth = hash[1];
+	                if(hash[0] == "pixelSnapping") rtPixelSnapping = hash[1];
+	        }
+
+		var windowMode;
+
+		function boot() {
+
+		        var isInstalled = swfobject.hasFlashPlayerVersion("11.1")
+
+		        if (!isInstalled) {
+				windowMode = "window";
+	    			var flashvars = {
+				        FlashVars: "nestedMovie=/login_page_standalone_eu.swf|hostname=prod|version=1.1|smoothing=true|pixelSnapping=" + rtPixelSnapping + "|screenSize=" + currentSize
+				    };
+				var params = {
+					align: "middle",
+				       	play: "true",
+				        loop: "true",
+				        scale: "",
+				        wmode: "window",
+				        devicefont: "false",
+				        id: "mainscreen",
+				        bgcolor: "#FFFFFF",
+				        name: "mainscreen",
+				        menu: "false",
+				        allowFullScreen: "false",
+				        allowScriptAccess: "always"
+				};
+				var attributes = {};
+				swfobject.embedSWF("/microloaderparam_enlarge.swf?v1.2", "loginPage", defaultWidth, defaultHeight, "10.0.0", "/expressInstall.swf", flashvars, params, attributes);
+				windowMode
+		        } else {
+				windowMode = "direct";
+	    			var flashvars = {
+				        FlashVars: "nestedMovie=/login_page_standalone_eu11.swf|hostname=prod|version=1.1|smoothing=true|pixelSnapping=" + rtPixelSnapping + "|screenSize=" + currentSize
+				    };
+				var params = {
+					align: "middle",
+				       	play: "true",
+				        loop: "true",
+				        scale: "",
+				        wmode: "direct",
+				        devicefont: "false",
+				        id: "mainscreen",
+				        bgcolor: "#FFFFFF",
+				        name: "mainscreen",
+				        menu: "false",
+				        allowFullScreen: "false",
+				        allowScriptAccess: "always"
+				};
+				var attributes = {};
+				swfobject.embedSWF("/microloaderparam_enlarge11.swf?v1.2", "loginPage", defaultWidth, defaultHeight, "11.0.0", "/expressInstall.swf", flashvars, params, attributes);
+			}
+			process();
+		}
+		function process() {
+
+
+			var isIE = navigator.appName.indexOf("Microsoft") != -1;
+			//console.log("isIE " + isIE);
+
+			if(isIE) {
+				document.getElementById("divsp").style.display = "none";
+				document.getElementById("divbb").style.display = "none";
+				document.getElementById("divad").style.display = "none";
+				document.getElementById("divgl").style.display = "none";
+
+				document.getElementById("divbb").style.visibility= "visible";
+				document.getElementById("divsp").style.visibility= "visible";
+				document.getElementById("divad").style.visibility= "visible";
+				document.getElementById("divgl").style.visibility= "visible";
+			} else {
+				
+				document.getElementById("divbb").style.display = "";
+				document.getElementById("divsp").style.display = "";
+				document.getElementById("divad").style.display = "";
+				document.getElementById("divgl").style.display = "";
+
+				document.getElementById("divbb").style.visibility= "hidden";
+				document.getElementById("divsp").style.visibility= "hidden";
+				document.getElementById("divad").style.visibility= "hidden";
+				document.getElementById("divgl").style.visibility= "hidden";
+			}
+
+			/*
+        		if(currentSize) {
+				var obj = document.getElementById("resizeWrapper");
+		                if(currentSize == 800) {
+					document["size_s"].src = "/fun/img/login_screensize_size_s_.png";
+					obj.width = currentSize;
+		                } else if(currentSize == 1000 || currentSize == 1200) {
+					document["size_m"].src = "/fun/img/login_screensize_size_m_.png";
+					obj.width = 1000;
+		                }
+		        } else {
+				document["size_s"].src = "/fun/img/login_screensize_size_s_.png";
+			}
+			*/
+
+			isFullScreen = readCookie("isFullScreen");
+
+			if(isFullScreen == "true") {
+				goFull();
+			} else {
+				resize(currentSize);
+			}
+
+                        $("#adcenter").fancybox({
+                                'width'                         : 800,
+                                'height'                        : 650,
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+                                'modal'                 : true,
+				'centerOnScroll'	: false,
+				'topPadding'		: 15
+                        });
+
+                        $("#r1center").fancybox({
+                                'width'                         : 1050,
+                                'height'                        : 1200,
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+                                'modal'                 : true,
+				'centerOnScroll'	: false,
+				'topPadding'		: 15
+                        });
+                        $("#tacenter").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 666,
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+				'hideOnOverlayClick'	: false,
+				'showCloseButton'	: true,
+				'centerOnScroll'	: false,
+				'topPadding'		: 15,
+				'onClosed'		: returnMain 
+                        });
+                        $("#ofct").fancybox({
+                                //'width'                         : 800,
+                                //'height'                        : 666,
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'onClosed'		: returnMain ,
+				'topPadding'		: 15,
+				'hideOnOverlayClick'	: false,
+				'showCloseButton'       : false
+
+                        });
+			/*
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+				'hideOnOverlayClick'	: false,
+				'showCloseButton'	: true,
+				'centerOnScroll'	: false,
+				'topPadding'		: 15,
+				'onClosed'		: closeFancyBox 
+			*/
+                        $("#spprem").fancybox({
+                                'width'                         : 750,
+                                'height'                        : 750,
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'topPadding'		: 0,
+				'hideOnOverlayClick'	: false,
+				'showCloseButton'       : false
+
+                        });
+                        $("#bbprem").fancybox({
+                                'width'                         : 840,
+                                'height'                        : 560,
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'topPadding'		: 0,
+				'hideOnOverlayClick'	: false,
+				'showCloseButton'       : false
+
+                        });
+                        $("#hyprmx").fancybox({
+                                'width'                         : 960,
+                                'height'                        : 640,
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+                                'modal'                 : true,
+                                'centerOnScroll'        : false,
+                                'topPadding'            : 15
+                        });
+                        $("#selectablemedia").fancybox({
+                                'width'                         : 800,
+                                'height'                        : 580,
+                                'autoDimensions'                : false,
+                                'transitionIn'          : 'none',
+                                'transitionOut'         : 'none',
+                                'type'                          : 'iframe',
+                                'modal'                 : true,
+                                'centerOnScroll'        : false,
+                                'topPadding'            : 0
+                        });
+		}
+
+		function showDis(name) {
+			var arr = new Array("loginPage", "divad", "divsp", "divgl", "divbb");
+
+			if(isIE) {
+				arr = new Array("divad", "divsp", "divgl", "divbb");
+			}
+			//console.log("showDis " + name);
+
+			/*
+			for(var i=0; i<arr.length; i++) {
+				console.log(i + ":" + arr[i]);
+				if(arr[i] ==name) {
+					//document.getElementById(arr[i]).style.display = "inline";
+					setVisible(arr[i], true);
+				} else {
+					//document.getElementById(arr[i]).style.display = "none";
+					setVisible(arr[i], false);
+				}
+				console.log("show : " + arr[i]+ "/" + getDiv(arr[i]).style.visibility + "/" + getDiv(arr[i]).style.display);
+			}
+			*/
+
+			for(var i=0; i<arr.length; i++) {
+				setVisible(arr[i], false, name);
+			}
+
+			setVisible(name, true);
+			if(isIE) {
+				if(name == "loginPage") {
+					worldVisible(true);
+				} else {
+					worldVisible(false);
+				}
+			}
+		}
+		
+		function setVisible(name, flag, curr) {
+
+			if(curr == "divad") {
+				
+			}
+
+			if(name == "loginPage") {
+				worldVisible(flag);
+				if(curr == "divsp")
+					return;
+				return;
+			}
+
+			if(document.getElementById(name) == null) return;
+
+			var isIE = navigator.appName.indexOf("Microsoft") != -1;
+			if(isIE) {
+				if(flag) {
+					document.getElementById(name).style.display = "inline";
+					document.getElementById(name).focus();
+				} else {
+					document.getElementById(name).style.display = "none";
+				}
+			} else {
+				if(flag) {
+					document.getElementById(name).style.visibility= "visible";
+					document.getElementById(name).style.display = "";
+					document.getElementById(name).focus();
+				} else {
+					document.getElementById(name).style.visibility= "hidden";
+					document.getElementById(name).style.display = "";
+				}
+			}
+		}
+
+		function getDiv(name) {
+			return document.getElementById(name);
+		}
+
+		function getFlashMovie(movieName) {
+			var isIE = navigator.appName.indexOf("Microsoft") != -1;
+			return (isIE) ? window[movieName] : document[movieName];
+		}
+
+		function showLogoutPage()
+		{
+			getFlashMovie("loginPage").showLogout();
+		}
+
+		function roll(img_name, img_src)
+		{
+			document[img_name].src = img_src;
+		}
+
+		function openBlog() {
+			document.getElementById("blogNew").style.visibility = "hidden";
+			openPopup('http://blog.fantage.com/','860','500')
+		  	getFlashMovie("loginPage").blogClicked();
+		}
+
+		function hasNewBlog() {
+			document.getElementById("blogNew").style.visibility = "visible";
+		}
+
+                var resizeFlag;
+                var _currentSize;
+
+                function toggleResizing(flag) {
+                        _currentSize = defaultWidth;
+                        resizeFlag = flag
+                }
+
+                function resetWindow() {
+                        resizeFlag = "true";
+                        resize(_currentSize);
+                }
+
+                function resize(width) {
+                        if(resizeFlag == "false")
+                                return;
+			
+			if(width == null || width == "null") width = 800;
+
+			var obj = document.getElementById("resizeWrapper");
+			obj.width = width;
+	
+			createCookie("screenSize", width);
+			createCookie("isFullScreen", "false");
+			isFullScreen = "false";
+
+			var wS = document.getElementById("size_s");
+			var wM = document.getElementById("size_m");
+
+			if(width == 800) {
+//				wS.src = "/fun/img/login_screensize_size_s_.png";
+//				wM.src = "/fun/img/login_screensize_size_m.png";
+				wS.src = "/img/screen_small_.png";
+				wM.src = "/img/screen_big.png";
+				defaultWidth = 800;
+				defaultHeight = 520;
+			} else if(width == 1000) {
+				wS.src = "/fun/img/login_screensize_size_s.png";
+				wM.src = "/fun/img/login_screensize_size_m_.png";
+				wS.src = "/img/screen_small_.png";
+				wM.src = "/img/screen_big.png";
+				defaultWidth = 1000;
+				defaultHeight = 650;
+			}
+
+			setSize("mainWrapper", width);
+			setSize("divad", width);
+			setSize("divgl", width);
+			setSize("divsp", width);
+			setSize("loginPage", width);
+
+			try {
+				getFlashMovie("loginPage").resizeScreen(width);
+			} catch(error) {}
+		}
+
+		function goFull() {
+
+			isWorldVisible();
+
+                        if(resizeFlag == "false")
+				return;
+
+			var width = getStageWidth() - 100; 
+
+			width = getScreenSizePair().width;
+			if(width < 800) { 
+				width = 800;
+			}
+
+			//log("Browser stage size : " + width + "/" + getStageHeight() );
+
+                        setSize("mainWrapper", width);
+                        setSize("divad", width);
+                        setSize("divgl", width);
+                        setSize("divsp", width);
+                        setSize("divbb", width);
+                        setSize("loginPage", width);
+
+
+			var obj = document.getElementById("resizeWrapper");
+			obj.width = width;
+
+			createCookie("isFullScreen", "true");
+			isFullScreen = "true";
+
+                        try {
+                                getFlashMovie("loginPage").resizeScreen(width);
+                        } catch(error) {}
+                        var wS = document.getElementById("size_s");
+                        var wM = document.getElementById("size_m");
+
+			wS.src = "/img/screen_small.png";
+			wM.src = "/img/screen_big_.png";
+
+		}
+
+		function getStageWidth() {
+			var result = window.innerWidth || document.body.clientWidth;
+			if(result < 840) 
+				result = 840;
+
+			return Math.round(result);
+		}
+
+		function getScreenSizePair() {
+			var result = {};
+
+			var width = getStageWidth() - 100;
+			var height = getHeight(width);
+
+			if(height > getStageHeight() - 60) {
+				//log("CUT");
+				height = getStageHeight() - 0;
+				width = getWidth(height) - 100;
+			}
+
+			result = {
+				width : Math.round(width),
+				height : Math.round(height)
+			}
+
+			return result;
+		}
+
+		function refreshStage() {
+			if(isFullScreen == "true") 	
+				goFull();
+		}
+
+		function getStageHeight() {
+			var result = window.innerHeight || document.body.clientHeight
+			return Math.round(result);
+		}
+
+		function getHeight(width) {
+			var result = width * 520 / 800;
+			return Math.round(result);
+		}
+
+		function getWidth(height) {
+			var result = height * 800 / 520;
+			return Math.round(result);
+		}
+
+		function setSize(name, widthIn) {
+			var width = 800;
+			if(widthIn != "null")
+				width = widthIn;
+			
+			if(width == null) 
+				width=800;
+
+			var height = getHeight(width); 
+			if(width == 1000)	
+				height = 650;
+
+			var obj = document.getElementById(name);
+			if(obj != null) {
+				obj.style.width = width;
+				obj.style.height = height;
+			}
+		}
+
+		function dispatchAdEvent(ap, stat) {
+			//console.log("dispatchAdEvent " + ap + "/" + stat);
+			
+			/*
+			try {
+				getFlashMovie("loginPage").adStatus("Ad", String(ap), String(stat));	
+			} catch(error) {
+				//console.log("ERROR");
+				setTimeout( function() {
+					dispatchAdEvent(ap,stat);
+				}, 300);
+				
+			}
+			*/
+
+			getFlashMovie("loginPage").adStatus("Ad", String(ap), String(stat));	
+
+			if(ap == "google" && stat == "start") {
+				setSize("divgl", "800");
+				showDis("divgl");
+			}
+			
+		        //document.getElementById("loginPage").adStatus("Ad", String(ap), String(stat));
+		}
+
+		function langselection( obj ) {
+			var targetUrl = "";
+			var paramText = window.location.href.split('?')[1];
+		
+			switch( obj.value )
+			{
+				case "en":
+				{
+					targetUrl = "login.html"
+					break;
+				}
+				case "fr":
+				{
+					targetUrl = "fr_login.html"
+					break;
+				}
+				case "de":
+				{
+					targetUrl = "de_login.html"
+					break;
+				}
+			}
+			
+			if( paramText != "" && paramText != "undefined" )
+			{
+				targetUrl += "?" + paramText;
+			}
+		
+			window.location.href = targetUrl;
+		}
+
+		(function() {
+		var sv_promo = document.createElement('script');
+		sv_promo.type = 'text/javascript';
+		sv_promo.async = true;
+		sv_promo.src = 'http://static.socialvi.be/js/socialvibe.client.js';
+		var sv_promo_script = document.getElementsByTagName('script')[0];
+		sv_promo_script.parentNode.insertBefore(sv_promo, sv_promo_script);
+		})();
+
+		$(window).resize(onStageResize);
+		$(window).focus(onStageFocus);
+
+		function onStageFocus() {
+			onStageResize();
+		}
+
+		function onStageResize() {
+
+//			log("onStageResize flag " +isWorldVisible() + "/" + resizeFlag);
+
+			if(!isWorldVisible())
+				return;
+				
+			if(isFullScreen != "true")
+				return;
+
+                        if(resizeFlag == "false")
+			        return;
+
+			goFull();
+		}
+
+	</script>
+</head>
+<body style="padding-top:0px;" onLoad="boot()">
+<div class="narrowtopbar" >
+  <CENTER><table cellspacing="0" border="0" cellpadding="0" width="800" id="resizeWrapper">
+    <tr>
+        <td align="left" valign=bottom>
+<a href="http://secure.fantage.com/membership/?login" target="_blank" onmouseover="roll('membership', 'http://play.localhost/fun/img/top/new_white_top/but_membership_gold.png')"  onmouseout="roll('membership', 'http://play.localhost/fun/img/top/new_white_top/but_membership_r.png')"><img src="http://play.localhost/fun/img/top/new_white_top/but_membership_r.png" width="140" height="27" border="0" alt="" name="membership"></a>
+&nbsp;
+<a href="http://secure.fantage.com/membershipv3/gsSelectPayment.do?login" target="_blank" onmouseover="roll('ecoin', 'http://play.localhost/fun/img/top/new_white_top/but_ecoin_gold.png')"  onmouseout="roll('ecoin', 'http://play.localhost/fun/img/top/new_white_top/but_ecoin_r.png')"><img src="http://play.localhost/fun/img/top/new_white_top/but_ecoin_r.png" width="81" height="27" border="0" alt="" name="ecoin"></a>
+</td>
+        <td align="right" valign="bottom">
+		<img src="http://play.localhost/fun/img/login_screensize_head.png" />
+		<a href="javascript:resize('800');"><img src="http://play.localhost/fun/img/login_screensize_size_s.png" name="size_s" id="size_s" border=0></a>
+		<!--
+		<a href="javascript:resize('1000');"><img src="http://play.localhost/fun/img/login_screensize_size_m.png" name="size_m" id="size_m" border=0></a>
+		-->
+		<a href="javascript:goFull();"><img src="/img/screen_big.png" name="size_m" id="size_m" border=0></a>
+		</td>
+		<td align="right" valign="bottom" width="111">
+			<style type="text/css">
+			.language_select {
+				/*background: url('/img/bg_language_select.png') no-repeat;*/
+				border: 0;
+				margin: auto;
+				padding: 0px;
+				width: 111px;
+				height: 24px;
+				text-align: right;
+				}
+			.language_select_option {
+				background: #f9f9fc;
+				color: #636363;
+				font: bold 11px arial, verdana, sans-serif;				
+				border: #a7b9be solid 1px;
+				margin-top: 3px;
+				text-align: center;
+				padding: 0px;
+				width: 101px;
+			}
+			</style>
+			<div class="language_select">
+			<select class="language_select_option" name="langselect" onchange="langselection(this);" >
+				<option value="en" selected> English</option>
+				<option value="de"> Deutsch </option>
+				<option value="fr"> Françs </option>
+			</select>
+			</div>		
+		</td>
+		<td align="right" valign="bottom" width="81">
+
+		<a href="javascript:showLogoutPage();" onmouseover="roll('logout', 'http://play.localhost/fun/img/top/new_white_top/but_n_logout_a.png')"  onmouseout="roll('logout', 'http://play.localhost/fun/img/top/new_white_top/but_n_logout.png')"><img src="http://play.localhost/fun/img/top/new_white_top/but_n_logout.png" width="78" height="24" border="0" alt="" name="logout"></a>
+	</td>
+    </tr>
+  </table></CENTER>
+</div>
+<center>
+<div class="playScreen">
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+<tr id="tableTopTR">
+<td background="http://play.localhost/themes/plainwhite/topleft.png" width=15 height=29></td>
+<td background="http://play.localhost/themes/plainwhite/topmiddle.png" width=800 height=29 align=right style="padding-bottom:6px;" >
+<td background="http://play.localhost/themes/plainwhite/topright.png" width=15 height=29></td>
+</tr><tr>
+<td background="http://play.localhost/themes/plainwhite/left.png" width=15 height=520></td>
+<td>
+	<div id="mainWrapper">
+		<div id="loginPage" class="floatDiv"></div>
+		<div id="divad" class="floatDiv"></div>
+		<div id="divgl" class="floatDiv"></div>
+		<div id="divsp" class="floatDiv"></div>
+		<div id="divbb" class="floatDiv"><table width=100% height=100% background="#dddddd"><tr><td></td></tr></table></div>
+	</div>
+
+</td>
+<td background="http://play.localhost/themes/plainwhite/right.png" width=15 height=520></td>
+</tr><tr id="tableBottomTR">
+<td background="http://play.localhost/themes/plainwhite/bottomleft.png" width=15 height=15></td>
+<td background="http://play.localhost/themes/plainwhite/bottommiddle.png" width=800 height=15></td>
+<td background="http://play.localhost/themes/plainwhite/bottomright.png" width=15 height=15></td>
+</tr>
+<tr>
+    <td colspan=3 align=center>
+
+	<!-- Update:3/26/2013 START-->			
+		<div style="width: 820px; text-align: center;">
+			<div style="float: left;width: 101px; margin: 21px 0 0 15px;"><img src="http://play.localhost/fun/img/top/new_white_top/logo_big_worldbelow.png" style="width: 101px;"></div>
+			<div style="float: left; width: 551px; overflow: hidden;">
+				<div style="height: 35px; overflow: hidden;">
+					<div style="float: left; width: 35px; margin: 0 -9px 0 5px;"><img src="but_new.png" border="0" id="blogNew" width="35px" height="25px"/></div>
+					<div style="float: left; width: 35px;"><a href="javascript:openBlog()" class="bottomlink"><img src="img/btn_blog.png"/></a></div>
+					<div style="display: inline; line-height: 35px; height: 35px; overflow: hidden;"> | <a href="javascript:openPopup('http://play.localhost/privacypopup.html','860','500')" class="bottomlinkOrange">Privacy Policy</a> | <a href="javascript:openPopup('http://play.localhost/codeofconductpopup.html','860','500')" class="bottomlink">Chat and Behavior Code</a> | <a href="javascript:openPopup('http://play.localhost/contactpopup.html','860','500')" class="bottomlink">Contact Us</a> </div>
+				</div>
+				<div style=""><img src="http://play.localhost/fun/img/bottom_bar.png" width="501" height="2" border="0" alt="" style="display: block;"/> </div>
+				<div class="footerText"> &copy; 2007. All rights reserved. FANTAGE and the FANTAGE logo are sevice marks of Fantage.com Inc.<br>
+								Last Updated on Jun. 2013
+				</div>
+			</div>
+			<div style="float: left;"><a href="javascript:openPopup('http://secure.fantage.com/membershipv3/pmSelectPayment.do','860','500')"><img src="http://play.localhost/fun/img/top/new_white_top/but_gift_certificate.png"/></a></div>
+		</div>
+	<!-- Update: 3/26/2013 END-->
+
+	</td>
+</tr>
+</table>
+<script type="text/javascript">
+</script>
+<!-- End Google Tracking -->
+<!-- Start Quantcast tag -->
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "http://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-4936009-1");
+	pageTracker._setDomainName(".fantage.com");
+	pageTracker._setAllowHash(false);
+	pageTracker._trackPageview();
+	//console.log("google" + pageTracker);
+
+	</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-d2ql1touvbOE6";quantserve();</script>
+<noscript><a href="http://www.quantcast.com/p-d2ql1touvbOE6" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d2ql1touvbOE6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+<a id="adcenter" href="test.html" style="visibility:hidden">.</a>
+<a id="r1center" href="test.html" style="visibility:hidden">.</a>
+<a id="ofct" href="#inlinewall" style="visibility:hidden"></a>
+<a id="spprem" href="#spWall" style="visibility:hidden"></a>
+<a id="bbprem" href="#divbb" style="visibility:hidden"></a>
+<a id="hyprmx" href="test.html" style="visibility:hidden"></a>
+<a id="selectablemedia" href="test.html" style="visibility:hidden"></a>
+
+<div id="inlinewall" style="visibility:hidden;text-align:center">
+	<div id="inlinescreen" style="text-align:center"></div>
+	<div style="text-align:right;padding-right:20px;padding-top:6px;">
+		<a href="javascript:redeemSv();"><img src="/images/earn25ecoin_.png" border="0" id="svBtn" name="svBtn"/></a>
+	</div>
+</div>
+<div id="spWall" style="visibility:hidden:text-align:center;">
+	<div id="spUi" style="text-align:right;visibility:hidden">
+	<a href="javascript:spCampaignSkip();"><img id="spCamCloseBtn" src="/images/closebutton.png" border="0"></a>
+	</div>
+	<div id="spWallScreen"></div>
+</div>
+<div id="bbStage"></div>
+<div id="scrtholder"></div>
+<!--<script src="/js/admodule_inpage.js"></script>-->
+
+<!-- Google Code for Logged In, Remarketing -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1054205302;
+var google_conversion_label = "AiuICJKt0gEQ9srX9gM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1054205302/?value=0&amp;label=AiuICJKt0gEQ9srX9gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- End Google Code for Logged In, Remarketing -->
+ 
+</body>
+</html>
+
+

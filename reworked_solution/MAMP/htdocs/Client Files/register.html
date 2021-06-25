@@ -1,0 +1,156 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Description" content="Fantage is the best virtual world to chat with friends, dress up your avatar, play free games, collect pets, and complete missions!"/>
+
+<LINK REL="SHORTCUT ICON" HREF="icon.ico"> 
+<script type="text/javascript" src="swfobject.js"></script>
+<script src="/cometscript.js" language="javascript"></script>
+<script type="text/javascript" src="/js/cookie_util.js" language="javascript"></script>
+<script type="text/javascript" src="/js/cometscript.js" language="javascript"></script>
+<script src="js/global.js" language="javascript"></script>
+<script type="text/javascript"> 
+//  setCookie("main_index", document.location, 1, "", ".fantage.com", false);
+//  setCookie("main_referrer", document.referrer, 1, "", ".fantage.com", false);
+</script>
+<script language="javascript">
+
+function detectApple() {
+	var uagent = navigator.userAgent.toLowerCase();
+
+	var apDevice = new Array("iphone", "ipod", "ipad");
+
+	var i = 0;
+	var length = apDevice.length;
+
+	for(i=0; i<length; i++) {
+		if(uagent.search(apDevice[i]) >-1) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function detectBrowser() {
+	if(detectApple()) {
+		location.href = "http://play.localhost/i_user.html";	
+	}
+}
+
+function pageRefresh() {
+	window.location.reload();
+}
+
+function moveBack() {
+	history.back();
+}
+
+function boot() {
+
+	var isInstalled = swfobject.hasFlashPlayerVersion("10") 
+	//var playerVersion = swfobject.getFlashPlayerVersion();
+
+	if (!isInstalled) {
+		document.getElementById("alert").innerHTML= "<a href='http://www.adobe.com/go/getflashplayer'><img src='http://play.localhost/img_main_needFlash_n.png' /></a>";
+	} else {
+    		var flashvars = {
+        		FlashVars: 'version=1.1|env=prod|lang=en'
+    		};
+
+    		var params = {
+        		align: "middle",
+        		play: "true",
+        		loop: "true",
+        		scale: "noscale",
+			bgcolor: "#007DF7",
+        		wmode: "window",
+        		devicefont: "false",
+        		id: "register_div",
+        		name: "register_div",
+        		menu: "true",
+        		allowFullScreen: "false",
+        		allowScriptAccess: "always"
+    		};
+    		var attributes = {};
+
+		//swfobject.embedSWF("register_loader.swf", "register_div", "100%", "849", "10.0.0", "/expressInstall.swf", flashvars, params, attributes);
+		swfobject.embedSWF("register_loader.swf", "register_div", "100%", "666px", "10.0.0", "expressInstall.swf", flashvars, params, attributes);
+
+	}
+}
+
+</script>
+<style>
+	#top {
+		width:835px;
+		text-align:left;
+		height:50px;
+	}
+
+	body {
+		padding : 0px;
+		margin: 0px;
+		background-color : #007DF7;
+		background-repeat: repeat-x;
+	}
+
+	.main_register_page {
+		
+	}
+</style>
+
+ 
+<title>Fantage: Virtual World where you can Dress Up, Play Games, Chat with Friends, Collect Pets!</title>
+</head>
+ 
+<body onLoad="boot()">
+<script>
+        if(window.parent != null && window.parent.isMiniClip) {
+                location.href = "register_miniclip.html";
+        }
+</script>
+<script>
+	detectBrowser();
+</script>
+<div class="main_register_page" align="center">
+    <div class="mainPage2">
+       <div id="register_div"></div>
+    </div>
+    <div id="alert"></div>
+</div>
+ 
+<!-- Start SEALS Update: 12/12/11 -->
+
+
+<!-- End SEALS Update: 12/12/11 -->
+
+
+<!-- Start SEALS Update: 12/12/11 -->
+<!-- End SEALS Update: 12/12/11 -->
+
+ 
+<!-- Google tracking -->
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "http://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-4936009-1");
+pageTracker._setDomainName(".fantage.com");
+pageTracker._setAllowHash(false);
+pageTracker._trackPageview();
+</script>
+<!-- End Google Tracking -->
+ 
+ 
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-d2ql1touvbOE6";quantserve();</script>
+<noscript><a href="http://www.quantcast.com/p-d2ql1touvbOE6" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d2ql1touvbOE6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+<!-- End Quantcast tag -->
+ 
+</body>
+</html>
+ 

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<configuration>
+  <process>
+    <app>apache</app>
+    <value>0</value>
+  </process>
+  <process>
+    <app>mysql</app>
+    <value>0</value>
+  </process>
+  <process>
+    <app>apache</app>
+    <value>0</value>
+  </process>
+</configuration>
