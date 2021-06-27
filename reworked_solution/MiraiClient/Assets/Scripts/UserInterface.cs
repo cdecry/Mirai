@@ -97,16 +97,6 @@ public class UserInterface : MonoBehaviour
          * if yes send message to all players >> add these items in message from itemPack      just like add invent, for debugging trying to maker local add first.
          */
 
-    public void slushNRushButton()
-    {
-        Client.ToSlushNRush();
-    }
-
-    public void shadyButton()
-    {
-        Client.ToShady();
-    }
-
     #region Inventory
 
     public static void AddToInventory(string spriteName, int itemType)

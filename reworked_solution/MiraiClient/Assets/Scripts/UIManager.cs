@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
         IEnumerator ConnectCoroutine()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.01f);
             ClientSend.LoginRequest();
         }
 

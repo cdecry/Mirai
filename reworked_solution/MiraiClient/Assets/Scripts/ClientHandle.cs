@@ -18,36 +18,42 @@ public class ClientHandle : MonoBehaviour
         Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
     }
 
+    /*
+     * creating a list of ids that need to be spawned
+     * reading the sent id, usenrname, position, and id list
+     * callig spawnplayer funcition with list of ids
+     * 
+     */
     public static void SpawnPlayer(Packet _packet)
     {
-        List<int> ids = new List<int>();
 
         int _id = _packet.ReadInt();
         string _username = _packet.ReadString();
         Vector3 _position = _packet.ReadVector3();
         Quaternion _rotation = _packet.ReadQuaternion();
-
-        int _numInRoom = _packet.ReadInt();
-
-        for(int i = 0; i < _numInRoom; i++)
-        {
-            ids.Add(_packet.ReadInt());
-        }
+        string _room = _packet.ReadString();
 
         //!! add users to spawn, read lists  in packets
         //List _playersToSpawn = _packet.ReadList();
 
-        GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation, ids);
+        GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation, _room);
     }
 
     public static void PlayerPosition(Packet _packet)
     {
         int _id = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
+        float _flip = _packet.ReadFloat();
+        Vector3 _targetPosition = _packet.ReadVector3();
+
         if (GameManager.players.ContainsKey(_id))
         {
-            GameManager.players[_id].transform.position = _position;
-            
+            if (GameManager.players[_id] != null)
+            {
+                //GameManager.players[_id].transform.position = Vector3.MoveTowards(GameManager.players[_id].transform.position, _targetPosition, 7 * Time.deltaTime);
+                GameManager.players[_id].transform.position = _position;
+                GameManager.players[_id].transform.localScale = new Vector3(_flip, 1f, 1f);
+            }
             //SceneManager.LoadScene("Shady");
         }
     }
@@ -74,17 +80,6 @@ public class ClientHandle : MonoBehaviour
             //login success
             case 0:
                 Debug.Log("login successful! spawning player...");
-                //assign playerInfo username
-
-                /*Player player = new Player(_id, _username, "Shady");
-
-                GameManager.playersOnline.Add(player);
-                foreach (Player _player in GameManager.playersOnline)
-                {
-                    Debug.Log(_player.username);
-                }*/
-
-                //spawn player
                 SceneManager.LoadScene("Shady");
                 Debug.Log("loaded scene.");
                 break;
@@ -117,8 +112,8 @@ public class ClientHandle : MonoBehaviour
                 }
             }
         }
-        
-        Debug.Log("remove player received");
+
+        Debug.Log($"ClientHandle.cs - RemovePlayerReceived(): Local Player removed specific player");
 
     }
 
@@ -135,7 +130,7 @@ public class ClientHandle : MonoBehaviour
             }
         }
 
-        Debug.Log("remove players received");
+        Debug.Log("ClientHandle.cs - RemovePlayers(): Local Player removed all players in room.");
 
     }
 
@@ -148,8 +143,11 @@ public class ClientHandle : MonoBehaviour
         GameManager.players[_id].location = _room;
         SceneManager.LoadScene(_room);
 
-        Debug.Log("scene loaded");
-
+        Debug.Log($"ClientHandle.cs - ChangeRoom(): Player {GameManager.players[_id].username} moved to room {_room} also:");
+        /*for (int i = 1; i < GameManager.players.Count + 1; i++)
+        {
+            Debug.Log($"    Player name: {GameManager.players[i].username}; Room: {GameManager.players[i].location}");
+        }*/
     }
 
     public static void ChangeClothes(Packet _packet)

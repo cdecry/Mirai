@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {}
+    "Z:\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {
+    "Z:\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
+        "projectUniqueName": "Z:\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
         "projectName": "MiraiServer",
-        "projectPath": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
-        "packagesPath": "C:\\Users\\admin2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin2\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\obj\\",
+        "projectPath": "Z:\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\MiraiServer.csproj",
+        "packagesPath": "C:\\Users\\crystal\\.nuget\\packages\\",
+        "outputPath": "Z:\\Documents\\GitHub\\mirai\\reworked_solution\\MiraiServer\\MiraiServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\crystal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

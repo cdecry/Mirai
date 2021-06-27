@@ -18,7 +18,7 @@ namespace MiraiServer
             {
                 Console.WriteLine($"Player \"{_username}\" (ID: {_fromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
             }
-            Server.clients[_fromClient].SendIntoGame(_username);
+            Server.clients[_fromClient].SendIntoGame(_username, "Shady");
 
             foreach (Client _client in Server.clients.Values)
             {
@@ -39,8 +39,13 @@ namespace MiraiServer
                 _inputs[i] = _packet.ReadBool();
             }
             Quaternion _rotation = _packet.ReadQuaternion();
+            Vector3 _targetPos = _packet.ReadVector3();
+            Vector3 _currentPos = _packet.ReadVector3();
+            bool _mouseMovement = _packet.ReadBool();
+            bool _xMouseMovement = _packet.ReadBool();
+            bool _yMouseMovement = _packet.ReadBool();
 
-            Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
+            Server.clients[_fromClient].player.SetInput(_inputs, _rotation, _targetPos, _currentPos, _mouseMovement, _xMouseMovement, _yMouseMovement);
         }
 
         public static void LoginRequest(int _fromClient, Packet _packet)
@@ -61,13 +66,15 @@ namespace MiraiServer
             Server.playersOnline.Remove(_username);
 
             ServerSend.RemovePlayerReceived(_fromClient);
+            Console.WriteLine("ServerHandle.cs - RemovePlayer(): Calling RemovePlayerReceived because client has disconnected");
         }
 
         public static void ChangeRoomRequest(int _fromClient, Packet _packet)
         {
+            Console.WriteLine("ServerHandle.cs - ChangeRoomRequest() called");
             string _room = _packet.ReadString();
 
-            // all other clients remove this player
+            // all other clients remove this player IF they are in the same room
             ServerSend.RemovePlayerReceived(_fromClient);
 
             // this client removes all other players
@@ -88,9 +95,9 @@ namespace MiraiServer
                 if (_client.player != null && _client.player.location == _room)
                 {
                     // all clients in this room spawn everyone in the room
-                    ServerSend.RemovePlayers(_client.id);
+                    // ServerSend.RemovePlayers(_client.id);
                     _client.SpawnPlayersInRoom(_room);
-                    Console.WriteLine("all players in room " + _room + " spawned for player " + _client.player.username);
+                    //Console.WriteLine("all players in room " + _room + " spawned for player " + _client.player.username);
                 }
 
             }

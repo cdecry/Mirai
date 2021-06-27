@@ -315,16 +315,6 @@ public class Client : MonoBehaviour
             Debug.Log("Disconnected from server.");
         }
     }
-
-    public static void ToSlushNRush()
-    {
-        ClientSend.ChangeRoomRequest("Slush-N-Rush");
-    }
-    public static void ToShady()
-    {
-        ClientSend.ChangeRoomRequest("Shady");
-    }
-
     /*
    
     public static void AddItem(int _itemID)

@@ -198,10 +198,10 @@ namespace MiraiServer
             }
         }
 
-        public void SendIntoGame(string _playerName)
+        public void SendIntoGame(string _playerName, string _room)
         {
 
-            player = new Player(id, _playerName, "Shady", new Vector3(0, 0, 0));
+            player = new Player(id, _playerName, _room, new Vector3(0, 0, 0));
             inventory = new Inventory();
 
             Server.playersOnline.Add(player.username);
@@ -216,7 +216,7 @@ namespace MiraiServer
                     //added if
                     if (_client.id == id)
                     {
-                        ServerSend.SpawnPlayer(_client.id, player);
+                        ServerSend.SpawnPlayer(_client.id, player, _room);
 
                         _client.inventory.AddItem(1);
                         //ServerSend.SyncInventory(_client.id, 1);   //SERVER INVENT TEST
@@ -236,11 +236,12 @@ namespace MiraiServer
             {
                 if (_client.player != null)
                 {
+                    Console.WriteLine(_client.player.username);
                     if (_client.id != id)
                     {
                         if(_client.player.location == room)
                         {
-                            ServerSend.SpawnPlayer(id, _client.player);
+                            ServerSend.SpawnPlayer(id, _client.player, room);
                         }
                     }
                 }
@@ -251,7 +252,7 @@ namespace MiraiServer
         public void ProcessLogin(int _id, string _username, string _password)
         {
             Console.WriteLine("starting ProcessLogin() in Client.cs");
-            using (WebClient request = new WebClient())
+            /*using (WebClient request = new WebClient())
             {
                 NameValueCollection form = new NameValueCollection();
                 form.Add("username", _username);
@@ -279,8 +280,9 @@ namespace MiraiServer
                     ServerSend.Welcome(id, "Welcome to the server!");
                     //InitializeItemDB();
                 }
-            }
-
+            }*/
+            ServerSend.LoginRequestReceived(_id, _username, 0);
+            ServerSend.Welcome(id, "Welcome to the server!");
             // login request received send to client, logi
         }
 
@@ -293,7 +295,7 @@ namespace MiraiServer
         }*/
 
 
-        public void Disconnect()
+            public void Disconnect()
         {
             Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
             

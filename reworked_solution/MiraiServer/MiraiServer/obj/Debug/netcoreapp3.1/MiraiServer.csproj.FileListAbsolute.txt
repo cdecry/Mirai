@@ -24,3 +24,16 @@ C:\Users\admin2\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer
 C:\Users\admin2\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.dll
 C:\Users\admin2\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.pdb
 C:\Users\admin2\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.genruntimeconfig.cache
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.exe
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.deps.json
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.runtimeconfig.json
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.runtimeconfig.dev.json
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.dll
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\bin\Debug\netcoreapp3.1\MiraiServer.pdb
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.csproj.AssemblyReference.cache
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.AssemblyInfoInputs.cache
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.AssemblyInfo.cs
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.csproj.CoreCompileInputs.cache
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.dll
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.pdb
+Z:\Documents\GitHub\mirai\reworked_solution\MiraiServer\MiraiServer\obj\Debug\netcoreapp3.1\MiraiServer.genruntimeconfig.cache

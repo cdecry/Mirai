@@ -30,7 +30,7 @@ public class ClientSend : MonoBehaviour
         }
     }
 
-    public static void PlayerMovement(bool[] _inputs)
+    public static void PlayerMovement(bool[] _inputs, Vector3 _targetPos, Vector3 _currentPos, bool _mouse, bool x, bool y)
     {
         using (Packet _packet = new Packet((int)ClientPackets.playerMovement))
         {
@@ -40,6 +40,11 @@ public class ClientSend : MonoBehaviour
                 _packet.Write(_input);
             }
             _packet.Write(GameManager.players[Client.instance.myId].transform.rotation);
+            _packet.Write(_targetPos);
+            _packet.Write(_currentPos);
+            _packet.Write(_mouse);
+            _packet.Write(x);
+            _packet.Write(y);
 
             SendUDPData(_packet);
         }

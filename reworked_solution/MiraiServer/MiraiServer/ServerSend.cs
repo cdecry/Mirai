@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Numerics;
 
 namespace MiraiServer
 {
@@ -63,10 +64,13 @@ namespace MiraiServer
             }
         }
 
-        public static void SpawnPlayer(int _toClient, Player _player)
+        /*
+         * intiialize new var num of playerse in room as 0
+         * create a new list of "ids"
+         * write id, username, position, rotation, list of ids (assume nothing insde)
+         */
+        public static void SpawnPlayer(int _toClient, Player _player, string _room)
         {
-            int numInRoom = 0;
-            List<int> ids = new List<int>();
 
             using (Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
             {
@@ -74,22 +78,22 @@ namespace MiraiServer
                 _packet.Write(_player.username);
                 _packet.Write(_player.position);
                 _packet.Write(_player.rotation);
-                _packet.Write(numInRoom);
-                for (int i = 0; i < numInRoom; i++)
-                {
-                    _packet.Write(ids[i]);
-                }
+                _packet.Write(_room);
 
                 SendTCPData(_toClient, _packet);
+
+                Console.WriteLine($"ServerSend.cs - SpawnPlayer(): Spawning player {_player.username} for client with ID {_toClient}");
             }
         }
 
-        public static void PlayerPosition(Player _player)
+        public static void PlayerPosition(Player _player, float _flip, Vector3 _targetPos)
         {
             using (Packet _packet = new Packet((int)ServerPackets.playerPosition))
             {
                 _packet.Write(_player.id);
                 _packet.Write(_player.position);
+                _packet.Write(_flip);
+                _packet.Write(_targetPos);
 
                 SendUDPDataToAll(_packet);
 
@@ -123,41 +127,40 @@ namespace MiraiServer
 
         public static void RemovePlayerReceived(int _toClient)
         {
-            Console.WriteLine("removeplayerreceived sending to client...");
             using (Packet _packet = new Packet((int)ServerPackets.removePlayerReceived))
             {
                 _packet.Write(_toClient);
 
                 SendTCPDataToAll(_toClient, _packet);
-                Console.WriteLine($"sent to all except {_toClient}");
+                Console.WriteLine($"ServerSend.cs - RemovedPlayerReceived(): Every client removing player with ID {_toClient}");
             }
         }
 
         public static void RemovePlayers(int _toClient)
         {
-            Console.WriteLine("remove all playres for single client req");
             using (Packet _packet = new Packet((int)ServerPackets.removePlayers))
             {
                 _packet.Write(_toClient);
 
                 SendTCPData(_toClient, _packet);
-                Console.WriteLine($"sent only to guy changing room {_toClient}");
+                Console.WriteLine($"ServerSend.cs - RemovePlayers(): Player with ID {_toClient} has removed all other players");
             }
         }
 
 
         public static void ChangeRoom(int _toClient, string _room)
         {
-            Console.WriteLine("changeRoom sending to client...");
+            
             using (Packet _packet = new Packet((int)ServerPackets.changeRoom))
             {
                 _packet.Write(_toClient);
                 _packet.Write(_room);
 
                 SendTCPData(_toClient, _packet);
+                Console.WriteLine($"ServerSend.cs - ChangeRoom: Client with ID {_toClient} visually changed rooms"); // the actual visual ui change room
             }
 
-            RemovePlayerReceived(_toClient);
+            // RemovePlayerReceived(_toClient);
         }
 
         public static void ChangeClothes(int _thatClient, List<int> _items)
