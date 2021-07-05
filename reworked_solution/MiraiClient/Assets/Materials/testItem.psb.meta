@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7cd07152f456eed409ae4ec60d413692
+guid: a7e7b2c6c3502e144aa57585e6e2f322
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -87,6 +87,28 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: ornamentalGoldEarrings
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 210
+      y: 87
+      width: 42
+      height: 8
+    spriteID: e7c78a200d1de634b824452a7da6b683
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 186, y: -7}
   - name: testFaceAcc
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -94,11 +116,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 233
+      x: 169
+      y: 4
       width: 46
       height: 12
-    spriteID: dfe73ab6a94a7a5489833c4d865f2dfc
+    spriteID: c6938e8e012619046a7a5e07f4c9504e
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -108,7 +130,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -1, y: 136}
+    uvTransform: {x: 147, y: -94}
+  - name: scarletBraidsFront
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 91
+      height: 124
+    spriteID: c1f47772bdd192b47a71559e7132dd0d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -21}
   - name: butterflyHairFront
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -116,11 +160,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 4
+      x: 4
+      y: 414
       width: 58
       height: 88
-    spriteID: d7e4063c0fc51d34c82a0e1e39f94899
+    spriteID: 27c58dcfa447a224880e84e2eb4aadf8
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -130,7 +174,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 64, y: -50}
+    uvTransform: {x: -13, y: 359}
   - name: testHairFront
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -138,11 +182,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 150
+      x: 103
+      y: 100
       width: 51
       height: 75
-    spriteID: 0e8fecfff441cca45a3eb6e2d8e5f62c
+    spriteID: ba5180f54e51e4843a54d986ce3367e8
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -152,7 +196,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2, y: 84}
+    uvTransform: {x: 84, y: 33}
   - name: testBodyAcc
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -160,11 +204,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 106
-      y: 196
+      x: 143
+      y: 390
       width: 13
       height: 37
-    spriteID: d4c1ab148fb18f94796d5961b73dbdbd
+    spriteID: f73e7aad6a4e7424f8b7b68cbcf3ca01
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -174,7 +218,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 77, y: 145}
+    uvTransform: {x: 97, y: 338}
+  - name: jiangShiStreetTankTopMasc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 475
+      width: 26
+      height: 24
+    spriteID: 10b96097a8966334f950bc725fe0694f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 74, y: 413}
   - name: butterflyTop
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -182,11 +248,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 144
+      x: 103
+      y: 447
       width: 35
       height: 20
-    spriteID: cc58c137ef1f608489dafa0d6adda2b1
+    spriteID: 7d7e0f2e54b0e5b4e9d74cc52b8fa505
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -196,7 +262,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 118, y: 87}
+    uvTransform: {x: 74, y: 389}
+  - name: jiangShitStreetBottomMasc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 266
+      width: 39
+      height: 53
+    spriteID: ebdae8d00c386cf4ab8a6478e36358db
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 75, y: 257}
   - name: butterflyBottom
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -204,11 +292,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 87
+      x: 103
+      y: 390
       width: 32
       height: 49
-    spriteID: dd10b3f77d293ff4ab456286fe3fd7da
+    spriteID: 8ad09a253cf0c3b4f9e6f5c1196a7a18
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -218,7 +306,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 116, y: 79}
+    uvTransform: {x: 72, y: 381}
   - name: testOutfit
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -226,11 +314,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 196
+      x: 103
+      y: 327
       width: 34
       height: 55
-    spriteID: daaa934c9257a984aa73e697955cef38
+    spriteID: 8b4146fd25b5a70488bc1f70f49accc7
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -240,7 +328,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 54, y: 162}
+    uvTransform: {x: 76, y: 292}
+  - name: goldRimmedBlackShoesMasc
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 210
+      y: 24
+      width: 35
+      height: 14
+    spriteID: 858e7a956ff9ce74e8d6f0dad493b7fb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 180, y: 24}
   - name: butterflyShoes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -248,11 +358,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 196
+      x: 210
+      y: 46
       width: 34
       height: 13
-    spriteID: 13fbfbb88f2823b4aab57fac2e5bb9bd
+    spriteID: 6c132c05090c7254585f9d7f4dd2bc50
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -262,7 +372,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 116, y: 196}
+    uvTransform: {x: 179, y: 45}
   - name: testShoes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -270,11 +380,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 172
+      x: 169
+      y: 24
       width: 33
       height: 16
-    spriteID: 18038bdacc758294eb751571a7777ee9
+    spriteID: dc265359d39694840983977648897d61
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -284,7 +394,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 116, y: 172}
+    uvTransform: {x: 138, y: 23}
   - name: testEyes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -292,11 +402,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 217
+      x: 210
+      y: 67
       width: 34
       height: 12
-    spriteID: fd67186dd62c448499ad596e9f629fe5
+    spriteID: e6a565e853d043747a1e1032a638c1e5
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -306,7 +416,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 122, y: 117}
+    uvTransform: {x: 185, y: -34}
   - name: testBase
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -315,10 +425,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 268
       width: 52
       height: 138
-    spriteID: 663b870e362f6704faa56bbb2f6d0e75
+    spriteID: 222e99f4e5029a449b1e0e9ce15e0f50
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -328,7 +438,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1, y: 4}
+    uvTransform: {x: -16, y: 267}
+  - name: scarletBraidsBack
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 136
+      width: 91
+      height: 124
+    spriteID: 7f671183241a8e540bbf4ed02d13e83a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 111}
   - name: butterflyHairBack
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -336,11 +468,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 100
+      x: 103
+      y: 4
       width: 58
       height: 88
-    spriteID: 3e1a98e00421d1c4e9ef4dc32f60fffb
+    spriteID: b87114234305ea743b5de79d831b9ba0
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -350,7 +482,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 64, y: 46}
+    uvTransform: {x: 86, y: -51}
   - name: testHairBack
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -358,11 +490,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 130
-      y: 4
+      x: 103
+      y: 183
       width: 51
       height: 75
-    spriteID: e5c11ac5455b9d44a95758fee76f6f83
+    spriteID: a06f9d7efd1c8424d9331fd3fcb68418
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -372,26 +504,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 128, y: -62}
-  platformSettings: []
+    uvTransform: {x: 84, y: 116}
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
   importedTextureWidth: 256
-  importedTextureHeight: 256
-  documentSize: {x: 58, y: 142}
+  importedTextureHeight: 512
+  documentSize: {x: 91, y: 149}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
   textureActualWidth: 256
-  textureActualHeight: 256
+  textureActualHeight: 512
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: EarsAcc
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 55
+    mosaicPosition: {x: 0, y: 0}
+  - name: ornamentalGoldEarrings
+    spriteName: ornamentalGoldEarrings
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e7c78a200d1de634b824452a7da6b683
+    layerID: 69
+    mosaicPosition: {x: 210, y: 87}
   - name: FaceAcc
     spriteName: 
     isGroup: 1
@@ -402,10 +559,10 @@ ScriptedImporter:
   - name: testFaceAcc
     spriteName: testFaceAcc
     isGroup: 0
-    parentIndex: 0
-    spriteID: dfe73ab6a94a7a5489833c4d865f2dfc
+    parentIndex: 2
+    spriteID: c6938e8e012619046a7a5e07f4c9504e
     layerID: 10
-    mosaicPosition: {x: 4, y: 233}
+    mosaicPosition: {x: 169, y: 4}
   - name: HairFront
     spriteName: 
     isGroup: 1
@@ -413,20 +570,27 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 21
     mosaicPosition: {x: 0, y: 0}
+  - name: scarletBraidsFront
+    spriteName: scarletBraidsFront
+    isGroup: 0
+    parentIndex: 4
+    spriteID: c1f47772bdd192b47a71559e7132dd0d
+    layerID: 59
+    mosaicPosition: {x: 4, y: 4}
   - name: butterflyHairFront
     spriteName: butterflyHairFront
     isGroup: 0
-    parentIndex: 2
-    spriteID: d7e4063c0fc51d34c82a0e1e39f94899
+    parentIndex: 4
+    spriteID: 27c58dcfa447a224880e84e2eb4aadf8
     layerID: 41
-    mosaicPosition: {x: 64, y: 4}
+    mosaicPosition: {x: 4, y: 414}
   - name: testHairFront
     spriteName: testHairFront
     isGroup: 0
-    parentIndex: 2
-    spriteID: 0e8fecfff441cca45a3eb6e2d8e5f62c
+    parentIndex: 4
+    spriteID: ba5180f54e51e4843a54d986ce3367e8
     layerID: 7
-    mosaicPosition: {x: 4, y: 150}
+    mosaicPosition: {x: 103, y: 100}
   - name: HeadAcc
     spriteName: 
     isGroup: 1
@@ -444,10 +608,10 @@ ScriptedImporter:
   - name: testBodyAcc
     spriteName: testBodyAcc
     isGroup: 0
-    parentIndex: 6
-    spriteID: d4c1ab148fb18f94796d5961b73dbdbd
+    parentIndex: 9
+    spriteID: f73e7aad6a4e7424f8b7b68cbcf3ca01
     layerID: 12
-    mosaicPosition: {x: 106, y: 196}
+    mosaicPosition: {x: 143, y: 390}
   - name: Top
     spriteName: 
     isGroup: 1
@@ -455,13 +619,20 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 42
     mosaicPosition: {x: 0, y: 0}
+  - name: jiangShiStreetTankTopMasc
+    spriteName: jiangShiStreetTankTopMasc
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 10b96097a8966334f950bc725fe0694f
+    layerID: 62
+    mosaicPosition: {x: 103, y: 475}
   - name: butterflyTop
     spriteName: butterflyTop
     isGroup: 0
-    parentIndex: 8
-    spriteID: cc58c137ef1f608489dafa0d6adda2b1
+    parentIndex: 11
+    spriteID: 7d7e0f2e54b0e5b4e9d74cc52b8fa505
     layerID: 46
-    mosaicPosition: {x: 130, y: 144}
+    mosaicPosition: {x: 103, y: 447}
   - name: Bottom
     spriteName: 
     isGroup: 1
@@ -469,13 +640,20 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 44
     mosaicPosition: {x: 0, y: 0}
+  - name: jiangShitStreetBottomMasc
+    spriteName: jiangShitStreetBottomMasc
+    isGroup: 0
+    parentIndex: 14
+    spriteID: ebdae8d00c386cf4ab8a6478e36358db
+    layerID: 67
+    mosaicPosition: {x: 103, y: 266}
   - name: butterflyBottom
     spriteName: butterflyBottom
     isGroup: 0
-    parentIndex: 10
-    spriteID: dd10b3f77d293ff4ab456286fe3fd7da
+    parentIndex: 14
+    spriteID: 8ad09a253cf0c3b4f9e6f5c1196a7a18
     layerID: 48
-    mosaicPosition: {x: 130, y: 87}
+    mosaicPosition: {x: 103, y: 390}
   - name: Outfit
     spriteName: 
     isGroup: 1
@@ -486,10 +664,10 @@ ScriptedImporter:
   - name: testOutfit
     spriteName: testOutfit
     isGroup: 0
-    parentIndex: 12
-    spriteID: daaa934c9257a984aa73e697955cef38
+    parentIndex: 17
+    spriteID: 8b4146fd25b5a70488bc1f70f49accc7
     layerID: 8
-    mosaicPosition: {x: 64, y: 196}
+    mosaicPosition: {x: 103, y: 327}
   - name: Shoes
     spriteName: 
     isGroup: 1
@@ -497,20 +675,27 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 27
     mosaicPosition: {x: 0, y: 0}
+  - name: goldRimmedBlackShoesMasc
+    spriteName: goldRimmedBlackShoesMasc
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 858e7a956ff9ce74e8d6f0dad493b7fb
+    layerID: 68
+    mosaicPosition: {x: 210, y: 24}
   - name: butterflyShoes
     spriteName: butterflyShoes
     isGroup: 0
-    parentIndex: 14
-    spriteID: 13fbfbb88f2823b4aab57fac2e5bb9bd
+    parentIndex: 19
+    spriteID: 6c132c05090c7254585f9d7f4dd2bc50
     layerID: 50
-    mosaicPosition: {x: 130, y: 196}
+    mosaicPosition: {x: 210, y: 46}
   - name: testShoes
     spriteName: testShoes
     isGroup: 0
-    parentIndex: 14
-    spriteID: 18038bdacc758294eb751571a7777ee9
+    parentIndex: 19
+    spriteID: dc265359d39694840983977648897d61
     layerID: 11
-    mosaicPosition: {x: 130, y: 172}
+    mosaicPosition: {x: 169, y: 24}
   - name: Eyes
     spriteName: 
     isGroup: 1
@@ -521,10 +706,10 @@ ScriptedImporter:
   - name: testEyes
     spriteName: testEyes
     isGroup: 0
-    parentIndex: 17
-    spriteID: fd67186dd62c448499ad596e9f629fe5
+    parentIndex: 23
+    spriteID: e6a565e853d043747a1e1032a638c1e5
     layerID: 9
-    mosaicPosition: {x: 130, y: 217}
+    mosaicPosition: {x: 210, y: 67}
   - name: Base
     spriteName: 
     isGroup: 1
@@ -535,10 +720,10 @@ ScriptedImporter:
   - name: testBase
     spriteName: testBase
     isGroup: 0
-    parentIndex: 19
-    spriteID: 663b870e362f6704faa56bbb2f6d0e75
+    parentIndex: 25
+    spriteID: 222e99f4e5029a449b1e0e9ce15e0f50
     layerID: 2
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 268}
   - name: HairBack
     spriteName: 
     isGroup: 1
@@ -546,20 +731,34 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 33
     mosaicPosition: {x: 0, y: 0}
+  - name: scarletBraidsBack
+    spriteName: scarletBraidsBack
+    isGroup: 0
+    parentIndex: 27
+    spriteID: 7f671183241a8e540bbf4ed02d13e83a
+    layerID: 60
+    mosaicPosition: {x: 4, y: 136}
   - name: butterflyHairBack
     spriteName: butterflyHairBack
     isGroup: 0
-    parentIndex: 21
-    spriteID: 3e1a98e00421d1c4e9ef4dc32f60fffb
+    parentIndex: 27
+    spriteID: b87114234305ea743b5de79d831b9ba0
     layerID: 38
-    mosaicPosition: {x: 64, y: 100}
+    mosaicPosition: {x: 103, y: 4}
   - name: testHairBack
     spriteName: testHairBack
     isGroup: 0
-    parentIndex: 21
-    spriteID: e5c11ac5455b9d44a95758fee76f6f83
+    parentIndex: 27
+    spriteID: a06f9d7efd1c8424d9331fd3fcb68418
     layerID: 6
-    mosaicPosition: {x: 130, y: 4}
+    mosaicPosition: {x: 103, y: 183}
+  - name: BackAcc
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 57
+    mosaicPosition: {x: 0, y: 0}
   - name: Aura
     spriteName: 
     isGroup: 1

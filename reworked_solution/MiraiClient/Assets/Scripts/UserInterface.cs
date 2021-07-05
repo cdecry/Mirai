@@ -8,20 +8,22 @@ using UnityEngine.EventSystems;
 
 public class UserInterface : MonoBehaviour
 {
-    public GameObject inventoryPanel, hairPanel, clothesPanel, boardsPanel, accessoriesPanel, favouritesPanel;
-    public Button inventoryButton, closeInventoryButton, hairButton, clothesButton, boardsButton, accessoriesButton, favouritesButton;
+    public GameObject inventoryPanel, hairContainer, clothesContainer, boardsContainer, accessoriesContainer, aurasContainer, favouritesContainer;
+    public GameObject hairPanel, topsPanel, bottomsPanel, outfitsPanel, socksPanel, shoesPanel, boardsPanel, headAccPanel, earsAccPanel, faceAccPanel, backAccPanel, bodyAccPanel, aurasPanel, favouritesPanel;
+    public Button inventoryButton, closeInventoryButton, hairButton, clothesButton, boardsButton, accessoriesButton, aurasButton, favouritesButton;
+    public Button topsButton, bottomsButton, outfitsButton, socksButton, shoesButton, headAccButton, earsAccButton, faceAccButton, backAccButton, bodyAccButton;
 
-    public static Transform hairContainer;
-    public static Transform clothesContainer;
-    public static Transform boardsContainer;
-    public static Transform accessoriesContainer;
-    public static Transform favouritesContainer;
+
+    public static Transform hairPanelT, topsPanelT, bottomsPanelT, outfitsPanelT, socksPanelT, shoesPanelT, boardsPanelT;
+    public static Transform headAccPanelT, earsAccPanelT, faceAccPanelT, backAccPanelT, bodyAccPanelT, aurasPanelT, favouritesPanelT;
 
     public static SpriteAtlas spritePack;
 
     public static int X_SPACE_BETWEEN_ITEM;
     public static int NUMBER_OF_COLUMN;
     public static int Y_SPACE_BETWEEN_ITEM;
+
+    public static bool disableClickMovement;
 
     private List<int> _list;
 
@@ -34,16 +36,24 @@ public class UserInterface : MonoBehaviour
         //imagePrefab = Instantiate(Resources.Load("imagePrefab")) as GameObject;
 
         spritePack = Instantiate(Resources.Load("Items")) as SpriteAtlas;
-        //spritePack = Instantiate(Resources.Load("testPack")) as SpriteAtlas;
 
+        hairPanelT = hairPanel.transform;
+        topsPanelT = topsPanel.transform;
+        bottomsPanelT = bottomsPanel.transform;
+        outfitsPanelT = outfitsPanel.transform;
+        socksPanelT = socksPanel.transform;
+        shoesPanelT = shoesPanel.transform;
 
-        //itemSlot = Instantiate(Resources.Load("itemSlot")) as GameObject;
+        boardsPanelT = boardsPanel.transform;
+        headAccPanelT = headAccPanel.transform;
+        earsAccPanelT = earsAccPanel.transform;
+        faceAccPanelT = faceAccPanel.transform;
+        backAccPanelT = backAccPanel.transform;
+        bodyAccPanelT = bodyAccPanel.transform;
+        aurasPanelT = aurasPanel.transform;
+        favouritesPanelT = favouritesPanel.transform;
 
-        hairContainer = hairPanel.transform;
-        clothesContainer = clothesPanel.transform;
-        boardsContainer = boardsPanel.transform;
-        accessoriesContainer = accessoriesPanel.transform;
-        favouritesContainer = favouritesPanel.transform;
+        disableClickMovement = false;
 
         inventoryPanel.SetActive(false);
 
@@ -59,16 +69,32 @@ public class UserInterface : MonoBehaviour
     void Start()
     {
         inventoryButton.onClick.AddListener(OpenInventoryPanel);
-        closeInventoryButton.onClick.AddListener(CloseInventoryPanel);
         hairButton.onClick.AddListener(OpenHairPanel);
         clothesButton.onClick.AddListener(OpenClothesPanel);
         boardsButton.onClick.AddListener(OpenBoardsPanel);
         accessoriesButton.onClick.AddListener(OpenAccessoriesPanel);
+        aurasButton.onClick.AddListener(OpenAurasPanel);
         favouritesButton.onClick.AddListener(OpenFavouritesPanel);
+
+        topsButton.onClick.AddListener(OpenTopsPanel);
+        bottomsButton.onClick.AddListener(OpenBottomsPanel);
+        outfitsButton.onClick.AddListener(OpenOutfitsPanel);
+        socksButton.onClick.AddListener(OpenSocksPanel);
+        shoesButton.onClick.AddListener(OpenShoesPanel);
+
+        headAccButton.onClick.AddListener(OpenHeadAccPanel);
+        earsAccButton.onClick.AddListener(OpenEarsAccPanel);
+        faceAccButton.onClick.AddListener(OpenFaceAccPanel);
+        backAccButton.onClick.AddListener(OpenBackAccPanel);
+        bodyAccButton.onClick.AddListener(OpenBodyAccPanel);
+
+        closeInventoryButton.onClick.AddListener(CloseInventoryPanel);
     }
 
     void OpenInventoryPanel()
     {
+        PlayerController.mouseMovement = false;
+        disableClickMovement = true;
         inventoryPanel.SetActive(true);
         Inventory.AddItem(1);
         Inventory.AddItem(2);
@@ -112,41 +138,49 @@ public class UserInterface : MonoBehaviour
         {
             spriteName = spriteName + "Back";
         }
-
-        slot.GetComponent<Image>().sprite = spritePack.GetSprite(spriteName);
-        slot.GetComponent<Image>().type = Image.Type.Simple;
-        slot.GetComponent<Image>().SetNativeSize();
+        slot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = spritePack.GetSprite(spriteName);
+        slot.transform.GetChild(0).gameObject.GetComponent<Image>().type = Image.Type.Simple;
+        slot.transform.GetChild(0).gameObject.GetComponent<Image>().SetNativeSize();
         //item.transform.SetParent(slot.transform, false);
-        slot.GetComponent<RectTransform>().localPosition = GetPosition(i);
+        //slot.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
         switch(itemType)
         {
             case 0: //hair
-                slot.transform.SetParent(hairContainer, false);
+                slot.transform.SetParent(hairPanelT, false);
                 break;
             case 1: //top
-                slot.transform.SetParent(clothesContainer, false);
+                slot.transform.SetParent(topsPanelT, false);
                 break;
             case 2: //bottom
-                slot.transform.SetParent(clothesContainer, false);
+                slot.transform.SetParent(bottomsPanelT, false);
                 break;
             case 3: //outfit
-                slot.transform.SetParent(clothesContainer, false);
+                slot.transform.SetParent(outfitsPanelT, false);
                 break;
-            case 4: //shoes
-                slot.transform.SetParent(clothesContainer, false);
+            case 4: //socks
+                slot.transform.SetParent(socksPanelT, false);
                 break;
-            case 5: //boards
-                slot.transform.SetParent(boardsContainer, false);
+            case 5: //shoes
+                slot.transform.SetParent(shoesPanelT, false);
                 break;
-            case 6: //head accessory
-                slot.transform.SetParent(accessoriesContainer, false);
+            case 6: //boards
+                slot.transform.SetParent(boardsPanelT, false);
                 break;
-            case 7: //face accessory
-                slot.transform.SetParent(accessoriesContainer, false);
+            case 7: //head accessory
+                slot.transform.SetParent(headAccPanelT, false);
                 break;
-            case 8: //body accessory
-                slot.transform.SetParent(accessoriesContainer, false);
+            case 8: //ears accessory
+                slot.transform.SetParent(earsAccPanelT, false);
+                break;
+            case 9: //face accessory
+                slot.transform.SetParent(faceAccPanelT, false);
+                break;
+            case 10: //back accessory
+                slot.transform.SetParent(backAccPanelT, false);
+                break;
+            case 11: //body accessory
+                slot.transform.SetParent(bodyAccPanelT, false);
                 break;
         }
         
@@ -188,19 +222,28 @@ public class UserInterface : MonoBehaviour
             case 3: //outfits
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("Outfit").transform, false);
                 break;
-            case 4: //shoes
+            case 4: //socks
+                item.transform.SetParent(GameManager.players[_clientID].transform.Find("Socks").transform, false);
+                break;
+            case 5: //shoes
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("Shoes").transform, false);
                 break;
-            case 5: //boards
+            case 6: //boards
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("Board").transform, false);
                 break;
-            case 6: //head acc
+            case 7: //head acc
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("HeadAcc").transform, false);
                 break;
-            case 7: //face acc
+            case 8: //ears acc
+                item.transform.SetParent(GameManager.players[_clientID].transform.Find("EarsAcc").transform, false);
+                break;
+            case 9: //face acc
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("FaceAcc").transform, false);
                 break;
-            case 8: //body acc
+            case 10: //back acc
+                item.transform.SetParent(GameManager.players[_clientID].transform.Find("BackAcc").transform, false);
+                break;
+            case 11: //body acc
                 item.transform.SetParent(GameManager.players[_clientID].transform.Find("BodyAcc").transform, false);
                 break;
         }
@@ -218,60 +261,166 @@ public class UserInterface : MonoBehaviour
 
     void CloseInventoryPanel()
     {
+        disableClickMovement = false;
         inventoryPanel.SetActive(false);
     }
 
     void OpenHairPanel()
     {
-        hairPanel.SetActive(true);
-        clothesPanel.SetActive(false);
-        boardsPanel.SetActive(false);
-        accessoriesPanel.SetActive(false);
-        favouritesPanel.SetActive(false);
+        Debug.Log("Opened Hair Container");
+        hairContainer.SetActive(true);
+        clothesContainer.SetActive(false);
+        boardsContainer.SetActive(false);
+        accessoriesContainer.SetActive(false);
+        aurasContainer.SetActive(false);
+        favouritesContainer.SetActive(false);
     }
 
     void OpenClothesPanel()
     {
-        hairPanel.SetActive(false);
-        clothesPanel.SetActive(true);
-        boardsPanel.SetActive(false);
-        accessoriesPanel.SetActive(false);
-        favouritesPanel.SetActive(false);
+        hairContainer.SetActive(false);
+        clothesContainer.SetActive(true);
+        boardsContainer.SetActive(false);
+        accessoriesContainer.SetActive(false);
+        aurasContainer.SetActive(false);
+        favouritesContainer.SetActive(false);
     }
 
     void OpenBoardsPanel()
     {
-        hairPanel.SetActive(false);
-        clothesPanel.SetActive(false);
-        boardsPanel.SetActive(true);
-        accessoriesPanel.SetActive(false);
-        favouritesPanel.SetActive(false);
+        hairContainer.SetActive(false);
+        clothesContainer.SetActive(false);
+        boardsContainer.SetActive(true);
+        accessoriesContainer.SetActive(false);
+        aurasContainer.SetActive(false);
+        favouritesContainer.SetActive(false);
     }
     void OpenAccessoriesPanel()
     {
-        hairPanel.SetActive(false);
-        clothesPanel.SetActive(false);
-        boardsPanel.SetActive(false);
-        accessoriesPanel.SetActive(true);
-        favouritesPanel.SetActive(false);
+        hairContainer.SetActive(false);
+        clothesContainer.SetActive(false);
+        boardsContainer.SetActive(false);
+        accessoriesContainer.SetActive(true);
+        aurasContainer.SetActive(false);
+        favouritesContainer.SetActive(false);
+    }
+
+    void OpenAurasPanel()
+    {
+        hairContainer.SetActive(false);
+        clothesContainer.SetActive(false);
+        boardsContainer.SetActive(false);
+        accessoriesContainer.SetActive(false);
+        aurasContainer.SetActive(true);
+        favouritesContainer.SetActive(false);
     }
 
     void OpenFavouritesPanel()
     {
-        hairPanel.SetActive(false);
-        clothesPanel.SetActive(false);
-        boardsPanel.SetActive(false);
-        accessoriesPanel.SetActive(false);
-        favouritesPanel.SetActive(true);
+        hairContainer.SetActive(false);
+        clothesContainer.SetActive(false);
+        boardsContainer.SetActive(false);
+        accessoriesContainer.SetActive(false);
+        aurasContainer.SetActive(false);
+        favouritesContainer.SetActive(true);
     }
 
+    void OpenTopsPanel()
+    {
+        topsPanel.SetActive(true);
+        bottomsPanel.SetActive(false);
+        outfitsPanel.SetActive(false);
+        socksPanel.SetActive(false);
+        shoesPanel.SetActive(false);
+    }
+
+    void OpenBottomsPanel()
+    {
+        topsPanel.SetActive(false);
+        bottomsPanel.SetActive(true);
+        outfitsPanel.SetActive(false);
+        socksPanel.SetActive(false);
+        shoesPanel.SetActive(false);
+    }
+
+    void OpenOutfitsPanel()
+    {
+        topsPanel.SetActive(false);
+        bottomsPanel.SetActive(false);
+        outfitsPanel.SetActive(true);
+        socksPanel.SetActive(false);
+        shoesPanel.SetActive(false);
+    }
+
+    void OpenSocksPanel()
+    {
+        topsPanel.SetActive(false);
+        bottomsPanel.SetActive(false);
+        outfitsPanel.SetActive(false);
+        socksPanel.SetActive(true);
+        shoesPanel.SetActive(false);
+    }
+
+    void OpenShoesPanel()
+    {
+        topsPanel.SetActive(false);
+        bottomsPanel.SetActive(false);
+        outfitsPanel.SetActive(false);
+        socksPanel.SetActive(false);
+        shoesPanel.SetActive(true);
+    }
+
+    void OpenHeadAccPanel()
+    {
+        headAccPanel.SetActive(true);
+        earsAccPanel.SetActive(false);
+        faceAccPanel.SetActive(false);
+        backAccPanel.SetActive(false);
+        bodyAccPanel.SetActive(false);
+    }
+
+    void OpenEarsAccPanel()
+    {
+        headAccPanel.SetActive(false);
+        earsAccPanel.SetActive(true);
+        faceAccPanel.SetActive(false);
+        backAccPanel.SetActive(false);
+        bodyAccPanel.SetActive(false);
+    }
+
+    void OpenFaceAccPanel()
+    {
+        headAccPanel.SetActive(false);
+        earsAccPanel.SetActive(false);
+        faceAccPanel.SetActive(true);
+        backAccPanel.SetActive(false);
+        bodyAccPanel.SetActive(false);
+    }
+
+    void OpenBackAccPanel()
+    {
+        headAccPanel.SetActive(false);
+        earsAccPanel.SetActive(false);
+        faceAccPanel.SetActive(false);
+        backAccPanel.SetActive(true);
+        bodyAccPanel.SetActive(false);
+    }
+
+    void OpenBodyAccPanel()
+    {
+        headAccPanel.SetActive(false);
+        earsAccPanel.SetActive(false);
+        faceAccPanel.SetActive(false);
+        backAccPanel.SetActive(false);
+        bodyAccPanel.SetActive(true);
+    }
     static void ClickItem()
     {
         // find a way to get this object name (which woudl bethe item name
         // client side dummy thing later on
         // for now: directly change clothes on click-
         // sende change cloth req with id
-        var itemName = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite.name.Replace("(Clone)", "").Replace("Back", "");
+        var itemName = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite.name.Replace("(Clone)", "").Replace("Back", "");
 
         var requestedItem = ItemDatabase.items.FirstOrDefault(item => item.reference == itemName);
         if (requestedItem != null)

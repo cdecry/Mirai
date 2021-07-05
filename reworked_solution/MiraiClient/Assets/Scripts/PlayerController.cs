@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,34 +24,24 @@ public class PlayerController : MonoBehaviour
 
     private void SendInputToServer()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && UserInterface.disableClickMovement == false)
         {
             SetTargetPosition();
             mouseMovement = true;
-            if (Math.Abs(targetPosition.x - GameManager.players[Client.instance.myId].transform.position.x) > 0)
-            {
-                xMouseMovement = true;
-            }
-            if (Math.Abs(targetPosition.y - GameManager.players[Client.instance.myId].transform.position.y) > 0)
-            {
-                yMouseMovement = true;
-            }
 
         }
 
         //Debug.Log(targetPosition.x - GameManager.players[Client.instance.myId].transform.position.x);
-        if (Input.GetKey(KeyCode.UpArrow) || (Math.Abs(targetPosition.x - GameManager.players[Client.instance.myId].transform.position.x)) < 0.7 && (Math.Abs(targetPosition.y - GameManager.players[Client.instance.myId].transform.position.y)) < 0.7)
+        if (Input.GetKey(KeyCode.UpArrow) || (Math.Abs(targetPosition.x - GameManager.players[Client.instance.myId].transform.position.x)) < 0.2 && (Math.Abs(targetPosition.y - GameManager.players[Client.instance.myId].transform.position.y)) < 0.2)
         {
             mouseMovement = false;
         }
-        if (Math.Abs(targetPosition.x - GameManager.players[Client.instance.myId].transform.position.x) < 0.7)
+
+        /*if (EventSystem.current.currentSelectedGameObject.name == "inventoryButton")
         {
-            xMouseMovement = false;
-        }
-        if (Math.Abs(targetPosition.y - GameManager.players[Client.instance.myId].transform.position.y) < 0.7)
-        {
-            yMouseMovement = false;
-        }
+            mouseMovement = false;
+            Debug.Log("nope");
+        }*/
 
 
         bool[] _inputs = new bool[]
@@ -67,6 +58,5 @@ public class PlayerController : MonoBehaviour
     private void SetTargetPosition()
     {
         targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //send over
-        //isMoving = true;
     }
 }

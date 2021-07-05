@@ -35,7 +35,6 @@ public class ClientHandle : MonoBehaviour
 
         //!! add users to spawn, read lists  in packets
         //List _playersToSpawn = _packet.ReadList();
-
         GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation, _room);
     }
 

@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 1024
+      m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 2
@@ -35,40 +35,50 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 2
+      padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: -6612223320298095976, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -6095358580975801725, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: 8368949590416339895, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -2006382173659154241, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: 8807844186475367925, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -6408404294767830082, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -8866590256718556812, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: 1338805652245521281, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: 5125655135389738252, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -8866590256718556812, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -4041799513653640328, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    - {fileID: -1851200606746620843, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-    totalSpriteSurfaceArea: 23999
+    - {fileID: -2946505809391615397, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: 7377922850789693306, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -3732957442564599528, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -5362509843178358667, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -6687742024077466347, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -2919219513394506448, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -7399217934367322616, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: 3802893533249008063, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: 533342341862427460, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -6945983311675197880, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: 8429231349744477460, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -5597961369182259155, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -6689019585592194109, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -7467779549531637319, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -1533760673563936277, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -4902288221864586338, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+    - {fileID: -7777261256747617609, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1338805652245521281, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: 5125655135389738252, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: 8368949590416339895, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -6612223320298095976, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -1851200606746620843, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -4041799513653640328, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: 8807844186475367925, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -6095358580975801725, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -8866590256718556812, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -6408404294767830082, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
-  - {fileID: -2006382173659154241, guid: 7cd07152f456eed409ae4ec60d413692, type: 3}
+  - {fileID: -2946505809391615397, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: 7377922850789693306, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -3732957442564599528, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -7777261256747617609, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -5597961369182259155, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -7399217934367322616, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -6945983311675197880, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: 3802893533249008063, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -6687742024077466347, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -1533760673563936277, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: 8429231349744477460, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -4902288221864586338, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: 533342341862427460, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -2919219513394506448, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -7467779549531637319, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -5362509843178358667, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
+  - {fileID: -6689019585592194109, guid: a7e7b2c6c3502e144aa57585e6e2f322, type: 3}
   m_PackedSpriteNamesToIndex:
   - butterflyHairBack
   - butterflyHairFront
@@ -76,10 +86,16 @@ SpriteAtlas:
   - testBodyAcc
   - butterflyShoes
   - butterflyTop
+  - jiangShitStreetBottomMasc
+  - jiangShiStreetTankTopMasc
+  - scarletBraidsBack
+  - ornamentalGoldEarrings
   - testOutfit
   - testFaceAcc
   - butterflyBottom
+  - scarletBraidsFront
   - testShoes
   - testHairFront
+  - goldRimmedBlackShoesMasc
   m_Tag: Items
   m_IsVariant: 0

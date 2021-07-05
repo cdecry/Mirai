@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MiraiServer
 {
@@ -24,6 +25,7 @@ namespace MiraiServer
             {
                 if (_client.player != null && _client.player.location == "Shady")
                 {
+                    ServerSend.RemovePlayers(_client.id);
                     _client.SpawnPlayersInRoom("Shady");
                 }
             }
@@ -55,6 +57,7 @@ namespace MiraiServer
             string _username = _packet.ReadString();
             string _password = _packet.ReadString();
 
+            Task.Delay(400).Wait();
             Server.clients[_fromClient].ProcessLogin(_fromClient, _username, _password);
         }
 
@@ -95,7 +98,7 @@ namespace MiraiServer
                 if (_client.player != null && _client.player.location == _room)
                 {
                     // all clients in this room spawn everyone in the room
-                    // ServerSend.RemovePlayers(_client.id);
+                    ServerSend.RemovePlayers(_client.id);
                     _client.SpawnPlayersInRoom(_room);
                     //Console.WriteLine("all players in room " + _room + " spawned for player " + _client.player.username);
                 }

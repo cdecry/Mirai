@@ -44,14 +44,14 @@ public class GameManager : MonoBehaviour
             _player = Instantiate(localPlayerPrefab, _position, _rotation);
             DontDestroyOnLoad(localPlayerPrefab);
             DontDestroyOnLoad(_player);
-            Debug.Log("GameManager.cs - SpawnPlayer(): local player spawned");
+            Debug.Log($"GameManager.cs - SpawnPlayer(): local player spawned");
         }
         else
         {
             
             _player = Instantiate(playerPrefab, _position, _rotation);
             DontDestroyOnLoad(_player);
-            Debug.Log("GameManager.cs - SpawnPlayer(): one other player spawned");
+            Debug.Log($"GameManager.cs - SpawnPlayer(): one other player {_id} spawned");
         }
         _player.GetComponent<PlayerManager>().id = _id;
         _player.GetComponent<PlayerManager>().username = _username;

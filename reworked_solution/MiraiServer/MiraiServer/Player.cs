@@ -34,23 +34,38 @@ namespace MiraiServer
         public void Update()
         {
             Vector2 _inputDirection = Vector2.Zero;
-            if (inputs[0] || (mouseMovement == true && yMouseMovement == true && targetPosition.Y - currentPosition.Y > 0))
+            if (inputs[0])
             {
                 _inputDirection.Y += 1;
             }
-            if (inputs[1] || (mouseMovement == true && yMouseMovement == true && targetPosition.Y - currentPosition.Y < 0))
+            if (inputs[1])
             {
                 _inputDirection.Y -= 1;
             }
-            if (inputs[2] || (mouseMovement == true && xMouseMovement == true && targetPosition.X - currentPosition.X < 0))
+            if (inputs[2])
             {
                 _inputDirection.X -= 1;
                 flip = 1f;
             }
-            if (inputs[3] || (mouseMovement == true && xMouseMovement == true && targetPosition.X - currentPosition.X > 0))
+            if (inputs[3])
             {
                 _inputDirection.X += 1;
                 flip = -1f;
+            }
+
+            if (mouseMovement == true)
+            {
+                _inputDirection = Vector2.Normalize(new Vector2(targetPosition.X, targetPosition.Y) - new Vector2(currentPosition.X, currentPosition.Y));
+
+                if (targetPosition.X - currentPosition.X > 0)
+                {
+                    flip = -1f;
+                }
+                else if (targetPosition.X - currentPosition.X < 0)
+                {
+                    flip = 1f;
+                }
+
             }
 
 

@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Collections;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace MiraiServer
 {
@@ -218,6 +219,7 @@ namespace MiraiServer
                     {
                         ServerSend.SpawnPlayer(_client.id, player, _room);
 
+                        Console.WriteLine($"client id: {_client.id}, username: {player.username}, player id: {player.id}");
                         _client.inventory.AddItem(1);
                         //ServerSend.SyncInventory(_client.id, 1);   //SERVER INVENT TEST
                     }
@@ -249,15 +251,16 @@ namespace MiraiServer
 
         }
 
-        public void ProcessLogin(int _id, string _username, string _password)
+        public async Task ProcessLogin(int _id, string _username, string _password)
         {
             Console.WriteLine("starting ProcessLogin() in Client.cs");
-            /*using (WebClient request = new WebClient())
+            using (WebClient request = new WebClient())
             {
                 NameValueCollection form = new NameValueCollection();
                 form.Add("username", _username);
                 form.Add("password", _password);
-                byte[] responseData = request.UploadValues("http://localhost:81/login.php", form);
+                byte[] responseData = await request.DownloadDataTaskAsync(new Uri("http://localhost:81/login.php"));
+                //byte[] responseData = request.UploadValues("http://localhost:81/login.php", form);
                 Console.WriteLine($"Response received from server: { Encoding.UTF8.GetString(responseData)}");
 
                 int requestCode = -1;
@@ -280,9 +283,9 @@ namespace MiraiServer
                     ServerSend.Welcome(id, "Welcome to the server!");
                     //InitializeItemDB();
                 }
-            }*/
-            ServerSend.LoginRequestReceived(_id, _username, 0);
-            ServerSend.Welcome(id, "Welcome to the server!");
+            }
+            //ServerSend.LoginRequestReceived(_id, _username, 0);
+            //ServerSend.Welcome(id, "Welcome to the server!");
             // login request received send to client, logi
         }
 
