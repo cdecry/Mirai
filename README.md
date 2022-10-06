@@ -1,6 +1,7 @@
-# Mirai
+# Mirai MMORPG
+A fashion virtual world project inspired by a childhood dress-up game.
 
-> Most up-to-date project is in reworked solution folder
+> Most up-to-date project is in the `reworked_solution` folder
 
 Features:
 - User login
